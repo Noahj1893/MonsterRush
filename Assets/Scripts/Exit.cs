@@ -5,15 +5,26 @@ using UnityEngine.InputSystem;
 
 public class Exit : MonoBehaviour
 {
+    bool canLeave = false;
 
-    void OnTriggerStay(Collider other)
+   void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("on door");
-        if(Input.GetKeyDown(KeyCode.E))
-        {
+        if (!collision.CompareTag("Player")) return;
+        canLeave = true;
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player")) return;
+        canLeave = false;
+    }
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.E) && canLeave) {
             ExitLevel();
         }
     }
+
 
     void ExitLevel()
     {
