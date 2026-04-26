@@ -73,13 +73,11 @@ public class PlayerController : MonoBehaviour
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackCenter, attackRange);
         for (int i = 0; i < hits.Length; i++)
         {
-            GhostHealth ghostHealth = hits[i].GetComponent<GhostHealth>();
-            if (ghostHealth != null)
-                ghostHealth.TakeHit(attackDamage);
-
-            AlienHealth alienHealth = hits[i].GetComponent<AlienHealth>();
-            if (alienHealth != null)
-                alienHealth.TakeHit(attackDamage);
+            if(hits[i].CompareTag("Enemy"))
+            {
+                EnemyHealth eH = hits[i].GetComponent<EnemyHealth>();
+                if (eH != null) eH.TakeHit(attackDamage);
+            }
         }
     }
 

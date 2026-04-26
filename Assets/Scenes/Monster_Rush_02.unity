@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 384684630}
   m_Layer: 0
   m_Name: Ghost_Pixel
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -482,7 +482,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 384684623}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a17f2bd8a6b4676afdb1f956a705d2d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c9e1a4b2d8f4e6c9a0b1d2e3f4a5b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GhostHealth
   hitsToDefeat: 1
@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 387403634}
   m_Layer: 0
   m_Name: Alien_Dude_0 (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -941,10 +941,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 14.408536, y: -4.997657}
-      - {x: 14.455402, y: 4.9753284}
-      - {x: -10.08379, y: 4.9824324}
-      - {x: -10.256136, y: -4.9369}
+    - - {x: 14.5, y: -5}
+      - {x: 14.5, y: 5}
+      - {x: -11, y: 5}
+      - {x: -11, y: -5}
   m_UseDelaunayMesh: 1
 --- !u!4 &515731313
 Transform:
@@ -1071,7 +1071,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1096,7 +1096,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.099627, y: -0.0076100826, z: -15}
+  m_LocalPosition: {x: -2.9966583, y: -0.5, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1168,7 +1168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 1, y: 1, z: 1}
+    PositionDamping: {x: 0.5, y: 0.5, z: 0.5}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
@@ -1198,7 +1198,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 40
-    OrthographicSize: 5
+    OrthographicSize: 4.5
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -1968,39 +1968,17 @@ GameObject:
   - component: {fileID: 1150931883}
   - component: {fileID: 1150931882}
   - component: {fileID: 1150931881}
-  - component: {fileID: 1150931880}
   - component: {fileID: 1150931884}
   - component: {fileID: 1150931887}
   - component: {fileID: 1150931885}
   - component: {fileID: 1150931886}
   m_Layer: 0
   m_Name: Alien_Dude_0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1150931880
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1150931879}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 15.379999, y: 13.466571, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1150931881
 Animator:
   serializedVersion: 7
@@ -3047,6 +3025,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20.48, y: 4.16}
   m_EdgeRadius: 0
+--- !u!1 &1623814657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7469649262186185874, guid: f860f6faa0c3de641be586d62fc4103c, type: 3}
+  m_PrefabInstance: {fileID: 5496550932846216380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1623814663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623814657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9e1a4b2d8f4e6c9a0b1d2e3f4a5b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  hitsToDefeat: 1
 --- !u!1 &1726527369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,7 +3061,7 @@ GameObject:
   - component: {fileID: 1726527370}
   m_Layer: 0
   m_Name: Alien_Dude_0 (3)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3314,7 +3310,7 @@ GameObject:
   - component: {fileID: 1961184414}
   m_Layer: 0
   m_Name: Alien_Dude_0 (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3556,7 +3552,6 @@ GameObject:
   - component: {fileID: 2079735651}
   - component: {fileID: 2079735650}
   - component: {fileID: 2079735652}
-  - component: {fileID: 2079735653}
   m_Layer: 6
   m_Name: platform_2_0 (11)
   m_TagString: Untagged
@@ -3684,18 +3679,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20.48, y: 4.16}
   m_EdgeRadius: 0
---- !u!114 &2079735653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2079735649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7e6d5c4b3a29180796f5e4d3c2b1a09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RestartGameOnPlayerTouch
 --- !u!1001 &611243297889111774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3706,11 +3689,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 480498832103530257, guid: d340870745fed544ea85f59d627a33ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.22
+      value: -6.93
       objectReference: {fileID: 0}
     - target: {fileID: 480498832103530257, guid: d340870745fed544ea85f59d627a33ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.24
+      value: -3.45
       objectReference: {fileID: 0}
     - target: {fileID: 480498832103530257, guid: d340870745fed544ea85f59d627a33ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3747,6 +3730,18 @@ PrefabInstance:
     - target: {fileID: 1530112577664726062, guid: d340870745fed544ea85f59d627a33ed, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433518923633704922, guid: d340870745fed544ea85f59d627a33ed, type: 3}
+      propertyPath: m_Size.x
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433518923633704922, guid: d340870745fed544ea85f59d627a33ed, type: 3}
+      propertyPath: m_Size.y
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197205995280349629, guid: d340870745fed544ea85f59d627a33ed, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3869,7 +3864,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7469649262186185874, guid: f860f6faa0c3de641be586d62fc4103c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1623814663}
   m_SourcePrefab: {fileID: 100100000, guid: f860f6faa0c3de641be586d62fc4103c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
