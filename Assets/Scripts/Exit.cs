@@ -1,26 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 public class Exit : MonoBehaviour
 {
-    bool canLeave = false;
+    bool canLeave;
 
-   void OnTriggerEnter2D(Collider2D collision)
+    void Start()
     {
-        if (!collision.CompareTag("Player")) return;
-        canLeave = true;
+        canLeave = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player")) canLeave = true;
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player")) return;
-        canLeave = false;
+        if (!collision.CompareTag("Player")) canLeave = false;
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && canLeave) {
+        if(canLeave) {
             ExitLevel();
         }
     }
@@ -28,14 +32,18 @@ public class Exit : MonoBehaviour
 
     void ExitLevel()
     {
-        Debug.Log("Level Complete!");
-        int levelNumber = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        int levelNumber = SceneManager.GetActiveScene().buildIndex;
         // Exit the level
-        if(levelNumber + 1 >= UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings) {
+        Debug.Log(levelNumber);
+        Debug.Log(SceneManager.sceneCountInBuildSettings);
+        if(levelNumber + 1 >= SceneManager.sceneCountInBuildSettings) {
             Debug.Log("Last Level Reached!"); 
-            UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(0); ///load main menu
-            return;
+            SceneManager.LoadSceneAsync("Title"); ///load main menu
         }
-        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(levelNumber + 1);
+        else
+        {
+            SceneManager.LoadSceneAsync(levelNumber + 1);
+        }
+        
     }
 }

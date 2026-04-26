@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GhostHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int hitsToDefeat = 1;
 
