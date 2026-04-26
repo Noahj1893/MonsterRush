@@ -1,3 +1,4 @@
+using System; 
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,6 +19,12 @@ public class PlayerDamageable : MonoBehaviour
 
     public bool DeathSequenceActive => deathRoutineRunning;
 
+    // To allow other classes to retrieve current and max health: 
+    public int GetCurrentHealth() => currentHealth; 
+    public int GetMaxHealth() => maxHealth; 
+
+    public event Action<int, int> OnHealthChanged; // Event for when player's health changes. 
+
     void Awake()
     {
         if (rb == null)
@@ -28,6 +35,7 @@ public class PlayerDamageable : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         playerInput = GetComponent<PlayerInput>();
         currentHealth = maxHealth;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth); // Call event because player's health has changed (began). 
     }
 
     public void TakeHit(Vector2 knockback, int damage)
@@ -42,6 +50,7 @@ public class PlayerDamageable : MonoBehaviour
             rb.linearVelocity = knockback;
 
         currentHealth -= damage;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth); // Call event because player's health has changed. 
 
         if (currentHealth <= 0 && fallRespawn != null)
         {
@@ -52,6 +61,8 @@ public class PlayerDamageable : MonoBehaviour
 
     IEnumerator DeathThenRespawnRoutine()
     {
+        ResetHealth(); // Call function to reset UI to display full HP after dying. 
+
         deathRoutineRunning = true;
 
         if (playerController != null)
@@ -117,5 +128,12 @@ public class PlayerDamageable : MonoBehaviour
             playerInput.enabled = true;
 
         deathRoutineRunning = false;
+    }
+
+    // Reset UI to display full HP after dying:
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth; 
+        OnHealthChanged?.Invoke(currentHealth, maxHealth); 
     }
 }

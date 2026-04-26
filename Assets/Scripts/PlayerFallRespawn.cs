@@ -38,6 +38,11 @@ public class PlayerFallRespawn : MonoBehaviour
 
     public void Respawn()
     {
+        if (damageable != null) // Reset UI to display full HP after dying. 
+        {
+            damageable.ResetHealth(); 
+        }
+
         Vector3 pos = respawnPoint != null ? respawnPoint.position : spawnPosition;
         transform.position = pos;
         rb.linearVelocity = Vector2.zero;
