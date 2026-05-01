@@ -40,7 +40,6 @@ public class GhostChaser : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if(!other.transform.CompareTag("Player")) return;
-        other.GetComponent<PlayerDamageable>().TakeHit(Vector2.zero, 1);
         int rand = UnityEngine.Random.Range(0,3);
         Vector2 dir;
         switch (rand)

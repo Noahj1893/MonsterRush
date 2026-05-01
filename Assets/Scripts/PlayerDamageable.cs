@@ -136,4 +136,18 @@ public class PlayerDamageable : MonoBehaviour
         currentHealth = maxHealth; 
         OnHealthChanged?.Invoke(currentHealth, maxHealth); 
     }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Enemy"))
+        {
+            TakeHit(Vector2.zero, 1);
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.transform.CompareTag("Enemy"))
+        {
+            TakeHit(Vector2.zero, 1);
+        }
+    }
 }

@@ -38,10 +38,4 @@ public class FallingEnemy : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
         }
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (!collision.transform.CompareTag("Player")) return;
-        ContactPoint2D cp = collision.GetContact(0);
-        collision.transform.GetComponent<PlayerDamageable>().TakeHit(cp.normal, 1);
-    }
 }
