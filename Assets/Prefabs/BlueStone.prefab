@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 7336116275122212535}
   - component: {fileID: 7289036813642539372}
   - component: {fileID: 8236391566413846581}
+  - component: {fileID: 7234733427311428678}
   m_Layer: 0
   m_Name: BlueStone
   m_TagString: Enemy
@@ -242,3 +243,16 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &7234733427311428678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7469649262186185874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9e1a4b2d8f4e6c9a0b1d2e3f4a5b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  hitsToDefeat: 1

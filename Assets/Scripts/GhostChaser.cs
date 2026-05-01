@@ -7,6 +7,7 @@ public class GhostChaser : MonoBehaviour
     [SerializeField] Transform playerTarget;
     [SerializeField] float chaseSpeed = 2f;
     [SerializeField] float displacementOnHit = 4f;
+    [SerializeField] Vector2 playerOffset;
     Rigidbody2D rb;
     PlayerDamageable playerDamageable;
     float nextAttackTime;
@@ -29,8 +30,10 @@ public class GhostChaser : MonoBehaviour
     {
         if (playerTarget == null) return;
 
-        Vector3 playerPos = playerTarget.position;
-        Vector2 posDiff = (playerPos - transform.position).normalized;
+        Vector2 playerPos = playerTarget.position;
+        playerPos += playerOffset;
+        Vector2 thisPos = transform.position;
+        Vector2 posDiff = (playerPos - thisPos).normalized;
         
         transform.Translate(posDiff * Time.deltaTime * chaseSpeed);
     }
