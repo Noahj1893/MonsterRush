@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4223207442082764710
+--- !u!1 &8434263956744428239
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2640232037964585783}
-  - component: {fileID: 3406373968588271994}
-  - component: {fileID: 1920701479298639377}
-  - component: {fileID: 3464757265218908601}
-  - component: {fileID: 994651313107669151}
-  - component: {fileID: 7779003605102438446}
-  - component: {fileID: 4323491765259203501}
+  - component: {fileID: 4159789915337615377}
+  - component: {fileID: 7124087133134851766}
+  - component: {fileID: 5363616915005915030}
+  - component: {fileID: 3375902602882202708}
+  - component: {fileID: 4641893351335923324}
+  - component: {fileID: 2411543641259106508}
+  - component: {fileID: 3162397229398048616}
   m_Layer: 0
-  m_Name: Alien_Dude_0
+  m_Name: Alien
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2640232037964585783
+--- !u!4 &4159789915337615377
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4223207442082764710}
+  m_GameObject: {fileID: 8434263956744428239}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.39, y: 0, z: 0}
+  m_LocalPosition: {x: 4, y: -3.17, z: 0}
   m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3406373968588271994
+--- !u!212 &7124087133134851766
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4223207442082764710}
+  m_GameObject: {fileID: 8434263956744428239}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -96,14 +96,14 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!95 &1920701479298639377
+--- !u!95 &5363616915005915030
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4223207442082764710}
+  m_GameObject: {fileID: 8434263956744428239}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: def3ba1b3fc684adcb37c74f014fd25f, type: 2}
@@ -118,22 +118,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &3464757265218908601
+--- !u!50 &3375902602882202708
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4223207442082764710}
-  m_BodyType: 1
+  m_GameObject: {fileID: 8434263956744428239}
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -145,13 +145,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &994651313107669151
+--- !u!61 &4641893351335923324
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4223207442082764710}
+  m_GameObject: {fileID: 8434263956744428239}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -175,7 +175,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -189,41 +189,33 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.65, y: 0.55}
+  m_Size: {x: 15.379999, y: 13.466571}
   m_EdgeRadius: 0
---- !u!114 &7779003605102438446
+--- !u!114 &2411543641259106508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4223207442082764710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a0f4fcb3f6e44dfbf64b6e9b9654f0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AlienDudeAI
-  playerTarget: {fileID: 0}
-  patrolSpeed: 1.4
-  edgePadding: 0.25
-  attackRange: 0.85
-  attackCooldown: 1.25
-  knockbackHorizontal: 5
-  knockbackUpward: 2.2
-  attackDamage: 1
-  platformRayLength: 12
-  footProbeRadius: 0.35
-  spriteRenderer: {fileID: 3406373968588271994}
---- !u!114 &4323491765259203501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4223207442082764710}
+  m_GameObject: {fileID: 8434263956744428239}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c9e1a4b2d8f4e6c9a0b1d2e3f4a5b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AlienHealth
   hitsToDefeat: 1
+--- !u!114 &3162397229398048616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8434263956744428239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47ce7b7d7830ff478aea392f3fda067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PatrolEnemy
+  leftX: 0
+  rightX: 4
+  speed: 1
