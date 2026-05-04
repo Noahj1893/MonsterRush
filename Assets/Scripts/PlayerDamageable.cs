@@ -136,6 +136,20 @@ public class PlayerDamageable : MonoBehaviour
         currentHealth = maxHealth; 
         OnHealthChanged?.Invoke(currentHealth, maxHealth); 
     }
+
+    // Healing function for if player uses Healing Shield weapon:
+    public void HealPlayer(int restoreHP)
+    {
+        if (deathRoutineRunning) 
+        {
+            return; // Do nothing if player has died. 
+        }
+
+        currentHealth = Mathf.Min(currentHealth + restoreHP, maxHealth); // Boost player's HP unless it is already at max. 
+        
+        OnHealthChanged?.Invoke(currentHealth, maxHealth); // Fire the event to update HP visuals. 
+    }
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.transform.CompareTag("Enemy"))

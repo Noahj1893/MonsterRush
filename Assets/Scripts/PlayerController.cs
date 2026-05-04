@@ -14,6 +14,12 @@ public class PlayerController : MonoBehaviour
     public float dashDuration = 0.25f; // 0.25 seconds of dashing. 
     public float dashCooldown = 0.8f; // 0.8 seconds of cooldown after dashing. 
     
+    // Weapon variables:
+    [SerializeField] Weapon[] weapons; // Player's inventory of weapons. 
+    int currWeaponIndex = 0; // Marks the player's current weapon based on slot position in the Inventory. 
+    Weapon currWeapon; // Player's current weapon.
+    PlayerDamageable playerDamageable; // Needed for handling healing effect. 
+
     bool isDashing = false; // Flag to mark when the player is dashing. 
     bool canDash = true; // Flag to mark when the player can dash again. 
     float dashTimeLeft; // Time left for the dash. 
@@ -37,6 +43,9 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        currWeapon = weapons[0]; // Default weapon is the first one in inventory (the Sword). 
+        playerDamageable = GetComponent<PlayerDamageable>(); // Get PlayerDamageable component. 
+
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -49,6 +58,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        float scrollInventory = Input.mouseScrollDelta.y; // Either less than or greater than 0 is returned. 
+
+        if (scrollInventory > 0f) // Scroll right in the inventory. 
+        {
+            SwitchWeapon(1); // Shift 1 index forward. 
+        }
+
+        else if (scrollInventory < 0f) // Scroll left in the inventory. 
+        {
+            SwitchWeapon(-1); // Shift 1 index backward. 
+        }
+
         // Dashing movement:
         if (isDashing)
         {
@@ -64,18 +85,6 @@ public class PlayerController : MonoBehaviour
 
             return; // Do not continue with normal movement after the dash is over. 
         }
-
-        // Normal movement: 
-        /**if (isCrouching) // When crouching. 
-        {
-            rb.linearVelocity = new Vector2(moveInput * speed * 0.2f, rb.linearVelocity.y); // Move at 20% of the normal speed when the player is crouching. 
-        }
-
-        else // When not crouching. 
-        {
-            rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
-        }
-        **/ 
 
         rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
 
@@ -190,16 +199,28 @@ public class PlayerController : MonoBehaviour
 
     void PerformAttackHit()
     {
+        // Logic to define where player's weapon will hit. 
         Vector2 attackCenter = (Vector2)transform.position + new Vector2(facingX * attackForwardOffset, 0f);
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackCenter, attackRange);
-        for (int i = 0; i < hits.Length; i++)
+
+        EnemyHealth targetEnemy = null;
+
+        foreach (var hit in hits)
         {
-            if(hits[i].CompareTag("Enemy"))
-            {
-                EnemyHealth eH = hits[i].GetComponent<EnemyHealth>();
-                if (eH != null) eH.TakeHit(attackDamage);
-            }
+            targetEnemy = hit.GetComponent<EnemyHealth>();
+            if (targetEnemy != null)
+                break;
         }
+
+        currWeapon.AttemptUse(targetEnemy, playerDamageable); // Based on current weapon, try to use it. 
+    }
+
+    // Function to switch weapons using inventory:
+    void SwitchWeapon(int direction)
+    {
+        currWeaponIndex = (currWeaponIndex + direction + weapons.Length) % weapons.Length; // Shift the index. 
+
+        currWeapon = weapons[currWeaponIndex]; // Assign new weapon based on index. 
     }
 
     void OnCollisionEnter2D(Collision2D col)
