@@ -1,3 +1,4 @@
+using System.Collections.Generic; // For List<>. 
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,7 +16,8 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown = 0.8f; // 0.8 seconds of cooldown after dashing. 
     
     // Weapon variables:
-    [SerializeField] Weapon[] weapons; // Player's inventory of weapons. 
+    [SerializeField] Weapon[] startingWeapon; // Temporary array to always store player's starting weapon (the Sword) in the backend.
+    List<Weapon> weaponsInventory = new List<Weapon>(); // Actual player's inventory (gets assigned the stuff in the temp inventory).  
     int currWeaponIndex = 0; // Marks the player's current weapon based on slot position in the Inventory. 
     Weapon currWeapon; // Player's current weapon.
     PlayerDamageable playerDamageable; // Needed for handling healing effect. 
@@ -43,9 +45,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        currWeapon = weapons[0]; // Default weapon is the first one in inventory (the Sword). 
-        playerDamageable = GetComponent<PlayerDamageable>(); // Get PlayerDamageable component. 
-
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -54,6 +53,20 @@ public class PlayerController : MonoBehaviour
         //originalOffset = playerBoxCol.offset; // Store the original offset of the player's box collider. 
         facingX = Mathf.Sign(transform.localScale.x);
         if (facingX == 0f) facingX = 1f;
+
+        playerDamageable = GetComponent<PlayerDamageable>(); // Get PlayerDamageable component. 
+
+        // Create a brand new inventory for the player upon starting the game:
+        weaponsInventory.Clear(); // Always a fresh new inventory upon start. 
+
+        // Add any starting weapons stored in the backend into the new inventory:
+        foreach (var weapon in startingWeapon)
+        {
+            weaponsInventory.Add(weapon);
+        }
+
+        currWeaponIndex = 0; 
+        currWeapon = weaponsInventory[currWeaponIndex]; // Default weapon is the first one in inventory (the Sword). 
     }
 
     void Update()
@@ -218,9 +231,32 @@ public class PlayerController : MonoBehaviour
     // Function to switch weapons using inventory:
     void SwitchWeapon(int direction)
     {
-        currWeaponIndex = (currWeaponIndex + direction + weapons.Length) % weapons.Length; // Shift the index. 
+        if (weaponsInventory.Count == 0) // Safety check to ensure player always has at least one weapon. 
+        {
+            return; 
+        }
 
-        currWeapon = weapons[currWeaponIndex]; // Assign new weapon based on index. 
+        currWeaponIndex = (currWeaponIndex + direction + weaponsInventory.Count) % weaponsInventory.Count; // Shift the index. 
+
+        currWeapon = weaponsInventory[currWeaponIndex]; // Assign new weapon based on index. 
+    }
+
+    // Function to pick up a new weapon:
+    public void AddWeapon(Weapon newWeapon)
+    {
+        // Ensure there are no duplicates (in case multiple weapon instances exist in the game):
+        foreach (var weapon in weaponsInventory)
+        {
+            if (weapon.GetType() == newWeapon.GetType()) // If it is the same weapon (ice hammer, sword, fire wand, healing shield),
+            {
+                return; // then do not add it into the player's inventory. 
+            }
+        }
+
+        // Create the instance of the weapon:
+        Weapon weaponInst = Instantiate(newWeapon, transform); 
+        weaponsInventory.Add(weaponInst); // Add the new instance of the weapon into the player's inventory. 
+        Debug.Log("Got new weapon!"); // Debug log. 
     }
 
     void OnCollisionEnter2D(Collision2D col)
