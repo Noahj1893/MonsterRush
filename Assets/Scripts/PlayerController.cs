@@ -7,13 +7,13 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
     public float jumpForce = 5f;
-    public float attackCooldown = 0.45f;
     public float attackRange = 0.9f;
     public float attackForwardOffset = 0.45f;
     public int attackDamage = 1;
     public float dashSpeed = 9f; // 9x speed for when the player is dashing (C key is pressed). 
     public float dashDuration = 0.25f; // 0.25 seconds of dashing. 
     public float dashCooldown = 0.8f; // 0.8 seconds of cooldown after dashing. 
+    [SerializeField] Transform firePos; // For the fireball's position and spin rotation. 
     
     // Weapon variables:
     [SerializeField] Weapon[] startingWeapon; // Temporary array to always store player's starting weapon (the Sword) in the backend.
@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
    float moveInput;
    bool grounded;
    float facingX;
-   float nextAttackTime;
    
    /**
    BoxCollider2D playerBoxCol; 
@@ -62,7 +61,8 @@ public class PlayerController : MonoBehaviour
         // Add any starting weapons stored in the backend into the new inventory:
         foreach (var weapon in startingWeapon)
         {
-            weaponsInventory.Add(weapon);
+            Weapon instance = Instantiate(weapon, transform); // Create an instance of the starting weapons. 
+            weaponsInventory.Add(instance); // Add it to the player's inventory. 
         }
 
         currWeaponIndex = 0; 
@@ -166,12 +166,10 @@ public class PlayerController : MonoBehaviour
 
     public void OnAttack()
     {
-        if (animator == null || Time.time < nextAttackTime || isCrouching)
+        if (animator == null || isCrouching)
             return;
 
-        animator.SetTrigger("attack");
         PerformAttackHit();
-        nextAttackTime = Time.time + attackCooldown;
     }
 
     /**
@@ -216,16 +214,23 @@ public class PlayerController : MonoBehaviour
         Vector2 attackCenter = (Vector2)transform.position + new Vector2(facingX * attackForwardOffset, 0f);
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackCenter, attackRange);
 
-        EnemyHealth targetEnemy = null;
+        List<EnemyHealth> enemiesAttacked = new List<EnemyHealth>(); // For if a GROUP of enemies were hit at once. 
 
         foreach (var hit in hits)
         {
-            targetEnemy = hit.GetComponent<EnemyHealth>();
+            EnemyHealth targetEnemy = hit.GetComponent<EnemyHealth>();
             if (targetEnemy != null)
-                break;
+            {
+                enemiesAttacked.Add(targetEnemy); // Add each enemy in the hit range into the list. 
+            }
         }
 
-        currWeapon.AttemptUse(targetEnemy, playerDamageable); // Based on current weapon, try to use it. 
+        bool attackPerformed = currWeapon.AttemptUse(enemiesAttacked, playerDamageable); // Based on current weapon, try to use it (gets true or false). 
+
+        if (attackPerformed)
+        {
+            PlayWeaponAnimation(currWeapon.animType); // Play attack animation of the appropriate weapon. 
+        }
     }
 
     // Function to switch weapons using inventory:
@@ -239,6 +244,8 @@ public class PlayerController : MonoBehaviour
         currWeaponIndex = (currWeaponIndex + direction + weaponsInventory.Count) % weaponsInventory.Count; // Shift the index. 
 
         currWeapon = weaponsInventory[currWeaponIndex]; // Assign new weapon based on index. 
+
+        Debug.Log("Current weapon slot: " + currWeaponIndex); 
     }
 
     // Function to pick up a new weapon:
@@ -255,8 +262,43 @@ public class PlayerController : MonoBehaviour
 
         // Create the instance of the weapon:
         Weapon weaponInst = Instantiate(newWeapon, transform); 
+
+        // Check if the weapon is a FireWand so we can assign the FirePoint automatically:
+        FireWand fireWand = weaponInst as FireWand; 
+
+        if (fireWand != null)
+        {
+            fireWand.SetFirePos(firePos); // If the weapon picked up is a FireWand, initialize spawn position of the fireballs. 
+        }
+
         weaponsInventory.Add(weaponInst); // Add the new instance of the weapon into the player's inventory. 
         Debug.Log("Got new weapon!"); // Debug log. 
+    }
+
+    // Function to play the correct animation depending on the weapon the player has currently equipped:
+    void PlayWeaponAnimation(Weapon.WeaponAnimType weaponType)
+    {
+        if (animator == null)
+        {
+            return; // Safety check to ensure animator component exists. 
+        }
+
+        // Switch statement to determine weapon animation accordingly: 
+        switch (weaponType)
+        {
+            case Weapon.WeaponAnimType.Sword:
+                animator.SetTrigger("sword_attack");
+                break; 
+            case Weapon.WeaponAnimType.FireWand:
+                animator.SetTrigger("firewand_attack");
+                break;
+            case Weapon.WeaponAnimType.IceHammer:
+                animator.SetTrigger("icehammer_attack");
+                break;
+            case Weapon.WeaponAnimType.HealingShield:
+                animator.SetTrigger("healingshield_attack");
+                break; 
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)

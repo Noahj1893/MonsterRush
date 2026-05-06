@@ -8,11 +8,17 @@ public class Fireball : MonoBehaviour
 {
     public float launchSpeed = 4f; // Speed of the fireball. 
     public float burnTime = 3f; // Burn length. 
+    float direction = 1f; // For fireball's direction. 
+
+    public void Init(float dir)
+    {
+        direction = dir; // Update direction of where the fireball should go, if needed. 
+    }
 
     void Update()
     {
-        // Move the launched fireball. 
-        transform.Translate(Vector2.right * launchSpeed * Time.deltaTime); 
+        // Move the launched fireball in the specified direction. 
+        transform.Translate(Vector2.right * direction * launchSpeed * Time.deltaTime, Space.World); 
     }
 
     void OnTriggerEnter2D(Collider2D collider)
