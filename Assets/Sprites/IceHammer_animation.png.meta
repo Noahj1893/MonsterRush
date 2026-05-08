@@ -132,8 +132,8 @@ TextureImporter:
         y: 70
         width: 439
         height: 429
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.29045704, y: 0.0019748039}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -154,8 +154,8 @@ TextureImporter:
         y: 70
         width: 381
         height: 549
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.33818233, y: 0.003158875}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -176,8 +176,8 @@ TextureImporter:
         y: 70
         width: 511
         height: 429
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25138626, y: -0.00081506476}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -186,50 +186,6 @@ TextureImporter:
       bones: []
       spriteID: 9e64333b79fbb3aa0800000000000000
       internalID: -6180135405368424727
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IceHammer_animation_3
-      rect:
-        serializedVersion: 2
-        x: 1399
-        y: 585
-        width: 241
-        height: 130
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5a759601a8bd4c1c0800000000000000
-      internalID: -4484217942926862427
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IceHammer_animation_4
-      rect:
-        serializedVersion: 2
-        x: 1672
-        y: 626
-        width: 112
-        height: 89
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2c231c96127ff1890800000000000000
-      internalID: -7484992332786224446
       vertices: []
       indices: 
       edges: []

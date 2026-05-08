@@ -138,8 +138,8 @@ TextureImporter:
         y: 117
         width: 405
         height: 438
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3252108, y: 0.00811259}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,28 +153,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireWand_animation_1
-      rect:
-        serializedVersion: 2
-        x: 485
-        y: 479
-        width: 149
-        height: 301
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b4fac05f3a3f83b80800000000000000
-      internalID: -8414708018225303733
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: FireWand_animation_2
       rect:
         serializedVersion: 2
@@ -182,8 +160,8 @@ TextureImporter:
         y: 117
         width: 448
         height: 438
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3007668, y: 0.0010854643}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -204,8 +182,8 @@ TextureImporter:
         y: 117
         width: 522
         height: 438
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25825635, y: 0.0010857255}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -226,8 +204,8 @@ TextureImporter:
         y: 117
         width: 448
         height: 438
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.29389682, y: 0.0010857255}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -248,8 +226,8 @@ TextureImporter:
         y: 117
         width: 402
         height: 438
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3315624, y: 0.00811259}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -258,28 +236,6 @@ TextureImporter:
       bones: []
       spriteID: 439915530ced3bde0800000000000000
       internalID: -1318465348779796172
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireWand_animation_6
-      rect:
-        serializedVersion: 2
-        x: 2375
-        y: 479
-        width: 147
-        height: 301
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c4d3f58cd9a875860800000000000000
-      internalID: 7518630513194515788
       vertices: []
       indices: 
       edges: []
