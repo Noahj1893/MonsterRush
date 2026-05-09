@@ -88,12 +88,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -974596146243589746, guid: 5a09ba7b3d06742acbab13a823d077a2, type: 3}
+  m_Sprite: {fileID: -8575487910126867567, guid: 1137a23b9808ddb42bd4b52c152f3f6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 0.41, y: 0.42}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -181,17 +181,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.000551939, y: 0.23777778}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.29, y: 0.42}
-    newSize: {x: 0.64, y: 0.64}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.28444445, y: 0.47555557}
+    newSize: {x: 0.41, y: 0.42}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.29, y: 0.42}
+  m_Size: {x: 0.25242472, y: 0.47555557}
   m_EdgeRadius: 0
 --- !u!114 &7014522543732236583
 MonoBehaviour:
@@ -237,10 +237,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 5
   jumpForce: 6
-  attackCooldown: 0.45
   attackRange: 0.9
   attackForwardOffset: 0.45
   attackDamage: 1
+  dashSpeed: 9
+  dashDuration: 0.25
+  dashCooldown: 0.8
+  firePos: {fileID: 0}
+  startingWeapon: []
 --- !u!114 &2081481575010917076
 MonoBehaviour:
   m_ObjectHideFlags: 0
