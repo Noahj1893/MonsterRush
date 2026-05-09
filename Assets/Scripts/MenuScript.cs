@@ -42,4 +42,5 @@ public class MenuScript : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(level);
         else Debug.LogError("Level " + level + " not found in build settings.");
     }
+    
 }
