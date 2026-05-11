@@ -13,6 +13,17 @@ public class EnemyHealth : MonoBehaviour
     int hitsTaken;
     bool isFrozen; // Status effect for Ice Hammer.
     bool isBurning; // Status effect for Fire Wand. 
+    PlayerController player; 
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>(); 
+        
+        if (player == null)
+        {
+            Debug.Log("Player Controller not retrieved!");
+        }
+    }
 
     public void TakeHit(int damage)
     {
@@ -21,7 +32,11 @@ public class EnemyHealth : MonoBehaviour
 
         hitsTaken += damage;
         if (hitsTaken >= hitsToDefeat)
+        {
+            int score = player.GetScore(); 
+            player.SetScore(score + 10); 
             gameObject.SetActive(false);
+        }
     }
 
     // Function to freeze the enemy for a duration (if attacked by Ice Hammer). 

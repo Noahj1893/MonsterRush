@@ -1,4 +1,7 @@
+using System; 
 using System.Collections.Generic; // For List<>. 
+using System.Linq; // For using Reverse() to get top Keys from the Sorted Dictionary.
+using System.Text; // For StringBuilder. 
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,7 +17,12 @@ public class PlayerController : MonoBehaviour
     public float dashDuration = 0.25f; // 0.25 seconds of dashing. 
     public float dashCooldown = 0.8f; // 0.8 seconds of cooldown after dashing. 
     [SerializeField] Transform firePos; // For the fireball's position and spin rotation. 
-    
+
+    // Player score:
+    private int score = 0; 
+    SortedDictionary<string, int> playerData = new SortedDictionary<string, int>(); // For player's top 5 scores for each level in the game.  
+    [SerializeField] ScoreUI scoreUI; // Assign ScoreUI GameObject (has text components for score display) via Unity Inspector. 
+
     // Weapon variables:
     [SerializeField] Weapon[] startingWeapon; // Temporary array to always store player's starting weapon (the Sword) in the backend.
     List<Weapon> weaponsInventory = new List<Weapon>(); // Actual player's inventory (gets assigned the stuff in the temp inventory).  
@@ -317,5 +325,24 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Ground"))
             grounded = false;
+    }
+
+    // Function to retrieve player's score. 
+    public int GetScore()
+    {
+        return score; 
+    }
+
+    // Function to update player's score. 
+    public void SetScore(int updatedScore)
+    {
+        score = updatedScore; 
+        scoreUI.UpdateUI(score); // Update Score UI. 
+    }
+
+    // Function to reset score after game completion: 
+    public void ResetScore()
+    {
+        score = 0;
     }
 }
