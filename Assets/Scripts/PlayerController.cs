@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
-
 {
     public float speed = 5f;
     public float jumpForce = 5f;
@@ -20,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     // Player score:
     private int score = 0; 
-    SortedDictionary<string, int> playerData = new SortedDictionary<string, int>(); // For player's top 5 scores for each level in the game.  
+    SortedDictionary<int, SortedSet<int>> playerData = new SortedDictionary<int, SortedSet<int>>(); // For player's top 5 scores for each level in the game.  
     [SerializeField] ScoreUI scoreUI; // Assign ScoreUI GameObject (has text components for score display) via Unity Inspector. 
 
     // Weapon variables:
@@ -54,6 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        animator.enabled = false; // Temporarily disabled. 
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         //playerBoxCol = GetComponent<BoxCollider2D>(); 
         //originalBoxColSize = playerBoxCol.size; // Store the original size of the player's box collider. 
@@ -327,13 +327,13 @@ public class PlayerController : MonoBehaviour
             grounded = false;
     }
 
-    // Function to retrieve player's score. 
+    // Function to retrieve player's score: 
     public int GetScore()
     {
         return score; 
     }
 
-    // Function to update player's score. 
+    // Function to update player's score: 
     public void SetScore(int updatedScore)
     {
         score = updatedScore; 
@@ -344,5 +344,35 @@ public class PlayerController : MonoBehaviour
     public void ResetScore()
     {
         score = 0;
+    }
+
+    // Function to retrieve Sorted Dictionary of player's score data:
+    public SortedDictionary<int, SortedSet<int>> GetData()
+    {
+        return playerData;
+    }
+
+    // Function to update player's score data:
+    public void SetData(int level, int levelScore)
+    {
+        // Write brand new data for the level if player had not completed the level prior:
+        if (!playerData.ContainsKey(level))
+        {
+            SortedSet<int> levelData = new SortedSet<int>(); // Create new Sorted Set for the level (holds all scores for that level). 
+
+            levelData.Add(levelScore); // Add the new score as the first score to the level's Sorted Set. 
+
+            playerData.Add(level, levelData); // Add the level number and its corresponding Sorted Set into the Sorted Dictionary. 
+        }
+
+        // Otherwise, modify the existing data for the level if the player has already completed it before:
+        else 
+        {
+            playerData.TryGetValue(level, out SortedSet<int> levelData); // Get the existing Sorted Set of scores for the level. 
+
+            levelData.Add(levelScore); // Add the new score to the level's Sorted Set (sorted automatically).
+
+            playerData[level] = levelData; // dict[key] = value; 
+        }
     }
 }

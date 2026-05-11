@@ -7,6 +7,8 @@ public class MenuScript : MonoBehaviour
     [SerializeField] GameObject menuPanel;
     [SerializeField] GameObject levelsPanel;
     [SerializeField] GameObject settingsPanel;
+    [SerializeField] GameObject scoreboardPanel; 
+    [SerializeField] ScoreboardUI scoreboard; 
     [SerializeField] AudioSource audioSource;
 
     public void ShowMenu()
@@ -14,6 +16,7 @@ public class MenuScript : MonoBehaviour
         audioSource.Play();
         menuPanel.SetActive(true);
         levelsPanel.SetActive(false);
+        scoreboardPanel.SetActive(false); 
         settingsPanel.SetActive(false);
     }
     public void ShowLevels()
@@ -21,6 +24,7 @@ public class MenuScript : MonoBehaviour
         audioSource.Play();
         menuPanel.SetActive(false);
         levelsPanel.SetActive(true);
+        scoreboardPanel.SetActive(false); 
         settingsPanel.SetActive(false);
     }
     public void ShowSettings()
@@ -28,6 +32,7 @@ public class MenuScript : MonoBehaviour
         audioSource.Play();
         menuPanel.SetActive(false);
         levelsPanel.SetActive(false);
+        scoreboardPanel.SetActive(false); 
         settingsPanel.SetActive(true);
     }
     public void LoadScene(int level)
@@ -41,6 +46,15 @@ public class MenuScript : MonoBehaviour
         if(level < UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings)
         UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(level);
         else Debug.LogError("Level " + level + " not found in build settings.");
+    }
+    public void ShowScoreboard()
+    {
+        scoreboardPanel.SetActive(true); 
+        scoreboard.displayHighScores(); 
+    }
+    public void close()
+    {
+        scoreboardPanel.SetActive(false); 
     }
     
 }

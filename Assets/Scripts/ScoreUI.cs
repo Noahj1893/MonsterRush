@@ -10,13 +10,13 @@ public class ScoreUI : MonoBehaviour
 {
     public TextMeshProUGUI playerScoreboard; 
 
-    // Upon starting the game, call function to initialize default score and speed.  
+    // Upon starting the game, call function to initialize default score.  
     void Start()
     {
         CreateUI(); 
     }
 
-    // Upon calling this function after narration, ensure we get the text components to display on the Canvas:
+    // Ensure we get the text components to display on the Canvas:
     public void CreateUI()
     {
         playerScoreboard.text = "Score: " + 0; // Display the default score of 0. 

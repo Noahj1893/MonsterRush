@@ -7,9 +7,11 @@ using UnityEngine.InputSystem;
 public class Exit : MonoBehaviour
 {
     bool canLeave;
+    PlayerController player; 
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>(); 
         canLeave = false;
     }
 
@@ -33,6 +35,9 @@ public class Exit : MonoBehaviour
     void ExitLevel()
     {
         int levelNumber = SceneManager.GetActiveScene().buildIndex;
+
+        player.SetData(levelNumber, player.GetScore()); // Use level number and set player's new score for that level into the Sorted Dictionary player's data.
+         
         // Exit the level
         Debug.Log(levelNumber);
         Debug.Log(SceneManager.sceneCountInBuildSettings);
