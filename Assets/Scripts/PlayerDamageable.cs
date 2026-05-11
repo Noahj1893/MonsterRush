@@ -54,6 +54,7 @@ public class PlayerDamageable : MonoBehaviour
 
         if (currentHealth <= 0 && fallRespawn != null)
         {
+            GameManager.Instance.score = 0; // Reset score to 0 upon dying. 
             StartCoroutine(DeathThenRespawnRoutine());
             return;
         }

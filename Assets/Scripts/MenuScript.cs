@@ -8,7 +8,6 @@ public class MenuScript : MonoBehaviour
     [SerializeField] GameObject levelsPanel;
     [SerializeField] GameObject settingsPanel;
     [SerializeField] GameObject scoreboardPanel; 
-    [SerializeField] ScoreboardUI scoreboard; 
     [SerializeField] AudioSource audioSource;
 
     public void ShowMenu()
@@ -50,6 +49,7 @@ public class MenuScript : MonoBehaviour
     public void ShowScoreboard()
     {
         scoreboardPanel.SetActive(true); 
+        ScoreboardUI scoreboard = scoreboardPanel.GetComponentInChildren<ScoreboardUI>();
         scoreboard.displayHighScores(); 
     }
     public void close()

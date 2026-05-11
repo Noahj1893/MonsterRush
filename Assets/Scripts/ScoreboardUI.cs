@@ -13,20 +13,14 @@ using TMPro;
 public class ScoreboardUI : MonoBehaviour 
 {
     public TextMeshProUGUI scoreText; 
-    public PlayerController player; // Assign in Unity Inspector.  
-    SortedDictionary<int, SortedSet<int>> playerData; 
-
-    void Start()
-    {
-        // Get player data: 
-        playerData = player.GetData(); 
-    }
 
     /** 
      * Function to display the top 5 Scores for each level in the Scoreboard Page:
     **/
     public void displayHighScores()
     {
+        var playerData = GameManager.Instance.playerData; // Get Global Instance of playerData. 
+
         StringBuilder newString = new StringBuilder(); // To append each of the top 5 scores into for display. 
 
         int i = 0; // Keeps track of how many pairs for each level we have already added to the display. 

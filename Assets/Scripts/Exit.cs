@@ -7,11 +7,10 @@ using UnityEngine.InputSystem;
 public class Exit : MonoBehaviour
 {
     bool canLeave;
-    PlayerController player; 
+    bool hasExited = false; 
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>(); 
         canLeave = false;
     }
 
@@ -26,7 +25,8 @@ public class Exit : MonoBehaviour
     }
     void Update()
     {
-        if(canLeave) {
+        if(canLeave && !hasExited) {
+            hasExited = true; 
             ExitLevel();
         }
     }
@@ -36,8 +36,15 @@ public class Exit : MonoBehaviour
     {
         int levelNumber = SceneManager.GetActiveScene().buildIndex;
 
-        player.SetData(levelNumber, player.GetScore()); // Use level number and set player's new score for that level into the Sorted Dictionary player's data.
-         
+        // Write brand new data for the level if player had not completed the level prior:
+        if (!GameManager.Instance.playerData.ContainsKey(levelNumber))
+        {
+            GameManager.Instance.playerData[levelNumber] = new SortedSet<int>(); // Create new Sorted Set for the level (holds all scores for that level). 
+        }
+
+        // Use level number and set player's new score for that level into the Sorted Dictionary player's data.
+        GameManager.Instance.playerData[levelNumber].Add(GameManager.Instance.score); 
+
         // Exit the level
         Debug.Log(levelNumber);
         Debug.Log(SceneManager.sceneCountInBuildSettings);
