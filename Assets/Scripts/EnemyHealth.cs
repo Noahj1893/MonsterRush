@@ -1,28 +1,46 @@
 // Ethan Le (5/4/2026):
-using UnityEngine;
+using TMPro; 
 using System.Collections; // For IEnumator. 
+using UnityEngine;
+using UnityEngine.UI; 
 
 /**
  * Script to handle enemy health and status effects.
 **/
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] int hitsToDefeat = 1;
+    [SerializeField] int maxHP;
+    [SerializeField] int currentHP; 
     [SerializeField] public EnemyType enemyType; // Get the enemy type. 
+    [SerializeField] TextMeshProUGUI hpText; // For Enemy HP text display.
+    [SerializeField] Image hpBar; // For Enemy HP bar display. 
 
-    int hitsTaken;
     bool isFrozen; // Status effect for Ice Hammer.
     bool isBurning; // Status effect for Fire Wand. 
     ScoreUI scoreUI; 
 
     void Start()
     {
+        // Retrieve Score UI component through tag:
         scoreUI = GameObject.FindGameObjectWithTag("Scoreboard").GetComponent<ScoreUI>(); 
         
         if (scoreUI == null)
         {
             Debug.Log("ScoreUI not retrieved!");
         }
+
+        if (hpText == null)
+        {
+            Debug.Log("HP text not retrieved!");
+        }
+
+        if (hpBar == null)
+        {
+            Debug.Log("HP bar not retrieved!");
+        }
+
+        currentHP = maxHP; // Enemy has full health. 
+        UpdateHPUI(); // Load enemy's health visuals. 
     }
 
     public void TakeHit(int damage)
@@ -30,12 +48,26 @@ public class EnemyHealth : MonoBehaviour
         if (damage <= 0 || !gameObject.activeInHierarchy)
             return;
 
-        hitsTaken += damage;
-        if (hitsTaken >= hitsToDefeat)
+        currentHP -= damage;
+        UpdateHPUI(); // Update enemy's health visuals. 
+        if (currentHP <= 0)
         {
             GameManager.Instance.score += 10; 
             scoreUI.UpdateUI(GameManager.Instance.score);  
             gameObject.SetActive(false);
+        }
+    }
+
+    void UpdateHPUI()
+    {
+        if (hpText != null)
+        {
+            hpText.text = currentHP.ToString(); // Display the enemy's current HP as text. 
+        }
+
+        if (hpBar != null)
+        {
+            hpBar.fillAmount = (float) currentHP / maxHP; // Fill the image (health bar) based on percentage ratio between currentHP and maxHP. 
         }
     }
 
