@@ -5,6 +5,7 @@ public class FallingEnemy : MonoBehaviour
     [SerializeField] private Transform fallPoint;
     [SerializeField] private float minY;
     [SerializeField] private float speed;
+    [SerializeField] private float fallSpeed;
     private Rigidbody2D rb;
     private Animator animator;
 

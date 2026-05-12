@@ -713,7 +713,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0000088, y: -0.5, z: -15}
+  m_LocalPosition: {x: -3.0006971, y: -0.5, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3078,37 +3078,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20.48, y: 4.16}
   m_EdgeRadius: 0
---- !u!1 &1885676345
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1885676346}
-  m_Layer: 0
-  m_Name: FirePoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1885676346
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885676345}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 134471644}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2038228633
 GameObject:
   m_ObjectHideFlags: 0
@@ -3378,64 +3347,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3142195858509342819, guid: d340870745fed544ea85f59d627a33ed, type: 3}
-      propertyPath: firePos
-      value: 
-      objectReference: {fileID: 1885676346}
-    - target: {fileID: 3142195858509342819, guid: d340870745fed544ea85f59d627a33ed, type: 3}
-      propertyPath: startingWeapon.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3142195858509342819, guid: d340870745fed544ea85f59d627a33ed, type: 3}
-      propertyPath: 'startingWeapon.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2644495899422076888, guid: f172b66d8b29a9e428f0b700e93efd73, type: 3}
-    - target: {fileID: 3433518923633704922, guid: d340870745fed544ea85f59d627a33ed, type: 3}
-      propertyPath: m_Size.x
-      value: 0.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 3433518923633704922, guid: d340870745fed544ea85f59d627a33ed, type: 3}
-      propertyPath: m_Size.y
-      value: 0.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 3433518923633704922, guid: d340870745fed544ea85f59d627a33ed, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -8575487910126867567, guid: 1137a23b9808ddb42bd4b52c152f3f6c, type: 3}
     - target: {fileID: 8197205995280349629, guid: d340870745fed544ea85f59d627a33ed, type: 3}
       propertyPath: m_Size.y
-      value: 0.49031794
+      value: 0.47711265
       objectReference: {fileID: 0}
     - target: {fileID: 8197205995280349629, guid: d340870745fed544ea85f59d627a33ed, type: 3}
       propertyPath: m_Offset.y
-      value: 0.0017512441
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197205995280349629, guid: d340870745fed544ea85f59d627a33ed, type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197205995280349629, guid: d340870745fed544ea85f59d627a33ed, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 0.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197205995280349629, guid: d340870745fed544ea85f59d627a33ed, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 0.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197205995280349629, guid: d340870745fed544ea85f59d627a33ed, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.28444445
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197205995280349629, guid: d340870745fed544ea85f59d627a33ed, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.47555557
+      value: 0.23724753
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 480498832103530257, guid: d340870745fed544ea85f59d627a33ed, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1885676346}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d340870745fed544ea85f59d627a33ed, type: 3}
 --- !u!1001 &2827370831911482755
