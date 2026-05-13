@@ -1,70 +1,71 @@
-using System; 
-using System.Collections.Generic; // For List<>. 
-using System.Linq; // For using Reverse() to get top Keys from the Sorted Dictionary.
-using System.Text; // For StringBuilder. 
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.Events;
+using System.Collections.Generic; // For List<>. 
 
 public class NewPlayerController : MonoBehaviour
 {
-    GameManager gameManager; 
-    public float speed = 5f;
-    public float jumpForce = 5f;
-    public float attackRange = 0.9f;
-    public float attackForwardOffset = 0.45f;
-    public int attackDamage = 1;
-    public float dashSpeed = 9f; // 9x speed for when the player is dashing (C key is pressed). 
-    public float dashDuration = 0.25f; // 0.25 seconds of dashing. 
-    public float dashCooldown = 0.8f; // 0.8 seconds of cooldown after dashing. 
-    [SerializeField] Transform firePos; // For the fireball's position and spin rotation. 
-
-    // Player score:
-    [SerializeField] ScoreUI scoreUI; // Assign ScoreUI GameObject (has text components for score display) via Unity Inspector. 
-
-    // Weapon variables:
+    Animator animator;
+    GameManager gameManager;
+    PlayerDamageable playerDamageable; // Needed for handling healing effect. 
     [SerializeField] Weapon[] startingWeapon; // Temporary array to always store player's starting weapon (the Sword) in the backend.
     List<Weapon> weaponsInventory = new List<Weapon>(); // Actual player's inventory (gets assigned the stuff in the temp inventory).  
     int currWeaponIndex = 0; // Marks the player's current weapon based on slot position in the Inventory. 
     Weapon currWeapon; // Player's current weapon.
-    PlayerDamageable playerDamageable; // Needed for handling healing effect. 
+    public float attackRange = 0.9f;
+    public float attackForwardOffset = 0.45f;
+	[SerializeField] private float m_JumpForce = 5f;							// Amount of force added when the player jumps.
+	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
+	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
+	[SerializeField] private bool m_AirControl = true;							// Whether or not a player can steer while jumping;
+	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
+	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
+	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
+	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
 
-    bool isDashing = false; // Flag to mark when the player is dashing. 
-    bool canDash = true; // Flag to mark when the player can dash again. 
+    [SerializeField] Transform firePos; // For the fireball's position and spin rotation.     public float dashSpeed = 9f; // 9x speed for when the player is dashing (C key is pressed). 
+    public float dashDuration = 0.25f; // 0.25 seconds of dashing. 
+    public float dashCooldown = 0.8f; // 0.8 seconds of cooldown after dashing. 
+
+	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+	private bool m_Grounded;            // Whether or not the player is grounded.
+	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
+    private bool crouch;
+	private Rigidbody2D m_Rigidbody2D;
+	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+    private bool isDashing;
+    private bool canDash = false;
     float dashTimeLeft; // Time left for the dash. 
-    float dashDirection; // Direction of the dash. 
+    bool dashRight; // Direction of the dash. 
+	private Vector3 m_Velocity = Vector3.zero;
 
-    bool isCrouching = false; // Flag to mark when the player is crouching. 
+	[Header("Events")]
+	[Space]
 
-   Rigidbody2D rb;
-   Animator animator;
-   float moveInput;
-   bool grounded;
-   float facingX;
-   
-   /**
-   BoxCollider2D playerBoxCol; 
-   Vector2 originalBoxColSize; 
-   Vector2 crouchSize = new Vector2(1f, 0.5f); // Size of the player's box collider when crouching. 
-   Vector2 originalOffset; 
-   **/
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
+	public UnityEvent OnLandEvent;
+
+	[System.Serializable]
+	public class BoolEvent : UnityEvent<bool> { }
+
+	public BoolEvent OnCrouchEvent;
+	private bool m_wasCrouching = false;
+
+	private void Awake()
+	{
+		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        playerDamageable = GetComponent<PlayerDamageable>(); // Get PlayerDamageable component. 
         animator = GetComponent<Animator>();
-    }
+
+		if (OnLandEvent == null)
+			OnLandEvent = new UnityEvent();
+
+		if (OnCrouchEvent == null)
+			OnCrouchEvent = new BoolEvent();
+	}
     void Start()
     {
         gameManager = GameManager.Instance; 
-        GameManager.Instance.score = 0; // Reset backend score after finishing the level. 
-        facingX = Mathf.Sign(transform.localScale.x);
-        if (facingX == 0f) facingX = 1f;
-
-        playerDamageable = GetComponent<PlayerDamageable>(); // Get PlayerDamageable component. 
-
-        // Create a brand new inventory for the player upon starting the game:
+        gameManager.score = 0; // Reset backend score after finishing the level. 
         weaponsInventory.Clear(); // Always a fresh new inventory upon start. 
-
-        // Add any starting weapons stored in the backend into the new inventory:
         foreach (var weapon in startingWeapon)
         {
             Weapon instance = Instantiate(weapon, transform); // Create an instance of the starting weapons. 
@@ -92,8 +93,6 @@ public class NewPlayerController : MonoBehaviour
         // Dashing movement:
         if (isDashing)
         {
-            rb.linearVelocity = new Vector2(dashDirection * dashSpeed, rb.linearVelocity.y); // Dash with 9x speed in the direction the player is facing, but keep the vertical velocity (accounts for jumping).  
-
             dashTimeLeft -= Time.deltaTime; // Decrease the remaining time of the dash. 
 
             if (dashTimeLeft <= 0f)
@@ -101,123 +100,149 @@ public class NewPlayerController : MonoBehaviour
                 isDashing = false; // Once dash time is up, player stops dashing. 
                 Invoke(nameof(ResetDashCooldown), dashCooldown); // Reset the dash cooldown after 0.8 seconds. 
             }
-
-            return; // Do not continue with normal movement after the dash is over. 
         }
-
-        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
-
-        if (moveInput > 0f)
-            facingX = 1f;
-        else if (moveInput < 0f)
-            facingX = -1f;
-
-        Vector3 s = transform.localScale;
-        float ax = Mathf.Abs(s.x);
-        transform.localScale = new Vector3(facingX * ax, s.y, s.z);
 
         if (animator != null)
-            animator.SetFloat("speed", Mathf.Abs(moveInput));
+            animator.SetFloat("speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
     }
+	private void FixedUpdate()
+	{
+		bool wasGrounded = m_Grounded;
+		m_Grounded = false;
 
-    public void OnMove(InputValue value)
-    {
-        Vector2 input = value.Get<Vector2>();
-        moveInput = input.x;
-    }
+		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
+		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+		for (int i = 0; i < colliders.Length; i++)
+		{
+			if (colliders[i].gameObject != gameObject)
+			{
+				m_Grounded = true;
+				if (!wasGrounded)
+					OnLandEvent.Invoke();
+			}
+		}
+	}
 
-    public void OnJump()
-    {
-        if (!grounded) return;
 
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-    }
+	public void Move(float move, bool crouch, bool jump)
+	{
+		// If crouching, check to see if the character can stand up
+		if (!crouch)
+		{
+			// If the character has a ceiling preventing them from standing up, keep them crouching
+			if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
+			{
+				crouch = true;
+			}
+		}
 
-    /**
-     * Function for when player is crouching:
-    **/
-    /**
-    public void OnCrouch(InputAction.CallbackContext context) // Unity searches for a function called OnCrouch() when the S key is pressed (ties to "Crouch" action in InputSystem_Actions.inputactions). 
-    {
-        if (animator == null) 
-        {
-            return; // Do nothing if the animator is not found. 
-        }
+		//only control the player if grounded or airControl is turned on
+		if (m_Grounded || m_AirControl)
+		{
 
-        if (context.started) // When S is held down. 
-        {
-            isCrouching = true; // Set the isCrouching flag to true. 
-        }
-        
-        else if (context.canceled) // When S is released. 
-        {
-            isCrouching = false; // Set the isCrouching flag to false. 
-        }
+			// If crouching
+			if (crouch)
+			{
+				if (!m_wasCrouching)
+				{
+					m_wasCrouching = true;
+					OnCrouchEvent.Invoke(true);
+				}
 
-        animator.SetBool("crouching", isCrouching); // Set animator's "crouching" parameter to the value (true or false) of the isCrouching flag. 
-    
-        if (isCrouching)
-        {
-            playerBoxCol.size = crouchSize; // Set the size of the player's box collider to the set crouch size. 
-            playerBoxCol.offset = new Vector2(originalOffset.x, originalOffset.y - 0.25f); // Set offset when crouching. 
-        }
+				// Reduce the speed by the crouchSpeed multiplier
+				move *= m_CrouchSpeed;
 
-        else
-        {
-            playerBoxCol.size = originalBoxColSize; // Reset player box collider when crouch button (S) is released. 
-            playerBoxCol.offset = originalOffset; // Reset offset when crouch button is released. 
-        }
-    }
-    **/
+				// Disable one of the colliders when crouching
+				if (m_CrouchDisableCollider != null)
+					m_CrouchDisableCollider.enabled = false;
+			} else
+			{
+				// Enable the collider when not crouching
+				if (m_CrouchDisableCollider != null)
+					m_CrouchDisableCollider.enabled = true;
+
+				if (m_wasCrouching)
+				{
+					m_wasCrouching = false;
+					OnCrouchEvent.Invoke(false);
+				}
+			}
+
+			// Move the character by finding the target velocity
+			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.linearVelocity.y);
+			// And then smoothing it out and applying it to the character
+			m_Rigidbody2D.linearVelocity = Vector3.SmoothDamp(m_Rigidbody2D.linearVelocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+
+			// If the input is moving the player right and the player is facing left...
+			if (move > 0 && !m_FacingRight)
+			{
+				// ... flip the player.
+				Flip();
+			}
+			// Otherwise if the input is moving the player left and the player is facing right...
+			else if (move < 0 && m_FacingRight)
+			{
+				// ... flip the player.
+				Flip();
+			}
+		}
+		// If the player should jump...
+		if (m_Grounded && jump)
+		{
+			// Add a vertical force to the player.
+			m_Grounded = false;
+			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+		}
+	}
+
+
+	private void Flip()
+	{
+		// Switch the way the player is labelled as facing.
+		m_FacingRight = !m_FacingRight;
+
+		// Multiply the player's x local scale by -1.
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
+	}
 
     public void OnAttack()
     {
-        if (animator == null || isCrouching)
+        if (animator == null || crouch)
             return;
 
         PerformAttackHit();
     }
-
-    /**
-     * Function for when player is TRYING to dash. 
-    **/
     public void OnDash() // Unity searches for a function called OnDash() when the C key is pressed (ties to "Dash" action in InputSystem_Actions.inputactions). . 
     {
-        if (!canDash || isDashing || isCrouching) // Do nothing if the player cannot dash or is currently dashing or is crouching. 
+        if (!canDash || isDashing || crouch) // Do nothing if the player cannot dash or is currently dashing or is crouching. 
         {
             return;
         }
 
         BeginDash(); // Otherwise, start the dash. 
     }
-
-    /** 
-     * Function for when the player begins a dash. 
-    **/
     void BeginDash()
     {
         // Player is now dashing and cannot trigger dash again. 
         isDashing = true; 
-        canDash = false; 
 
         dashTimeLeft = dashDuration; // Dash time of 0.25 seconds is set. 
 
         // Lock the direction at the moment of the dash:
-        dashDirection = (moveInput != 0f) ? Mathf.Sign(moveInput) : facingX; // If player is moving, set dash direction to the direction of the movement input. Otherwise, use the direction the player is currently facing as the dash direction. 
+        dashRight = m_FacingRight; 
     }
-
-    /** 
-     * Function to be called after dash cooldown of 0.8 seconds is over.
-    **/
     void ResetDashCooldown()
     {
         canDash = true; // Player can now dash again. 
     }
-
     void PerformAttackHit()
     {
         // Logic to define where player's weapon will hit. 
-        Vector2 attackCenter = (Vector2)transform.position + new Vector2(facingX * attackForwardOffset, 0f);
+        float right = m_FacingRight ? 1 : -1;
+        Vector2 attackCenter = (Vector2)transform.position + new Vector2(right * attackForwardOffset, 0f);
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackCenter, attackRange);
 
         List<EnemyHealth> enemiesAttacked = new List<EnemyHealth>(); // For if a GROUP of enemies were hit at once. 
@@ -238,8 +263,6 @@ public class NewPlayerController : MonoBehaviour
             PlayWeaponAnimation(currWeapon.animType); // Play attack animation of the appropriate weapon. 
         }
     }
-
-    // Function to switch weapons using inventory:
     void SwitchWeapon(int direction)
     {
         if (weaponsInventory.Count == 0) // Safety check to ensure player always has at least one weapon. 
@@ -305,23 +328,5 @@ public class NewPlayerController : MonoBehaviour
                 animator.SetTrigger("healingshield_attack");
                 break; 
         }
-    }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("Ground"))
-            grounded = true;
-    }
-
-    void OnCollisionStay2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("Ground"))
-            grounded = true;
-    }
-
-    void OnCollisionExit2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("Ground"))
-            grounded = false;
     }
 }

@@ -28,16 +28,22 @@ public class PlayerController : MonoBehaviour
     Weapon currWeapon; // Player's current weapon.
     PlayerDamageable playerDamageable; // Needed for handling healing effect. 
 
+    [SerializeField] private LayerMask whatIsGround;							// A mask determining what is ground to the character
+	[SerializeField] private Transform groundCheck;							// A position marking where to check if the player is grounded.
+	[SerializeField] private Transform ceilingCheck;							// A position marking where to check for ceilings
+	[SerializeField] private Collider2D crouchDisableCollider;				// A collider that will be disabled when crouching
+
     bool isDashing = false; // Flag to mark when the player is dashing. 
     bool canDash = true; // Flag to mark when the player can dash again. 
+    bool isCrouching = false;
     float dashTimeLeft; // Time left for the dash. 
     float dashDirection; // Direction of the dash. 
 
-    bool isCrouching = false; // Flag to mark when the player is crouching. 
 
    Rigidbody2D rb;
    Animator animator;
    float moveInput;
+   float verticalInput;
    bool grounded;
    float facingX;
    
@@ -55,7 +61,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.Instance; 
-        GameManager.Instance.score = 0; // Reset backend score after finishing the level. 
+        gameManager.score = 0; // Reset backend score after finishing the level. 
         facingX = Mathf.Sign(transform.localScale.x);
         if (facingX == 0f) facingX = 1f;
 
@@ -119,16 +125,34 @@ public class PlayerController : MonoBehaviour
         if (animator != null)
             animator.SetFloat("speed", Mathf.Abs(moveInput));
     }
+    private void FixedUpdate()
+	{
+		grounded = false;
+
+		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
+		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, 0.2f, whatIsGround);
+		for (int i = 0; i < colliders.Length; i++)
+		{
+			if (colliders[i].gameObject != gameObject)
+			{
+				grounded = true;
+			}
+		}
+	}
 
     public void OnMove(InputValue value)
     {
         Vector2 input = value.Get<Vector2>();
         moveInput = input.x;
+        verticalInput = input.y;
     }
 
     public void OnJump()
     {
         if (!grounded) return;
+
+        grounded = false;
 
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
@@ -305,23 +329,5 @@ public class PlayerController : MonoBehaviour
                 animator.SetTrigger("healingshield_attack");
                 break; 
         }
-    }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("Ground"))
-            grounded = true;
-    }
-
-    void OnCollisionStay2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("Ground"))
-            grounded = true;
-    }
-
-    void OnCollisionExit2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("Ground"))
-            grounded = false;
     }
 }
