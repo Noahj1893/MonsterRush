@@ -5,7 +5,7 @@ using System.Text; // For StringBuilder.
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class NewPlayerController : MonoBehaviour
 {
     GameManager gameManager; 
     public float speed = 5f;
