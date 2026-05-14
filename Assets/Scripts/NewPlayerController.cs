@@ -80,6 +80,24 @@ public class NewPlayerController : MonoBehaviour
             SwitchWeapon(-1); // Shift 1 index backward. 
         }
 
+        // Alternative option for the player: press keys 1 to 4 to swap to a certain weapon in their inventory.
+        if (Input.GetKeyDown(KeyCode.Alpha1)) // If key 1 is pressed, 
+        {
+            SelectWeaponUsingIndex(0); // swap to first weapon in inventory. 
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2)) // If key 2 is pressed, 
+        {
+            SelectWeaponUsingIndex(1); // swap to second weapon in inventory. 
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3)) // If key 3 is pressed, 
+        {
+            SelectWeaponUsingIndex(2); // swap to third weapon in inventory. 
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4)) // If key 4 is pressed, 
+        {
+            SelectWeaponUsingIndex(3); // swap to fourth weapon in inventory. 
+        }
+
         // Dashing movement:
         if (isDashing)
         {
@@ -264,7 +282,23 @@ public class NewPlayerController : MonoBehaviour
 
         currWeapon = gameManager.weaponsInventory[gameManager.currWeaponIndex]; // Assign new weapon based on index. 
 
-        Debug.Log("Current weapon slot: " + gameManager.currWeaponIndex); 
+        //Debug.Log("Current weapon slot: " + gameManager.currWeaponIndex); 
+    }
+
+    // Function for alternative way of swapping weapons (directly by index). 
+    void SelectWeaponUsingIndex(int index) 
+    {
+        if (gameManager.weaponsInventory.Count < (index+1)) // Safety check to ensure player does not click a key number greater than their current weapons inventory capacity. 
+        {
+            //Debug.Log("Key pressed: " + (index+1) + " but only " + gameManager.weaponsInventory.Count); 
+            return; 
+        }
+
+        gameManager.currWeaponIndex = index; // Have the game state remember the weapon index choice. 
+
+        currWeapon = gameManager.weaponsInventory[gameManager.currWeaponIndex]; // Assign new weapon based on index. 
+
+        //Debug.Log("Current weapon slot: " + gameManager.currWeaponIndex); 
     }
 
     // Function to pick up a new weapon:
