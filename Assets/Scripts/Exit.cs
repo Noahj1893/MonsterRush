@@ -6,31 +6,19 @@ using UnityEngine.InputSystem;
 
 public class Exit : MonoBehaviour
 {
-    bool canLeave;
     bool hasExited = false; 
-
-    void Start()
-    {
-        canLeave = false;
-    }
+    public GameObject storyUI; // Assign GameObject for Story UI via Unity Inspector. 
+    [SerializeField] private string[] storyLines;
+    [SerializeField] private StoryController storyController;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) canLeave = true;
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Player")) canLeave = false;
-    }
-    void Update()
-    {
-        if(canLeave && !hasExited) {
+        if (collision.CompareTag("Player") && !hasExited) 
+        {
             hasExited = true; 
             ExitLevel();
         }
     }
-
 
     void ExitLevel()
     {
@@ -49,12 +37,20 @@ public class Exit : MonoBehaviour
         Debug.Log(levelNumber);
         Debug.Log(SceneManager.sceneCountInBuildSettings);
         if(levelNumber + 1 >= SceneManager.sceneCountInBuildSettings) {
+            storyController.BeginStory(
+                storyLines,
+                levelNumber + 1 >= SceneManager.sceneCountInBuildSettings,
+                1
+            );
             Debug.Log("Last Level Reached!"); 
-            SceneManager.LoadSceneAsync("Title"); ///load main menu
         }
         else
         {
-            SceneManager.LoadSceneAsync(levelNumber + 1);
+            storyController.BeginStory(
+                storyLines,
+                levelNumber + 1 >= SceneManager.sceneCountInBuildSettings,
+                levelNumber + 1
+            );
         }
         
     }

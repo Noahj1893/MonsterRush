@@ -2521,6 +2521,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0557c659b196f54b8f135fa99eb13a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Exit
+  storyUI: {fileID: 4229921397359084592}
+  storyLines:
+  - My name is Wu.
+  - I have been underwater.
+  - Uhhhh...
+  storyController: {fileID: 4229921397359084590}
 --- !u!61 &1502274169
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3450,6 +3456,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
+--- !u!114 &4229921397359084590 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4169906638388598040, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
+  m_PrefabInstance: {fileID: 4229921397359084589}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4229921397359084592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 578feaf25f867d642b6518e445921b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryController
+--- !u!1 &4229921397359084592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2090133924882072727, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
+  m_PrefabInstance: {fileID: 4229921397359084589}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5095418480293776572
 PrefabInstance:
   m_ObjectHideFlags: 0

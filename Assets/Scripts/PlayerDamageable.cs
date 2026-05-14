@@ -16,6 +16,7 @@ public class PlayerDamageable : MonoBehaviour
     PlayerController playerController;
     PlayerInput playerInput;
     bool deathRoutineRunning;
+    ScoreUI scoreUI; 
 
     public bool DeathSequenceActive => deathRoutineRunning;
 
@@ -36,6 +37,9 @@ public class PlayerDamageable : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         currentHealth = maxHealth;
         OnHealthChanged?.Invoke(currentHealth, maxHealth); // Call event because player's health has changed (began). 
+        
+        // Retrieve Score UI component through tag:
+        scoreUI = GameObject.FindGameObjectWithTag("Scoreboard").GetComponent<ScoreUI>(); 
     }
 
     public void TakeHit(Vector2 knockback, int damage)
@@ -63,6 +67,7 @@ public class PlayerDamageable : MonoBehaviour
     IEnumerator DeathThenRespawnRoutine()
     {
         ResetHealth(); // Call function to reset UI to display full HP after dying. 
+        scoreUI.UpdateUI(GameManager.Instance.score);  
 
         deathRoutineRunning = true;
 

@@ -947,6 +947,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
+--- !u!114 &765216405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4169906638388598040, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
+  m_PrefabInstance: {fileID: 765216404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765216407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 578feaf25f867d642b6518e445921b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryController
+--- !u!1 &765216407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2090133924882072727, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
+  m_PrefabInstance: {fileID: 765216404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &786059743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,6 +1390,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0557c659b196f54b8f135fa99eb13a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Exit
+  storyUI: {fileID: 765216407}
+  storyLines:
+  - Hi
+  - What
+  - Bye
+  storyController: {fileID: 765216405}
 --- !u!61 &1502274169
 BoxCollider2D:
   m_ObjectHideFlags: 0
