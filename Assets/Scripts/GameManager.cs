@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public List<Weapon> weaponsInventory = new List<Weapon>(); // Actual player's inventory (gets assigned the stuff in the temp inventory).  
     public int currWeaponIndex = 0; // Marks the player's current weapon based on slot position in the Inventory. 
 
+    // Event that triggers when the Weapons inventory has changed to alert the Weapons Inventory UI to update:
+    public event Action OnWeaponChanged; 
+
     void Awake()
     {
         if (Instance != null)
@@ -41,5 +44,11 @@ public class GameManager : MonoBehaviour
             Weapon instance = Instantiate(weapon, transform); // Create an instance of the starting weapons. 
             weaponsInventory.Add(instance); // Add it to the player's inventory. 
         }
+    }
+
+    public void AlertWeaponChanged()
+    {
+        OnWeaponChanged?.Invoke(); // Other scripts cannot trigger the event, they can only subscribe to it. 
+        // So the GameManager has to be the one to actually trigger the event. 
     }
 }

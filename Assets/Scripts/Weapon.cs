@@ -9,6 +9,7 @@ public abstract class Weapon : MonoBehaviour
 {
     public float cooldownUse = 1f; // Base cooldown is 1 second. 
     protected float nextUseTime; // Time when the weapon can be used again. 
+    public Sprite icon; // Assign Weapon icon to each Weapon prefab in Unity Inspector. 
 
     // Function to check if the weapon can be used again. 
     public bool CanUse()

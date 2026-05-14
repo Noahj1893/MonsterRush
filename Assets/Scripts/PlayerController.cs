@@ -275,9 +275,16 @@ public class PlayerController : MonoBehaviour
             return; 
         }
 
+        int index = gameManager.currWeaponIndex; // Grab original weapon index. 
+
         gameManager.currWeaponIndex = (gameManager.currWeaponIndex + direction + gameManager.weaponsInventory.Count) % gameManager.weaponsInventory.Count; // Shift the index. 
 
         currWeapon = gameManager.weaponsInventory[gameManager.currWeaponIndex]; // Assign new weapon based on index. 
+
+        if (index != gameManager.currWeaponIndex) // Only fire event if weapon was actually changed: 
+        {
+            gameManager.AlertWeaponChanged(); // Fire event to update Weapons Inventory UI. 
+        }
 
         //Debug.Log("Current weapon slot: " + gameManager.currWeaponIndex); 
     }
@@ -291,9 +298,16 @@ public class PlayerController : MonoBehaviour
             return; 
         }
 
+        int oldIndex = gameManager.currWeaponIndex; // Grab original weapon index. 
+
         gameManager.currWeaponIndex = index; // Have the game state remember the weapon index choice. 
 
         currWeapon = gameManager.weaponsInventory[gameManager.currWeaponIndex]; // Assign new weapon based on index. 
+
+        if (oldIndex != index) // Only fire event if weapon was actually changed: 
+        {
+            gameManager.AlertWeaponChanged(); // Fire event to update Weapons Inventory UI. 
+        }
 
         //Debug.Log("Current weapon slot: " + gameManager.currWeaponIndex); 
     }
@@ -322,6 +336,9 @@ public class PlayerController : MonoBehaviour
         }
 
         gameManager.weaponsInventory.Add(weaponInst); // Add the new instance of the weapon into the player's inventory. 
+        
+        gameManager.AlertWeaponChanged(); // Fire event to update Weapons Inventory UI. 
+        
         Debug.Log("Got new weapon!"); // Debug log. 
     }
 
