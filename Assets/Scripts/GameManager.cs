@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
 
     public SortedDictionary<int, SortedSet<int>> playerData = new SortedDictionary<int, SortedSet<int>>(); // For player's top 5 scores for each level in the game.  
 
+    // Weapon variables:
+    [SerializeField] Weapon[] startingWeapon; // Temporary array to always store player's starting weapon (the Sword) in the backend.
+    public List<Weapon> weaponsInventory = new List<Weapon>(); // Actual player's inventory (gets assigned the stuff in the temp inventory).  
+    public int currWeaponIndex = 0; // Marks the player's current weapon based on slot position in the Inventory. 
+
     void Awake()
     {
         if (Instance != null)
@@ -23,5 +28,18 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Start() 
+    {
+        // Create a brand new inventory for the player upon starting the game:
+        weaponsInventory.Clear(); // Always a fresh new inventory upon start. 
+
+        // Add any starting weapons stored in the backend into the new inventory:
+        foreach (var weapon in startingWeapon)
+        {
+            Weapon instance = Instantiate(weapon, transform); // Create an instance of the starting weapons. 
+            weaponsInventory.Add(instance); // Add it to the player's inventory. 
+        }
     }
 }

@@ -7,9 +7,6 @@ public class NewPlayerController : MonoBehaviour
     Animator animator;
     GameManager gameManager;
     PlayerDamageable playerDamageable; // Needed for handling healing effect. 
-    [SerializeField] Weapon[] startingWeapon; // Temporary array to always store player's starting weapon (the Sword) in the backend.
-    List<Weapon> weaponsInventory = new List<Weapon>(); // Actual player's inventory (gets assigned the stuff in the temp inventory).  
-    int currWeaponIndex = 0; // Marks the player's current weapon based on slot position in the Inventory. 
     Weapon currWeapon; // Player's current weapon.
     public float attackRange = 0.9f;
     public float attackForwardOffset = 0.45f;
@@ -65,15 +62,8 @@ public class NewPlayerController : MonoBehaviour
     {
         gameManager = GameManager.Instance; 
         gameManager.score = 0; // Reset backend score after finishing the level. 
-        weaponsInventory.Clear(); // Always a fresh new inventory upon start. 
-        foreach (var weapon in startingWeapon)
-        {
-            Weapon instance = Instantiate(weapon, transform); // Create an instance of the starting weapons. 
-            weaponsInventory.Add(instance); // Add it to the player's inventory. 
-        }
-
-        currWeaponIndex = 0; 
-        currWeapon = weaponsInventory[currWeaponIndex]; // Default weapon is the first one in inventory (the Sword). 
+        
+        currWeapon = gameManager.weaponsInventory[gameManager.currWeaponIndex]; // Default weapon is the first one in inventory (the Sword). 
     }
 
     void Update()
@@ -265,23 +255,23 @@ public class NewPlayerController : MonoBehaviour
     }
     void SwitchWeapon(int direction)
     {
-        if (weaponsInventory.Count == 0) // Safety check to ensure player always has at least one weapon. 
+        if (gameManager.weaponsInventory.Count == 0) // Safety check to ensure player always has at least one weapon. 
         {
             return; 
         }
 
-        currWeaponIndex = (currWeaponIndex + direction + weaponsInventory.Count) % weaponsInventory.Count; // Shift the index. 
+        gameManager.currWeaponIndex = (gameManager.currWeaponIndex + direction + gameManager.weaponsInventory.Count) % gameManager.weaponsInventory.Count; // Shift the index. 
 
-        currWeapon = weaponsInventory[currWeaponIndex]; // Assign new weapon based on index. 
+        currWeapon = gameManager.weaponsInventory[gameManager.currWeaponIndex]; // Assign new weapon based on index. 
 
-        Debug.Log("Current weapon slot: " + currWeaponIndex); 
+        Debug.Log("Current weapon slot: " + gameManager.currWeaponIndex); 
     }
 
     // Function to pick up a new weapon:
     public void AddWeapon(Weapon newWeapon)
     {
         // Ensure there are no duplicates (in case multiple weapon instances exist in the game):
-        foreach (var weapon in weaponsInventory)
+        foreach (var weapon in gameManager.weaponsInventory)
         {
             if (weapon.GetType() == newWeapon.GetType()) // If it is the same weapon (ice hammer, sword, fire wand, healing shield),
             {
@@ -300,7 +290,7 @@ public class NewPlayerController : MonoBehaviour
             fireWand.SetFirePos(firePos); // If the weapon picked up is a FireWand, initialize spawn position of the fireballs. 
         }
 
-        weaponsInventory.Add(weaponInst); // Add the new instance of the weapon into the player's inventory. 
+        gameManager.weaponsInventory.Add(weaponInst); // Add the new instance of the weapon into the player's inventory. 
         Debug.Log("Got new weapon!"); // Debug log. 
     }
 
