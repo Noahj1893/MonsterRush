@@ -1757,17 +1757,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[0]'
-      value: '"So... Fern, is it? What made you decide to come back and rescue us?"
-        - Erica.'
+      value: '"So... Fern, is it? What made you decide to come back?" - Erica.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[1]'
-      value: '"Well, it was MY idea to come back! You know, to save you." - Brad.'
+      value: '"Well, it was MY idea to come back! You know, because I want to see
+        you." - Brad.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[2]'
-      value: AHEM. To be honest, it made me sick to my stomach to see our kind being
-        forced into this ritual.
+      value: AHEM. To be honest, it made me sick seeing what the tradition is all
+        about.
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[3]'
