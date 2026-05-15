@@ -83,7 +83,20 @@ public class Boss : MonoBehaviour
 
     void ChooseAttack()
     {
-        int rand = Random.Range(0, 3);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        int numEnemies = 0;
+        foreach (GameObject enemy in enemies)
+        {
+            if(enemy.activeInHierarchy == true)
+            {
+                numEnemies++;
+            }
+        }
+
+        // Only spawn if fewer than 2 exist
+        int rand;
+        if (numEnemies < 3) rand = Random.Range(0, 3);
+        else rand = Random.Range(0,2);
 
         switch (rand)
         {
@@ -153,7 +166,7 @@ public class Boss : MonoBehaviour
         animator.SetBool("Fly", true);
 
         Vector2 direction =
-            (player.position - transform.position).normalized;
+            (new Vector2(player.position.x, player.position.y + 0.35f) - new Vector2(transform.position.x, transform.position.y)).normalized;
 
         float chargeTime = 1.5f;
         float timer = 0f;
