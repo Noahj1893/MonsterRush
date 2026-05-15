@@ -25,4 +25,9 @@ public class PatrolEnemy : MonoBehaviour
             dir *= -1;
         }
     }
+    public void setPatrol(float left, float right)
+    {
+        leftX = left;
+        rightX = right;
+    }
 }

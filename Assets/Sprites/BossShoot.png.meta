@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 1704f68e694bcbb428d48557da403b42
+guid: 57c04015ece2ba140910a0355ba9c0df
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1992051373802500688
-    second: iceBackgorund_0
+      213: 9076805219270961267
+    second: BossShoot_0
+  - first:
+      213: 3041972091781455555
+    second: BossShoot_1
+  - first:
+      213: 5626611311227223766
+    second: BossShoot_2
+  - first:
+      213: 7614246863284115574
+    second: BossShoot_3
+  - first:
+      213: 8236167660544299025
+    second: BossShoot_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: iceBackgorund_0
+      name: BossShoot_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1027
-        height: 1027
+        x: 1
+        y: 22
+        width: 253
+        height: 209
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 052b3dd8b2035ab10800000000000000
-      internalID: 1992051373802500688
+      spriteID: 378ae06814a47fd70800000000000000
+      internalID: 9076805219270961267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossShoot_1
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 21
+        width: 257
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce194b1081473a20800000000000000
+      internalID: 3041972091781455555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossShoot_2
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 19
+        width: 249
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6deb4ee2d2db51e40800000000000000
+      internalID: 5626611311227223766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossShoot_3
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 19
+        width: 253
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6789e2e1e2d3ba960800000000000000
+      internalID: 7614246863284115574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossShoot_4
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 19
+        width: 253
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1109d45a9debc4270800000000000000
+      internalID: 8236167660544299025
       vertices: []
       indices: 
       edges: []
@@ -125,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      iceBackgorund_0: 1992051373802500688
+      BossShoot_0: 9076805219270961267
+      BossShoot_1: 3041972091781455555
+      BossShoot_2: 5626611311227223766
+      BossShoot_3: 7614246863284115574
+      BossShoot_4: 8236167660544299025
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 1704f68e694bcbb428d48557da403b42
+guid: ab021e6ac0b84e84b9f019caf15238d3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1992051373802500688
-    second: iceBackgorund_0
+      213: 359396999669396467
+    second: BossFly_0
+  - first:
+      213: -7554838761738620430
+    second: BossFly_1
+  - first:
+      213: 3309890955699016226
+    second: BossFly_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: iceBackgorund_0
+      name: BossFly_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1027
-        height: 1027
+        x: 1
+        y: 22
+        width: 253
+        height: 209
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 052b3dd8b2035ab10800000000000000
-      internalID: 1992051373802500688
+      spriteID: 3f3b2a2caa5dcf400800000000000000
+      internalID: 359396999669396467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFly_1
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 21
+        width: 257
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f1b7376c22d72790800000000000000
+      internalID: -7554838761738620430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFly_2
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 19
+        width: 249
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 222d7b3a9481fed20800000000000000
+      internalID: 3309890955699016226
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      iceBackgorund_0: 1992051373802500688
+      BossFly_0: 359396999669396467
+      BossFly_1: -7554838761738620430
+      BossFly_2: 3309890955699016226
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,19 +1,43 @@
 fileFormatVersion: 2
-guid: 586017d013bda3942b4a8587c3732466
+guid: 2a899448fd8ec2541980a72e9ca4e161
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5725221334511354598
-    second: doorFire_0
+      213: 4596594201160196520
+    second: patrol2_0
   - first:
-      213: 5695136079826795680
-    second: doorFire_1
+      213: -3729378658864062802
+    second: patrol2_1
   - first:
-      213: -5199200763264224101
-    second: doorFire_2
+      213: -1768783215499316334
+    second: patrol2_2
   - first:
-      213: -527559089547019241
-    second: doorFire_3
+      213: -7634923558369652004
+    second: patrol2_3
+  - first:
+      213: -5888151124560326277
+    second: patrol2_4
+  - first:
+      213: 3836969696515282455
+    second: patrol2_5
+  - first:
+      213: -132442694763217268
+    second: patrol2_6
+  - first:
+      213: 3417112730343583422
+    second: patrol2_7
+  - first:
+      213: -1710848658815444751
+    second: patrol2_8
+  - first:
+      213: 4151096564150695330
+    second: patrol2_9
+  - first:
+      213: 68697062393170229
+    second: patrol2_10
+  - first:
+      213: -4412431247933463221
+    second: patrol2_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 4
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,89 +133,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: doorFire_0
+      name: patrol2_1
       rect:
         serializedVersion: 2
-        x: 8
-        y: 0
-        width: 117
-        height: 128
+        x: 59
+        y: 56
+        width: 122
+        height: 93
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1d76ff978deb80b0800000000000000
-      internalID: -5725221334511354598
+      spriteID: eae1c7d6ed59e3cc0800000000000000
+      internalID: -3729378658864062802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doorFire_1
+      name: patrol2_4
       rect:
         serializedVersion: 2
-        x: 145
-        y: 0
-        width: 98
-        height: 128
+        x: 308
+        y: 56
+        width: 133
+        height: 93
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0ac36992710390f40800000000000000
-      internalID: 5695136079826795680
+      spriteID: f41cfd8e208f19f4e80368aa3579465a
+      internalID: -5888151124560326277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doorFire_2
+      name: patrol2_7
       rect:
         serializedVersion: 2
-        x: 264
-        y: 0
-        width: 117
-        height: 128
+        x: 571
+        y: 56
+        width: 122
+        height: 93
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b9432bdc37ab8d7b0800000000000000
-      internalID: -5199200763264224101
+      spriteID: 5c7d3918e4044994c9066f00af9ea961
+      internalID: 3417112730343583422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doorFire_3
+      name: patrol2_10
       rect:
         serializedVersion: 2
-        x: 392
-        y: 0
-        width: 117
-        height: 128
+        x: 820
+        y: 56
+        width: 133
+        height: 93
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 71c758d9dcbbda8f0800000000000000
-      internalID: -527559089547019241
+      spriteID: b0fa6776a98a8944aa9bcabbc5bfcd1d
+      internalID: 68697062393170229
       vertices: []
       indices: 
       edges: []
@@ -200,7 +224,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 07437332a980e0e4d979a439a23aa873
     internalID: 0
     vertices: []
     indices: 
@@ -208,12 +232,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":60.0,"y":0.0},"gridSpritePadding":{"x":60.0,"y":60.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      - key: SpriteEditor.SliceOnImport
+        value: False
     nameFileIdTable:
-      doorFire_0: -5725221334511354598
-      doorFire_1: 5695136079826795680
-      doorFire_2: -5199200763264224101
-      doorFire_3: -527559089547019241
+      patrol2_0: 4596594201160196520
+      patrol2_1: -3729378658864062802
+      patrol2_10: 68697062393170229
+      patrol2_11: -839052348
+      patrol2_2: -1768783215499316334
+      patrol2_3: -395842913
+      patrol2_4: -5888151124560326277
+      patrol2_5: -296938160
+      patrol2_6: 131548118
+      patrol2_7: 3417112730343583422
+      patrol2_8: -85924756
+      patrol2_9: -719827343
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

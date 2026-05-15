@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &9068460972084032740
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -6770411830021076668, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_Radius
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: -6770411830021076668, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627293103627814897, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627293103627814897, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627293103627814897, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.007586
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627293103627814897, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3553729
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627293103627814897, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627293103627814897, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627293103627814897, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627293103627814897, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627293103627814897, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627293103627814897, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627293103627814897, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627293103627814897, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305967419906591866, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      propertyPath: m_Name
+      value: EnemyFireball
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3386975981551482611, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6305967419906591866, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: -8765397924678123239}
+  m_SourcePrefab: {fileID: 100100000, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+--- !u!1 &3052014206572820638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6305967419906591866, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+  m_PrefabInstance: {fileID: 9068460972084032740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-8765397924678123239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3052014206572820638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90423c9f4a9725845adc682d953e7116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  launchSpeed: 4
+  burnTime: 3

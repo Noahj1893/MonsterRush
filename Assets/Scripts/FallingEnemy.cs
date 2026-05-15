@@ -47,4 +47,8 @@ public class FallingEnemy : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
         }
     }
+    public void setFallPoint(Vector2 fallpoint)
+    {
+        this.fallPoint = fallpoint;
+    }
 }
