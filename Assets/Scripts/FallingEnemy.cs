@@ -42,6 +42,7 @@ public class FallingEnemy : MonoBehaviour
 
         if (rb.position.y <= minY)
         {
+            animator.Play("Falling", 0, 0f);
             rb.position = fallPoint;
             rb.linearVelocity = Vector2.zero;
         }
