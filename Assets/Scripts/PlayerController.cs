@@ -255,9 +255,14 @@ public class PlayerController : MonoBehaviour
         foreach (var hit in hits)
         {
             EnemyHealth targetEnemy = hit.GetComponent<EnemyHealth>();
+            GhostChaser gC = hit.GetComponent<GhostChaser>();
             if (targetEnemy != null)
             {
                 enemiesAttacked.Add(targetEnemy); // Add each enemy in the hit range into the list. 
+            }
+            if (gC)
+            {
+                gC.Displace();
             }
         }
 
