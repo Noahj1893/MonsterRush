@@ -10,6 +10,7 @@ public class PlayerFallRespawn : MonoBehaviour
     Rigidbody2D rb;
     Camera cam;
     PlayerDamageable damageable;
+    ScoreUI scoreUI; 
 
     void Awake()
     {
@@ -17,6 +18,9 @@ public class PlayerFallRespawn : MonoBehaviour
         damageable = GetComponent<PlayerDamageable>();
         spawnPosition = transform.position;
         cam = Camera.main;
+
+        // Retrieve Score UI component through tag:
+        scoreUI = GameObject.FindGameObjectWithTag("Scoreboard").GetComponent<ScoreUI>();  
     }
 
     void LateUpdate()
@@ -44,6 +48,7 @@ public class PlayerFallRespawn : MonoBehaviour
         }
 
         GameManager.Instance.score = 0; // Reset score upon player death. 
+        scoreUI.UpdateUI(GameManager.Instance.score); // Reset Score UI. 
 
         Vector3 pos = respawnPoint != null ? respawnPoint.position : spawnPosition;
         transform.position = pos;

@@ -67,7 +67,7 @@ public class PlayerDamageable : MonoBehaviour
     IEnumerator DeathThenRespawnRoutine()
     {
         ResetHealth(); // Call function to reset UI to display full HP after dying. 
-        scoreUI.UpdateUI(GameManager.Instance.score);  
+        scoreUI.UpdateUI(GameManager.Instance.score); // Reset Score UI. 
 
         deathRoutineRunning = true;
 
