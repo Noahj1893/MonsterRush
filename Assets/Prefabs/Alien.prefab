@@ -406,6 +406,7 @@ GameObject:
   - component: {fileID: 4641893351335923324}
   - component: {fileID: 2411543641259106508}
   - component: {fileID: 3162397229398048616}
+  - component: {fileID: 1645042770291207900}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Enemy
@@ -615,3 +616,16 @@ MonoBehaviour:
   leftX: -3.75
   rightX: -1.75
   speed: 1
+--- !u!114 &1645042770291207900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8434263956744428239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d73efdb033aefe46804dbc2aa0181ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DieBelow
+  minY: -5.5
