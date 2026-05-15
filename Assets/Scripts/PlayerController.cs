@@ -234,7 +234,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnAttack()
     {
-        if (animator == null || isCrouching)
+        if (animator == null)
             return;
 
         PerformAttackHit();

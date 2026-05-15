@@ -908,18 +908,18 @@ PrefabInstance:
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: storyController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 765216406}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: storyLines.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[0]'
-      value: My name is Wu.
+      value: It feels like it's getting warmer
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[1]'
-      value: I have been underwater.
+      value: We're reaching the leaders nest
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[2]'
@@ -1143,6 +1143,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2090133924882072727, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
   m_PrefabInstance: {fileID: 765216404}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &765216406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4169906638388598040, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
+  m_PrefabInstance: {fileID: 765216404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765216405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 578feaf25f867d642b6518e445921b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryController
 --- !u!1 &786059743
 GameObject:
   m_ObjectHideFlags: 0

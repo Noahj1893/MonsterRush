@@ -14,6 +14,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public EnemyType enemyType; // Get the enemy type. 
     [SerializeField] TextMeshProUGUI hpText; // For Enemy HP text display.
     [SerializeField] Image hpBar; // For Enemy HP bar display. 
+    [SerializeField] bool isBoss = false;
+    [SerializeField] Animator animator;
 
     bool isFrozen; // Status effect for Ice Hammer.
     bool isBurning; // Status effect for Fire Wand. 
@@ -54,7 +56,14 @@ public class EnemyHealth : MonoBehaviour
         {
             GameManager.Instance.score += 10; 
             scoreUI.UpdateUI(GameManager.Instance.score, GameManager.Instance.deathCount);  
-            gameObject.SetActive(false);
+            if(isBoss)
+            {
+                GetComponent<Boss>().Die();
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 
@@ -125,6 +134,7 @@ public class EnemyHealth : MonoBehaviour
     // For freeze status:
     void DisableMovement()
     {
+        GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         var fallingEnemy = GetComponent<FallingEnemy>(); // Get falling enemy if it exists. 
         if (fallingEnemy != null)
         {

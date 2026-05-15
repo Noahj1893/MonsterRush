@@ -151,11 +151,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9e1a4b2d8f4e6c9a0b1d2e3f4a5b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHP: 20
-  currentHP: 20
+  maxHP: 25
+  currentHP: 1
   enemyType: 0
   hpText: {fileID: 196743138}
   hpBar: {fileID: 1054587472}
+  isBoss: 1
+  animator: {fileID: 634480752}
 --- !u!4 &45494752
 Transform:
   m_ObjectHideFlags: 0
@@ -202,7 +204,7 @@ MonoBehaviour:
   - {fileID: 2141803721}
   - {fileID: 1995571687}
   moveSpeed: 5
-  attackCooldown: 2
+  attackCooldown: 1.5
 --- !u!50 &45494754
 Rigidbody2D:
   serializedVersion: 5
@@ -264,7 +266,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.023043633, y: 0.036869287}
+  m_Offset: {x: -0.017811775, y: 0.036869287}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -274,7 +276,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.2787876, y: 2.2281752}
+  m_Size: {x: 1.0171814, y: 2.2281752}
   m_EdgeRadius: 0
 --- !u!1001 &56484154
 PrefabInstance:
@@ -342,6 +344,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7329808972093879459, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.14666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
+      propertyPath: m_Size.y
       value: 0.14666666
       objectReference: {fileID: 0}
     - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
@@ -581,6 +591,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7329808972093879459, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.14666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
+      propertyPath: m_Size.y
       value: 0.14666666
       objectReference: {fileID: 0}
     - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
@@ -852,7 +870,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.953991, y: -0.48687005, z: -15}
+  m_LocalPosition: {x: -2.9605894, y: -0.48688006, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1241,22 +1259,26 @@ PrefabInstance:
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: storyController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 765216406}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: storyLines.Array.size
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[0]'
-      value: My name is Wu.
+      value: We ended it all
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[1]'
-      value: I have been underwater.
+      value: The ritual that turned us to weapons
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[2]'
-      value: Uhhhh...
+      value: I wonder why they did it?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[3]'
+      value: Maybe for the rush, the...
       objectReference: {fileID: 0}
     - target: {fileID: 4788537577470390567, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: m_Name
@@ -1412,7 +1434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4792716061470498922, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
       propertyPath: m_fontSize
-      value: 39.9
+      value: 39.25
       objectReference: {fileID: 0}
     - target: {fileID: 5610065910978620671, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1464,7 +1486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9174209560922216041, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
       propertyPath: m_fontSize
-      value: 46.5
+      value: 41.95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1476,6 +1498,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2090133924882072727, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
   m_PrefabInstance: {fileID: 765216404}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &765216406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4169906638388598040, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
+  m_PrefabInstance: {fileID: 765216404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765216405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 578feaf25f867d642b6518e445921b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryController
 --- !u!1 &786059743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,6 +1689,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7329808972093879459, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.14666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
+      propertyPath: m_Size.y
       value: 0.14666666
       objectReference: {fileID: 0}
     - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
@@ -1887,6 +1928,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7329808972093879459, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.14666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
+      propertyPath: m_Size.y
       value: 0.14666666
       objectReference: {fileID: 0}
     - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
@@ -2136,6 +2185,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8006232852776470697, guid: 7ea3379479fe97c4e80affd4a66d701c, type: 3}
+      propertyPath: startingWeapon.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006232852776470697, guid: 7ea3379479fe97c4e80affd4a66d701c, type: 3}
+      propertyPath: weaponsInventory.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006232852776470697, guid: 7ea3379479fe97c4e80affd4a66d701c, type: 3}
+      propertyPath: 'startingWeapon.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a9cd573d458d0b94bbf04c21b1bb2fbe, type: 2}
+    - target: {fileID: 8006232852776470697, guid: 7ea3379479fe97c4e80affd4a66d701c, type: 3}
+      propertyPath: 'startingWeapon.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 776825f927d060d428217bd0b81ac855, type: 2}
+    - target: {fileID: 8006232852776470697, guid: 7ea3379479fe97c4e80affd4a66d701c, type: 3}
+      propertyPath: 'weaponsInventory.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ccb0c7b6c9c14bd4594c68cfc16f2db0, type: 2}
+    - target: {fileID: 8006232852776470697, guid: 7ea3379479fe97c4e80affd4a66d701c, type: 3}
+      propertyPath: 'weaponsInventory.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a9cd573d458d0b94bbf04c21b1bb2fbe, type: 2}
+    - target: {fileID: 8006232852776470697, guid: 7ea3379479fe97c4e80affd4a66d701c, type: 3}
+      propertyPath: 'weaponsInventory.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 776825f927d060d428217bd0b81ac855, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2159,7 +2236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5179611386259965454, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.69
+      value: -6.609
       objectReference: {fileID: 0}
     - target: {fileID: 5179611386259965454, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2210,6 +2287,14 @@ PrefabInstance:
       value: 0.14666666
       objectReference: {fileID: 0}
     - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
+      propertyPath: m_Size.y
+      value: 0.14666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975347913361942482, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2994307149073886650, guid: fcd44897367177248ab76123cea4916c, type: 3}
@@ -2248,7 +2333,7 @@ Transform:
   m_GameObject: {fileID: 1338480741}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.13, y: -0.26, z: 0}
+  m_LocalPosition: {x: -0.1, y: -0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2710,7 +2795,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 26.364098, y: 15.467926}
+  m_Size: {x: 17.34, y: 5.46}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

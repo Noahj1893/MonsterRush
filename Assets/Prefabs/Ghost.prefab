@@ -399,8 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9e1a4b2d8f4e6c9a0b1d2e3f4a5b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GhostHealth
-  maxHP: 3
-  currentHP: 3
+  maxHP: 2
+  currentHP: 2
   enemyType: 0
   hpText: {fileID: 2857163291186764148}
   hpBar: {fileID: 1580568330295961317}

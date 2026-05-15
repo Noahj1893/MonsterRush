@@ -36,6 +36,7 @@ public class Boss : MonoBehaviour
     bool isAttacking;
     bool isPhaseTransitioning;
 
+    bool isDead = false;
     enum BossAttack
     {
         Fireball,
@@ -44,10 +45,6 @@ public class Boss : MonoBehaviour
     }
 
     BossAttack currentAttack;
-
-    // =========================
-    // UNITY METHODS
-    // =========================
 
     void Start()
     {
@@ -60,12 +57,12 @@ public class Boss : MonoBehaviour
     }
 
     // =========================
-    // MAIN BOSS LOOP
+    // BOSS LOOP
     // =========================
 
     IEnumerator BossBehaviorLoop()
     {
-        while (true)
+        while (!isDead)
         {
             if (!isAttacking)
             {
@@ -134,7 +131,6 @@ public class Boss : MonoBehaviour
     {
         Debug.Log("Boss used FIREBALL");
 
-        // Play animation here
         animator.SetTrigger("ShootFireball");
 
         yield return new WaitForSeconds(0.5f);
@@ -142,7 +138,7 @@ public class Boss : MonoBehaviour
         // Spawn projectile
         GameObject fireball = Instantiate(fireballPrefab, firePoint.position, firePoint.rotation);
         EnemyFireball fb = fireball.GetComponent<EnemyFireball>();
-        fb.Init(Vector2.Normalize(player.position - transform.position));
+        fb.Init(Vector2.Normalize(new Vector2(player.position.x, player.position.y + 0.35f) - new Vector2(transform.position.x, transform.position.y)));
 
         yield return new WaitForSeconds(1f);
     }
@@ -240,26 +236,22 @@ public class Boss : MonoBehaviour
 
         imageTransform.localScale = scale;
     }
-
-    // =========================
-    // DAMAGE / PHASES
-    // =========================
-
-    void EnterPhase2()
+    public void Die()
     {
-        // Increase aggression
-
-        // Faster attacks
-
-        // New attack patterns
+        isDead = true;
+        StopAllCoroutines();
+        StartCoroutine(Death());
     }
-
-    void Die()
+    IEnumerator Death()
     {
-        // Death animation
+        rb.linearVelocity = Vector2.zero;
 
-        // Loot
+        animator.SetTrigger("Die");
 
-        // End fight
+        GetComponent<Collider2D>().enabled = false;
+
+        yield return new WaitForSeconds(2f);
+
+        gameObject.SetActive(false);
     }
 } 
