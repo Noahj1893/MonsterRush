@@ -5,18 +5,19 @@ using UnityEngine;
 /** 
  * Script for the Ice Hammer weapon. Inherits from Weapon.cs superclass. 
 **/
+[CreateAssetMenu(menuName = "Weapons/Ice Hammer")]
 public class IceHammer : Weapon 
 {
     [SerializeField] float freezeDuration = 2f;
 
-    void Awake()
+    private void OnEnable()
     {
         cooldownUse = 1.5f; // Cooldown for attack is 1.5 seconds. 
         animType = WeaponAnimType.IceHammer; // Animation type is IceHammer. 
     }
 
     // Override abstract Use method from Weapon.cs superclass:
-    protected override void Use(List<EnemyHealth> enemies, PlayerDamageable player)
+    protected override void Use(List<EnemyHealth> enemies, PlayerDamageable player, Transform firePos)
     {
         foreach (var enemy in enemies) // Ice Hammer does AREA attack (can hit multiple targets). 
         {

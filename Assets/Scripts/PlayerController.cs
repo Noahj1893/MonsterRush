@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     // Weapon variables:
     Weapon currWeapon; // Player's current weapon.
     PlayerDamageable playerDamageable; // Needed for handling healing effect. 
+    Dictionary<int, float> weaponCooldowns = new Dictionary<int, float>();
 
     [SerializeField] private LayerMask whatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform groundCheck;							// A position marking where to check if the player is grounded.
@@ -66,10 +67,37 @@ public class PlayerController : MonoBehaviour
         playerDamageable = GetComponent<PlayerDamageable>(); // Get PlayerDamageable component. 
 
         currWeapon = gameManager.weaponsInventory[gameManager.currWeaponIndex]; // Default weapon is the first one in inventory (the Sword). 
+    
+        // If the current weapon index equipped is below min, return min. If above max, return max. 
+        // Otherwise, return actual index.
+        if (gameManager.weaponsInventory.Count > 0)
+        {
+            gameManager.currWeaponIndex = Mathf.Clamp(gameManager.currWeaponIndex, 0, gameManager.weaponsInventory.Count - 1); 
+            currWeapon = gameManager.weaponsInventory[gameManager.currWeaponIndex]; // Assign new weapon based on index. 
+        }
+        else
+        {
+            currWeapon = null; 
+            Debug.LogError("Inventory is EMPTY at Start()");
+        }
     }
 
     void Update()
     {
+        // If the current weapon index equipped is below min, return min. If above max, return max. 
+        // Otherwise, return actual index.
+        if (gameManager.weaponsInventory.Count > 0)
+        {
+            gameManager.currWeaponIndex = Mathf.Clamp(gameManager.currWeaponIndex, 0, gameManager.weaponsInventory.Count - 1); 
+
+            currWeapon = gameManager.weaponsInventory[gameManager.currWeaponIndex]; // Assign new weapon based on index. 
+        }
+        else
+        {
+            currWeapon = null; 
+            Debug.LogError("Inventory is EMPTY at Start()");
+        }
+
         float scrollInventory = Input.mouseScrollDelta.y; // Either less than or greater than 0 is returned. 
 
         if (scrollInventory > 0f) // Scroll right in the inventory. 
@@ -245,6 +273,12 @@ public class PlayerController : MonoBehaviour
 
     void PerformAttackHit()
     {
+        if (currWeapon == null)
+        {
+            Debug.LogError("currWeapon is NULL — attack cannot happen");
+            return;
+        }
+
         // Logic to define where player's weapon will hit. 
         Vector2 attackCenter = (Vector2)transform.position + new Vector2(facingX * attackForwardOffset, attackUpOffset);
         //Debug.DrawLine(transform.position, attackCenter, Color.yellow, 1f);
@@ -266,7 +300,21 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        bool attackPerformed = currWeapon.AttemptUse(enemiesAttacked, playerDamageable); // Based on current weapon, try to use it (gets true or false). 
+        bool attackPerformed = false;
+
+        int weaponID = currWeapon.GetInstanceID(); 
+
+        if (!weaponCooldowns.ContainsKey(weaponID))
+        {
+            weaponCooldowns[weaponID] = 0f;
+        }
+
+        if (Time.time >= weaponCooldowns[weaponID])
+        {
+            currWeapon.UseWeapon(enemiesAttacked, playerDamageable, firePos);
+            weaponCooldowns[weaponID] = Time.time + currWeapon.cooldownUse;
+            attackPerformed = true;
+        }
 
         if (attackPerformed)
         {
@@ -280,6 +328,17 @@ public class PlayerController : MonoBehaviour
         if (gameManager.weaponsInventory.Count == 0) // Safety check to ensure player always has at least one weapon. 
         {
             return; 
+        }
+
+        // If the current weapon index equipped is below min, return min. If above max, return max. 
+        // Otherwise, return actual index.
+        if (gameManager.weaponsInventory.Count > 0)
+        {
+            gameManager.currWeaponIndex = Mathf.Clamp(gameManager.currWeaponIndex, 0, gameManager.weaponsInventory.Count - 1); 
+        }
+        else
+        {
+            gameManager.currWeaponIndex = 0; 
         }
 
         int index = gameManager.currWeaponIndex; // Grab original weapon index. 
@@ -303,6 +362,17 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("Key pressed: " + (index+1) + " but only " + gameManager.weaponsInventory.Count); 
             return; 
+        }
+
+        // If the current weapon index equipped is below min, return min. If above max, return max. 
+        // Otherwise, return actual index.
+        if (gameManager.weaponsInventory.Count > 0)
+        {
+            gameManager.currWeaponIndex = Mathf.Clamp(gameManager.currWeaponIndex, 0, gameManager.weaponsInventory.Count - 1); 
+        }
+        else
+        {
+            gameManager.currWeaponIndex = 0; 
         }
 
         int oldIndex = gameManager.currWeaponIndex; // Grab original weapon index. 
@@ -331,18 +401,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // Create the instance of the weapon:
-        Weapon weaponInst = Instantiate(newWeapon, transform); 
-
-        // Check if the weapon is a FireWand so we can assign the FirePoint automatically:
-        FireWand fireWand = weaponInst as FireWand; 
-
-        if (fireWand != null)
-        {
-            fireWand.SetFirePos(firePos); // If the weapon picked up is a FireWand, initialize spawn position of the fireballs. 
-        }
-
-        gameManager.weaponsInventory.Add(weaponInst); // Add the new instance of the weapon into the player's inventory. 
+        gameManager.weaponsInventory.Add(newWeapon); // Add the new instance of the weapon into the player's inventory. 
         
         gameManager.AlertWeaponChanged(); // Fire event to update Weapons Inventory UI. 
         

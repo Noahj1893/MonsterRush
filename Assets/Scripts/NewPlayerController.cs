@@ -264,9 +264,9 @@ public class NewPlayerController : MonoBehaviour
             }
         }
 
-        bool attackPerformed = currWeapon.AttemptUse(enemiesAttacked, playerDamageable); // Based on current weapon, try to use it (gets true or false). 
+        //bool attackPerformed = currWeapon.AttemptUse(enemiesAttacked, playerDamageable); // Based on current weapon, try to use it (gets true or false). 
 
-        if (attackPerformed)
+        //if (attackPerformed)
         {
             PlayWeaponAnimation(currWeapon.animType); // Play attack animation of the appropriate weapon. 
         }
@@ -335,7 +335,7 @@ public class NewPlayerController : MonoBehaviour
 
         if (fireWand != null)
         {
-            fireWand.SetFirePos(firePos); // If the weapon picked up is a FireWand, initialize spawn position of the fireballs. 
+            //fireWand.SetFirePos(firePos); // If the weapon picked up is a FireWand, initialize spawn position of the fireballs. 
         }
 
         gameManager.weaponsInventory.Add(weaponInst); // Add the new instance of the weapon into the player's inventory. 

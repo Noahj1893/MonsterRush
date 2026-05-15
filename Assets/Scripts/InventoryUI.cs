@@ -20,6 +20,7 @@ public class InventoryUI : MonoBehaviour
         gameManager.OnWeaponChanged += UpdateUI; // Subscribe to the event that updates Weapons Inventory UI whenever the inventory changes. 
 
         UpdateUI(); // Run just once when the player starts the game for the first time. 
+        gameManager.AlertWeaponChanged(); // Trigger event to ensure weapon inventory UI is always up to date. 
     }
 
     void OnDestroy()
@@ -32,8 +33,20 @@ public class InventoryUI : MonoBehaviour
 
     void UpdateUI()
     {
-        int currentIndex = gameManager.currWeaponIndex; // Get game state's current weapon. 
         var inventory = gameManager.weaponsInventory; // Get game state's current weapons inventory. 
+
+        // If the current weapon index equipped is below min, return min. If above max, return max. 
+        // Otherwise, return actual index.
+        if (inventory.Count > 0)
+        {
+            gameManager.currWeaponIndex = Mathf.Clamp(gameManager.currWeaponIndex, 0, inventory.Count - 1); 
+        }
+        else
+        {
+            gameManager.currWeaponIndex = 0; 
+        }
+
+        int currentIndex = gameManager.currWeaponIndex; // Get game state's current weapon. 
 
         for (int i = 0; i < slotIcons.Count; i++)
         {
@@ -41,7 +54,15 @@ public class InventoryUI : MonoBehaviour
             {
                 // Show weapon icon:
                 slotIcons[i].enabled = true; // If the weapon is in player's storage, turn its picture on. 
-                slotIcons[i].sprite = inventory[i].icon; // Grab the appropriate weapon image to show on Weapons Inventory UI. 
+                
+                if (inventory[i] != null && inventory[i].icon != null) // Ensure the weapon and its image exist in the Game State's weapon inventory. 
+                {
+                    slotIcons[i].sprite = inventory[i].icon; // Grab the appropriate weapon image to show on Weapons Inventory UI. 
+                }
+                else
+                {
+                    Debug.LogError($"Weapon or icon missing at index {i}"); 
+                }
 
                 // Highlight current weapon:
                 borderHighlights[i].SetActive(i == currentIndex); // Highlight border around active weapon. 

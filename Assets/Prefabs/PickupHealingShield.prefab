@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbec3f8509f8d4479626508f02ba971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUpWeapon
-  weaponPrefab: {fileID: 3572898511173663779, guid: 3c38a7e8e4728124d90712e6a4758b33, type: 3}
+  scriptableObjectWeapon: {fileID: 11400000, guid: 3396e1359c96ce84eb0c5cd7df4e2ce5, type: 2}
 --- !u!212 &394332934065466218
 SpriteRenderer:
   serializedVersion: 2

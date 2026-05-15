@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9655f26a7b9d2468469e1516081c21, type: 3}
+  m_Name: Fire Wand
+  m_EditorClassIdentifier: Assembly-CSharp::FireWand
+  cooldownUse: 3
+  icon: {fileID: 809206115674351465, guid: d8749a79b73adf24db4d9c27a68b0323, type: 3}
+  animType: 1
+  fireballPrefab: {fileID: 6305967419906591866, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
+  firePos: {fileID: 0}

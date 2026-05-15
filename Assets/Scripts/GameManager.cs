@@ -35,14 +35,16 @@ public class GameManager : MonoBehaviour
 
     void Start() 
     {
-        // Create a brand new inventory for the player upon starting the game:
-        weaponsInventory.Clear(); // Always a fresh new inventory upon start. 
-
-        // Add any starting weapons stored in the backend into the new inventory:
-        foreach (var weapon in startingWeapon)
+        if (weaponsInventory.Count == 0) // Only when the player loads up the game for the first time: 
         {
-            Weapon instance = Instantiate(weapon, transform); // Create an instance of the starting weapons. 
-            weaponsInventory.Add(instance); // Add it to the player's inventory. 
+            // Create a brand new inventory for the player upon starting the game:
+            weaponsInventory.Clear(); // Always a fresh new inventory upon start. 
+
+            // Add any starting weapons stored in the backend into the new inventory:
+            foreach (var weapon in startingWeapon)
+            {
+                weaponsInventory.Add(weapon); // Add each ScriptableObject weapon to the player's inventory. 
+            }
         }
     }
 

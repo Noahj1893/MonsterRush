@@ -5,15 +5,16 @@ using UnityEngine;
 /**
  * Script for Healing Shield weapon. Inherits from Weapon.cs superclass. 
 **/
+[CreateAssetMenu(menuName = "Weapons/Healing Shield")]
 public class HealingShield : Weapon
 {
-    void Awake()
+    private void OnEnable()
     {
         cooldownUse = 3f; // Cooldown for healing is 3 seconds. 
         animType = WeaponAnimType.HealingShield; // Animation type is Healing Shield. 
     }
 
-    protected override void Use(List<EnemyHealth> enemies, PlayerDamageable player)
+    protected override void Use(List<EnemyHealth> enemies, PlayerDamageable player, Transform firePos)
     {
         int restoreHP = 1; 
 

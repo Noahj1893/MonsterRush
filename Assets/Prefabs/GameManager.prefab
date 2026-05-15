@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   score: 0
   startingWeapon:
-  - {fileID: 2644495899422076888, guid: f172b66d8b29a9e428f0b700e93efd73, type: 3}
+  - {fileID: 11400000, guid: ccb0c7b6c9c14bd4594c68cfc16f2db0, type: 2}
   weaponsInventory: []
   currWeaponIndex: 0
