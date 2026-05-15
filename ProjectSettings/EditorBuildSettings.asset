@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 2aebd4c21774ab5448967d5ff9f79b60
   - enabled: 1
+    path: Assets/Scenes/Level_1.unity
+    guid: 00e0f9803c2be58428b14aed0d98901e
+  - enabled: 1
     path: Assets/Scenes/Level_2.unity
     guid: b66bfcf7784bef34d84892491d9e93e4
+  - enabled: 1
+    path: Assets/Scenes/Level_3.unity
+    guid: 3c52f0a3edec289448c53b46351854b4
   - enabled: 1
     path: Assets/Scenes/Monster_Rush_02.unity
     guid: e35526d54ced04843b1c6d2d200b4b1f
