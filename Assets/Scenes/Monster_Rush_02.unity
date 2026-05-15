@@ -770,7 +770,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0000088, y: -0.5, z: -15}
+  m_LocalPosition: {x: -2.9961648, y: -0.5, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3604,10 +3604,6 @@ PrefabInstance:
     - target: {fileID: 7469649262186185874, guid: f860f6faa0c3de641be586d62fc4103c, type: 3}
       propertyPath: m_Name
       value: BlueStone
-      objectReference: {fileID: 0}
-    - target: {fileID: 7469649262186185874, guid: f860f6faa0c3de641be586d62fc4103c, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8236391566413846581, guid: f860f6faa0c3de641be586d62fc4103c, type: 3}
       propertyPath: fallPoint

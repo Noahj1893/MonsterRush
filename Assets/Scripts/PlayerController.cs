@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 5f;
     public float attackRange = 0.9f;
     public float attackForwardOffset = 0.45f;
+    public float attackUpOffset = 0.45f;
     public int attackDamage = 1;
     public float dashSpeed = 9f; // 9x speed for when the player is dashing (C key is pressed). 
     public float dashDuration = 0.25f; // 0.25 seconds of dashing. 
@@ -245,7 +246,8 @@ public class PlayerController : MonoBehaviour
     void PerformAttackHit()
     {
         // Logic to define where player's weapon will hit. 
-        Vector2 attackCenter = (Vector2)transform.position + new Vector2(facingX * attackForwardOffset, 0f);
+        Vector2 attackCenter = (Vector2)transform.position + new Vector2(facingX * attackForwardOffset, attackUpOffset);
+        //Debug.DrawLine(transform.position, attackCenter, Color.yellow, 1f);
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackCenter, attackRange);
 
         List<EnemyHealth> enemiesAttacked = new List<EnemyHealth>(); // For if a GROUP of enemies were hit at once. 

@@ -204,7 +204,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530112577664726062}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -249,8 +249,6 @@ MonoBehaviour:
   dashCooldown: 0.8
   firePos: {fileID: 4039314327489388307}
   scoreUI: {fileID: 0}
-  startingWeapon:
-  - {fileID: 2644495899422076888, guid: f172b66d8b29a9e428f0b700e93efd73, type: 3}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64

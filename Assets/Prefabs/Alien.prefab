@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.35, y: 9.25}
+  m_AnchoredPosition: {x: -0.35, y: 17.6}
   m_SizeDelta: {x: 1200, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4737966537525712012
@@ -421,7 +421,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8434263956744428239}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4, y: -3.17, z: 0}
   m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_ConstrainProportionsScale: 0
@@ -478,7 +478,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -8121803507676481597, guid: 5f98a26fc33f74134ac8d183cc618e15, type: 3}
+  m_Sprite: {fileID: 1333401826788945531, guid: a1111fcdaf9e6b54dab39e165585a713, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -571,17 +571,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 8.021788}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 15.379999, y: 13.466571}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 15.5, y: 13.5}
     newSize: {x: 15.379999, y: 13.466571}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 15.379999, y: 13.466571}
+  m_Size: {x: 15.5, y: 16.043575}
   m_EdgeRadius: 0
 --- !u!114 &2411543641259106508
 MonoBehaviour:
@@ -612,6 +612,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47ce7b7d7830ff478aea392f3fda067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PatrolEnemy
-  leftX: 0
-  rightX: 4
+  leftX: -3.75
+  rightX: -1.75
   speed: 1
