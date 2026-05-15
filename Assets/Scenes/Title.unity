@@ -562,7 +562,6 @@ RectTransform:
   - {fileID: 152886099}
   - {fileID: 437394835}
   - {fileID: 777554641}
-  - {fileID: 1571315561}
   m_Father: {fileID: 937052312}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -1892,6 +1891,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 123592865}
+  - {fileID: 1571315561}
   - {fileID: 252626462}
   - {fileID: 1431924146}
   m_Father: {fileID: 59037120}
@@ -2379,17 +2379,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571315560}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 123592865}
+  m_Father: {fileID: 937052312}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -310}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchoredPosition: {x: 400, y: -310}
+  m_SizeDelta: {x: 240, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1571315562
 MonoBehaviour:
@@ -2403,8 +2403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20e4588cebc8144db4357839680df4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoverButton
-  buttonUp: {fileID: 2809301164080485293, guid: 0854adb2745262e46bec1fd71a4426f3, type: 3}
-  buttonDown: {fileID: -8900081933239576859, guid: 0854adb2745262e46bec1fd71a4426f3, type: 3}
+  buttonUp: {fileID: -1670444416324683652, guid: de210bb5e070eb34fb72690d41d8f216, type: 3}
+  buttonDown: {fileID: -4784750003676446602, guid: de210bb5e070eb34fb72690d41d8f216, type: 3}
 --- !u!114 &1571315563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2481,7 +2481,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2809301164080485293, guid: 0854adb2745262e46bec1fd71a4426f3, type: 3}
+  m_Sprite: {fileID: -1670444416324683652, guid: de210bb5e070eb34fb72690d41d8f216, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
