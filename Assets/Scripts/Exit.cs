@@ -28,7 +28,6 @@ public class Exit : MonoBehaviour
     {
         if (canExit) return;
         int enemies = enemiesHolder.GetComponentsInChildren<EnemyHealth>().Length;
-        Debug.Log(enemies);
         if (enemies == 0) {
             canExit = true;
             sr.color = new Color(1, 1, 1, 1);

@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public float dashSpeed = 9f; // 9x speed for when the player is dashing (C key is pressed). 
     public float dashDuration = 0.25f; // 0.25 seconds of dashing. 
     public float dashCooldown = 0.8f; // 0.8 seconds of cooldown after dashing. 
+    public float crouchSpeed = 0.36f;
     [SerializeField] Transform firePos; // For the fireball's position and spin rotation. 
 
     // Player score:
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
     bool isDashing = false; // Flag to mark when the player is dashing. 
     bool canDash = true; // Flag to mark when the player can dash again. 
     bool isCrouching = false;
+    bool crouchHeld = false;
     float dashTimeLeft; // Time left for the dash. 
     float dashDirection; // Direction of the dash. 
 
@@ -145,7 +147,8 @@ public class PlayerController : MonoBehaviour
             return; // Do not continue with normal movement after the dash is over. 
         }
 
-        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
+        //handled elsewhere
+        //rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
 
         if (moveInput > 0f)
             facingX = 1f;
@@ -173,7 +176,36 @@ public class PlayerController : MonoBehaviour
 				grounded = true;
 			}
 		}
+        HandleMovement();
 	}
+    void HandleMovement()
+    {
+        //crouch if holding it
+        if(crouchHeld)
+        {
+            isCrouching = true;
+        }
+        //otherwise, continue crouching if ceiling or stop
+        else
+        {
+            isCrouching = Physics2D.OverlapCircle(ceilingCheck.position, 0.2f, whatIsGround);
+        }
+
+        float currentSpeed = speed;
+
+        if (isCrouching)
+        {
+            currentSpeed *= crouchSpeed;
+
+            crouchDisableCollider.enabled = false;
+        }
+        else
+        {
+            crouchDisableCollider.enabled = true;
+        }
+
+        rb.linearVelocity = new Vector2(moveInput * currentSpeed, rb.linearVelocity.y);
+    }
 
     public void OnMove(InputValue value)
     {
@@ -184,7 +216,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump()
     {
-        if (!grounded) return;
+        if (!grounded || isCrouching) return;
 
         grounded = false;
 
@@ -194,39 +226,11 @@ public class PlayerController : MonoBehaviour
     /**
      * Function for when player is crouching:
     **/
-    /**
-    public void OnCrouch(InputAction.CallbackContext context) // Unity searches for a function called OnCrouch() when the S key is pressed (ties to "Crouch" action in InputSystem_Actions.inputactions). 
-    {
-        if (animator == null) 
-        {
-            return; // Do nothing if the animator is not found. 
-        }
-
-        if (context.started) // When S is held down. 
-        {
-            isCrouching = true; // Set the isCrouching flag to true. 
-        }
-        
-        else if (context.canceled) // When S is released. 
-        {
-            isCrouching = false; // Set the isCrouching flag to false. 
-        }
-
-        animator.SetBool("crouching", isCrouching); // Set animator's "crouching" parameter to the value (true or false) of the isCrouching flag. 
     
-        if (isCrouching)
-        {
-            playerBoxCol.size = crouchSize; // Set the size of the player's box collider to the set crouch size. 
-            playerBoxCol.offset = new Vector2(originalOffset.x, originalOffset.y - 0.25f); // Set offset when crouching. 
-        }
-
-        else
-        {
-            playerBoxCol.size = originalBoxColSize; // Reset player box collider when crouch button (S) is released. 
-            playerBoxCol.offset = originalOffset; // Reset offset when crouch button is released. 
-        }
+    public void OnCrouch(InputValue value)
+    {
+        crouchHeld = value.Get<float>() > 0.5f;
     }
-    **/
 
     public void OnAttack()
     {
