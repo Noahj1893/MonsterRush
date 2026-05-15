@@ -1,4 +1,5 @@
 // Ethan Le (5/4/2026):
+using System.Collections; 
 using UnityEngine; 
 
 /** 
@@ -19,6 +20,16 @@ public class Fireball : MonoBehaviour
     {
         // Move the launched fireball in the specified direction. 
         transform.Translate(Vector2.right * direction * launchSpeed * Time.deltaTime, Space.World); 
+
+        // Begin coroutine for fireball existence onscreen:
+        StartCoroutine(OnScreen()); 
+    }
+
+    IEnumerator OnScreen()
+    {
+        yield return new WaitForSeconds(3f); // Wait for 3 seconds. 
+
+        Destroy(gameObject); // Then automatically destroy the fireball if it has not contacted an enemy. 
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -38,7 +49,7 @@ public class Fireball : MonoBehaviour
             enemy.TakeHit(dmg); // Call function in EnemyHealth.cs class to perform the damage output. 
             enemy.ApplyBurn(burnTime); // Burn the enemy for specified length. 
 
-            Destroy (gameObject); // Get rid of the fireball visual once enemy has been hi. 
+            Destroy(gameObject); // Get rid of the fireball visual once enemy has been hi. 
         }
     }
 }
