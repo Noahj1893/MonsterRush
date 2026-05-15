@@ -248,6 +248,7 @@ MonoBehaviour:
   dashSpeed: 9
   dashDuration: 0.25
   dashCooldown: 0.8
+  crouchSpeed: 0.36
   firePos: {fileID: 4039314327489388307}
   scoreUI: {fileID: 0}
   whatIsGround:

@@ -4,17 +4,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro; 
 
 public class Exit : MonoBehaviour
 {
     bool hasExited = false; 
     bool canExit = false;
     SpriteRenderer sr;
-    Sprite openDoor;
+    public Sprite openDoor;
     public GameObject enemiesHolder;
     public GameObject storyUI; // Assign GameObject for Story UI via Unity Inspector. 
     [SerializeField] private string[] storyLines;
     [SerializeField] private StoryController storyController;
+    [SerializeField] private TextMeshProUGUI enemiesLeftText;  
 
     void Awake()
     {
@@ -28,18 +30,33 @@ public class Exit : MonoBehaviour
     {
         if (canExit) return;
         int enemies = enemiesHolder.GetComponentsInChildren<EnemyHealth>().Length;
+        enemiesLeftText.text = "Enemies Left: " + enemies;
         if (enemies == 0) {
             canExit = true;
-            sr.color = new Color(1, 1, 1, 1);
+            sr.sprite = openDoor;
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !hasExited && canExit) 
+        if (collision.CompareTag("Player") && !hasExited) 
         {
-            hasExited = true; 
-            ExitLevel();
+            if(canExit)
+            {
+                hasExited = true; 
+                ExitLevel();
+            }
+            else
+            {
+                enemiesLeftText.gameObject.SetActive(true);
+            }
+        }
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        {
+            enemiesLeftText.gameObject.SetActive(false);
         }
     }
 
