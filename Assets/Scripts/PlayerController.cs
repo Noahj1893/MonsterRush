@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Transform ceilingCheck;							// A position marking where to check for ceilings
 	[SerializeField] private Collider2D crouchDisableCollider;				// A collider that will be disabled when crouching
 
+    [SerializeField] AudioClip jumpSound;
+    [SerializeField] AudioClip swordSound;
     bool isDashing = false; // Flag to mark when the player is dashing. 
     bool canDash = true; // Flag to mark when the player can dash again. 
     bool isCrouching = false;
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
    Rigidbody2D rb;
    Animator animator;
+   AudioSource aud;
    float moveInput;
    float verticalInput;
    bool grounded;
@@ -58,6 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        aud = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -221,6 +225,7 @@ public class PlayerController : MonoBehaviour
         grounded = false;
 
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        aud.PlayOneShot(jumpSound);
     }
 
     /**
@@ -425,6 +430,7 @@ public class PlayerController : MonoBehaviour
         switch (weaponType)
         {
             case Weapon.WeaponAnimType.Sword:
+                aud.PlayOneShot(swordSound);
                 animator.SetTrigger("sword_attack");
                 break; 
             case Weapon.WeaponAnimType.FireWand:

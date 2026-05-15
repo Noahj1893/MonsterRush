@@ -41,6 +41,7 @@ public class EnemyFireball : MonoBehaviour
             int dmg = 1; // Base damage of a fireball. 
 
             player.TakeHit(Vector2.zero, dmg);
+            Destroy(gameObject);
         }
     }
 }
