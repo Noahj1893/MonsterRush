@@ -608,7 +608,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.9961648, y: -0.5, z: -15}
+  m_LocalPosition: {x: -3, y: -0.5, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1616,63 +1616,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2012362945
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2308246900996028120, guid: 6d4f559f2cbcb674e860d32f14900c56, type: 3}
-      propertyPath: m_Name
-      value: PickupIceHammer
-      objectReference: {fileID: 0}
-    - target: {fileID: 6914014245719632940, guid: 6d4f559f2cbcb674e860d32f14900c56, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 6914014245719632940, guid: 6d4f559f2cbcb674e860d32f14900c56, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 6914014245719632940, guid: 6d4f559f2cbcb674e860d32f14900c56, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6914014245719632940, guid: 6d4f559f2cbcb674e860d32f14900c56, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6914014245719632940, guid: 6d4f559f2cbcb674e860d32f14900c56, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6914014245719632940, guid: 6d4f559f2cbcb674e860d32f14900c56, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6914014245719632940, guid: 6d4f559f2cbcb674e860d32f14900c56, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6914014245719632940, guid: 6d4f559f2cbcb674e860d32f14900c56, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6914014245719632940, guid: 6d4f559f2cbcb674e860d32f14900c56, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6914014245719632940, guid: 6d4f559f2cbcb674e860d32f14900c56, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6d4f559f2cbcb674e860d32f14900c56, type: 3}
 --- !u!1 &2038228633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,6 +1751,42 @@ PrefabInstance:
       propertyPath: storyController
       value: 
       objectReference: {fileID: 765216405}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: storyLines.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[0]'
+      value: '"So... Fern, is it? What made you decide to come back and rescue us?"
+        - Erica.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[1]'
+      value: '"Well, it was MY idea to come back! You know, to save you." - Brad.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[2]'
+      value: AHEM. To be honest, it made me sick to my stomach to see our kind being
+        forced into this ritual.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[3]'
+      value: '"It makes ALL of us sick, Fern. But you are aware of the consequence
+        of disobeying, right?" - Erica.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[4]'
+      value: I know. I assume that was why no one defied the practice for so long.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[5]'
+      value: '"Dude, I am SCARED of what is going to happen if you lose to the king!"
+        - Brad.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[6]'
+      value: Me too. That is why we cannot fail.
+      objectReference: {fileID: 0}
     - target: {fileID: 4788537577470390567, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: m_Name
       value: ExitDoor
@@ -1962,7 +1941,6 @@ SceneRoots:
   - {fileID: 1831586164}
   - {fileID: 611243297889111774}
   - {fileID: 786059744}
-  - {fileID: 2012362945}
   - {fileID: 687848656}
   - {fileID: 2038228636}
   - {fileID: 1105165321}

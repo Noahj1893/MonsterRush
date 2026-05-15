@@ -554,7 +554,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.9955673, y: -0.5, z: -15}
+  m_LocalPosition: {x: -3, y: -0.5, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1467,6 +1467,55 @@ PrefabInstance:
       propertyPath: storyController
       value: 
       objectReference: {fileID: 765216405}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: storyLines.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[0]'
+      value: '"Hey. Thanks for picking me up. I''m Erica. Oh, it''s him." - Erica.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[1]'
+      value: '"Erica!! Thank the cave spirits you are alive! Oh, I was so swordy--
+        I MEAN, worried!" - Brad.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[2]'
+      value: '"What, after the way you treated me? *Scoff* A slap in my face, for
+        sure." - Erica.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[3]'
+      value: Alright, what is the deal between you two?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[4]'
+      value: '"Don''t bother. This sorry excuse for a boyfriend kissed some girl
+        at a strip club, then he dumped me the next day... right before the ritual."
+        - Erica.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[5]'
+      value: '"I panicked! I thought we were all going to die after the ritual or
+        something! So, my mind kinda just fuzzied up!!" - Brad.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[6]'
+      value: '"Wow, that was a lame excuse. You just dug yourself deeper into the
+        hole. Who''s to say you won''t cheat again if another bad thing happens?"
+        - Erica.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[7]'
+      value: Let's settle this later, everyone. We need to stop any more of these
+        rituals once and for all. We can bicker about this matter later. (I will
+        say that Erica is right though.)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[8]'
+      value: '"What''d you just say, Fern????" - Brad.'
+      objectReference: {fileID: 0}
     - target: {fileID: 4788537577470390567, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: m_Name
       value: ExitDoor (1)

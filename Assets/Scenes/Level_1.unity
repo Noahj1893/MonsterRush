@@ -471,11 +471,42 @@ PrefabInstance:
       objectReference: {fileID: 963142761}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: storyLines.Array.size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[0]'
-      value: Who's Wu
+      value: '"I see something up ahead!" - Brad.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[1]'
+      value: I forgot Brad can talk. It is so different when you look at an inanimate
+        object versus a living creature.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[2]'
+      value: '"Hey hey hey!! It''s another weapon! I think I recognize her! Please
+        please please, pick her up!" - Brad.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[3]'
+      value: So there are more... this is truly disgusting. Looks like I'll be finding
+        more of them as I make my way through.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[4]'
+      value: '"L-L-Look, Fern. She''s kinda my ex, but like, I am still madly in
+        love with her! So please, let me have another chance to make it up to her!"
+        - Brad.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[5]'
+      value: '"She''s kinda <b><u>freezes people up</b></u> when <b><u>they first
+        talk to her</b></u>, but they feel fine again after <b><u>two seconds</b></u>
+        or so!!" - Brad.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[6]'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4788537577470390567, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: m_Name
@@ -773,7 +804,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0034118, y: -0.5, z: -15}
+  m_LocalPosition: {x: -3, y: 0, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1388,6 +1419,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2961340954190635816, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.906128
+      objectReference: {fileID: 0}
     - target: {fileID: 5610065910978620671, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1438,7 +1473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9174209560922216041, guid: 0c77bc58feaae054e88d3e9c3916ab95, type: 3}
       propertyPath: m_fontSize
-      value: 45.5
+      value: 72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1532,7 +1567,17 @@ MonoBehaviour:
   enemiesHolder: {fileID: 0}
   storyUI: {fileID: 963142763}
   storyLines:
-  - Who's Wu
+  - '"I see something up ahead!" - Brad.'
+  - I forgot Brad can talk. It is so different when you look at an inanimate object
+    versus a living creature.
+  - '"Hey hey hey!! It''s another weapon! I think I recognize her! Please please
+    please, pick her up!" - Brad.'
+  - So there are more... this is truly disgusting. Looks like I'll be finding more
+    of them as I make my way through.
+  - '"L-l-look, Fern. She''s kinda my ex, but like, I am still madly in love with
+    her! So please, let me have another chance to make it up to her!" - Brad.'
+  - '"She''s kinda <b>cold</b> when <b>anyone first meets her</b>, but you feel fine
+    again after <b>two seconds</b> or so!!" - Brad.'
   storyController: {fileID: 963142761}
 --- !u!61 &1502274169
 BoxCollider2D:

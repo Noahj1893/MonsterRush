@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class MenuScript : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class MenuScript : MonoBehaviour
     [SerializeField] GameObject settingsPanel;
     [SerializeField] GameObject scoreboardPanel; 
     [SerializeField] AudioSource audioSource;
+    [SerializeField] private string[] storyLines; // For pre-level 1 narration. 
+    [SerializeField] private StoryController storyController; // For pre-level 1 narration.
 
     public void ShowMenu()
     {
@@ -43,8 +46,26 @@ public class MenuScript : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         if(level < UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings)
-        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(level);
-        else Debug.LogError("Level " + level + " not found in build settings.");
+        {
+            if (level > 1) // No beginning narration if it is not level 1. 
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(level);
+            }
+
+            else // If level 1, play beginning narration before loading Level 1. 
+            {
+                storyController.BeginStory(
+                    storyLines,
+                    level >= SceneManager.sceneCountInBuildSettings,
+                    level
+                );
+            }
+        }
+        
+        else 
+        {
+            Debug.LogError("Level " + level + " not found in build settings.");
+        }
     }
     public void ShowScoreboard()
     {
