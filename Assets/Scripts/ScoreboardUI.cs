@@ -15,37 +15,32 @@ public class ScoreboardUI : MonoBehaviour
     public TextMeshProUGUI scoreText; 
 
     /** 
-     * Function to display the top 5 Scores for each level in the Scoreboard Page:
+     * Function to display the top score for each level in the Scoreboard Page:
     **/
     public void displayHighScores()
     {
         var playerData = GameManager.Instance.playerData; // Get Global Instance of playerData. 
 
-        StringBuilder newString = new StringBuilder(); // To append each of the top 5 scores into for display. 
-
-        int i = 0; // Keeps track of how many pairs for each level we have already added to the display. 
+        StringBuilder newString = new StringBuilder(); // To append each level's of the top score into for display. 
 
         // Loop through each Key-Value pair in the Sorted Dictionary starting with the last one (the highest): 
         foreach (var pair in playerData)
         {
-            foreach (var score in pair.Value) // Get each score in the level's Sorted Set. 
-            {
-                if (i < 5) // Add the level number and its top 5 corresponding scores to the UI:
-                {
-                    newString.AppendLine("Level: " + pair.Key + "    |    " + "Score: " + score + "\n"); 
-                    i++; 
-                }
+            var level = pair.Key; // Outer Key. 
+            var levelRecords = pair.Value; // Sorted Dictionary of the level (Inner Key = Score, Inner Value = Death Count)
 
-                else // If 5 scores already have been added, reset the tracker and break out of the loop. 
-                {
-                    newString.AppendLine("\n"); // Extra newline to space out the different levels. 
-                    i = 0; 
-                    break; 
-                }
+            if (levelRecords.Count == 0) // If no records exist for this level, skip and go onto next level. 
+            {
+                continue; 
             }
+
+            int topScore = levelRecords.Keys.Max(); // Grab the highest Score (Inner Key) of the level (Outer Key). 
+            int totalDeaths = levelRecords[topScore]; // Value of the Inner Key.
+
+            newString.AppendLine("Level: " + level + "    |    " + "Score: " + topScore + "    |    " + "Death Count: " + totalDeaths + "\n"); 
         }
 
-        if (scoreText != null) // Safety check to ensure we have the TMPro component for displaying the top 5 scores and their death counts.  
+        if (scoreText != null) // Safety check to ensure we have the TMPro component for displaying the top scores and death counts.  
         {
             scoreText.text = newString.ToString(); // Set the newly built string to be displayed. 
         }

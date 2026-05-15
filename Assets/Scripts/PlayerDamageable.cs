@@ -58,7 +58,6 @@ public class PlayerDamageable : MonoBehaviour
 
         if (currentHealth <= 0 && fallRespawn != null)
         {
-            GameManager.Instance.score = 0; // Reset score to 0 upon dying. 
             StartCoroutine(DeathThenRespawnRoutine());
             return;
         }
@@ -66,9 +65,6 @@ public class PlayerDamageable : MonoBehaviour
 
     IEnumerator DeathThenRespawnRoutine()
     {
-        ResetHealth(); // Call function to reset UI to display full HP after dying. 
-        scoreUI.UpdateUI(GameManager.Instance.score); // Reset Score UI. 
-
         deathRoutineRunning = true;
 
         if (playerController != null)
@@ -136,9 +132,17 @@ public class PlayerDamageable : MonoBehaviour
         deathRoutineRunning = false;
     }
 
-    // Reset UI to display full HP after dying:
+    // Reset UI to display full HP after dying, reset player score, and increment death count:
     public void ResetHealth()
     {
+        // Reset player score to 0:
+        GameManager.Instance.score = 0; // Reset score to 0 upon dying. 
+
+        // Increment player death count:
+        GameManager.Instance.deathCount++; // Add 1 to death count. 
+
+        scoreUI.UpdateUI(GameManager.Instance.score, GameManager.Instance.deathCount); // Update Score and Death Count UI. 
+
         currentHealth = maxHealth; 
         OnHealthChanged?.Invoke(currentHealth, maxHealth); 
     }

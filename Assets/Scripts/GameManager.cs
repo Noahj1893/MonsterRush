@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public int score;
+    public int deathCount; 
 
-    public SortedDictionary<int, SortedSet<int>> playerData = new SortedDictionary<int, SortedSet<int>>(); // For player's top 5 scores for each level in the game.  
+    public SortedDictionary<int, SortedDictionary<int, int>> playerData = new SortedDictionary<int, SortedDictionary<int, int>>(); // For player's top score and death count for each level in the game.
 
     // Weapon variables:
     [SerializeField] Weapon[] startingWeapon; // Temporary array to always store player's starting weapon (the Sword) in the backend.

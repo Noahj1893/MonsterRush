@@ -53,7 +53,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHP <= 0)
         {
             GameManager.Instance.score += 10; 
-            scoreUI.UpdateUI(GameManager.Instance.score);  
+            scoreUI.UpdateUI(GameManager.Instance.score, GameManager.Instance.deathCount);  
             gameObject.SetActive(false);
         }
     }

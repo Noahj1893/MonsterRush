@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         gameManager = GameManager.Instance; 
         gameManager.score = 0; // Reset backend score after finishing the level. 
+        gameManager.deathCount = 0; // Reset backend death count after finishing the level. 
         facingX = Mathf.Sign(transform.localScale.x);
         if (facingX == 0f) facingX = 1f;
 

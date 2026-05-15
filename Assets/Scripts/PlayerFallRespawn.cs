@@ -47,9 +47,6 @@ public class PlayerFallRespawn : MonoBehaviour
             damageable.ResetHealth(); 
         }
 
-        GameManager.Instance.score = 0; // Reset score upon player death. 
-        scoreUI.UpdateUI(GameManager.Instance.score); // Reset Score UI. 
-
         Vector3 pos = respawnPoint != null ? respawnPoint.position : spawnPosition;
         transform.position = pos;
         rb.linearVelocity = Vector2.zero;

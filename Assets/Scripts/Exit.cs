@@ -51,11 +51,11 @@ public class Exit : MonoBehaviour
         // Write brand new data for the level if player had not completed the level prior:
         if (!GameManager.Instance.playerData.ContainsKey(levelNumber))
         {
-            GameManager.Instance.playerData[levelNumber] = new SortedSet<int>(); // Create new Sorted Set for the level (holds all scores for that level). 
+            GameManager.Instance.playerData[levelNumber] = new SortedDictionary<int, int>(); // Create new Sorted Dictionary for the level (Key=Score, Value=Death Count). 
         }
 
-        // Use level number and set player's new score for that level into the Sorted Dictionary player's data.
-        GameManager.Instance.playerData[levelNumber].Add(GameManager.Instance.score); 
+        // Use level number and set player's new score and death count for that level into the Sorted Dictionary player's data.
+        GameManager.Instance.playerData[levelNumber].Add(GameManager.Instance.score, GameManager.Instance.deathCount); 
 
         // Exit the level
         Debug.Log(levelNumber);
