@@ -3,17 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Exit : MonoBehaviour
 {
     bool hasExited = false; 
+    bool canExit = false;
+    SpriteRenderer sr;
+    Sprite openDoor;
+    public GameObject enemiesHolder;
     public GameObject storyUI; // Assign GameObject for Story UI via Unity Inspector. 
     [SerializeField] private string[] storyLines;
     [SerializeField] private StoryController storyController;
 
+    void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>();
+        if(enemiesHolder == null)
+        {
+            enemiesHolder = GameObject.Find("Enemies");
+        }
+    }
+    void Update()
+    {
+        if (canExit) return;
+        int enemies = enemiesHolder.GetComponentsInChildren<EnemyHealth>().Length;
+        Debug.Log(enemies);
+        if (enemies == 0) {
+            canExit = true;
+            sr.color = new Color(1, 1, 1, 1);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !hasExited) 
+        if (collision.CompareTag("Player") && !hasExited && canExit) 
         {
             hasExited = true; 
             ExitLevel();
