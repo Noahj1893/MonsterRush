@@ -1215,55 +1215,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[0]'
-      value: '"How DARE you defy our sacred tradition, you no-good traitor!!" - ????'
+      value: '"How DARE you defy our sacred tradition, you no-good traitor!!" ????
+        exclaimed.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[1]'
-      value: Sorry, what did I just pick up?
+      value: I blurted out, "Sorry, what did I just pick up?"
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[2]'
       value: '"''What did I just pick up?'' How rude. Don''t refer to me as a mere
         object! That makes TWO offenses you have committed. I won''t be surprised
-        if you commit a third." - ????'
+        if you commit a third."'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[3]'
-      value: ... Charles? Is that you?
+      value: '"... Charles? Is that you?"'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[4]'
       value: '"Nuh uh, we are no longer acquaintances on any accounts! Ever since
         you left Drintell Empire and defied our tradition, you have no right to regard
-        me as if you know me, you scumbag." - Charles.'
+        me as if you know me, you scumbag." Charles snapped.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[5]'
-      value: Charles, you cannot be so deep into worshipping the empire like this,
-        can you?
+      value: '"Charles, you cannot be so deep into worshipping the empire like this,
+        can you?"'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[6]'
-      value: '"Of course I can, because I am LOYAL unlike you, traitor." - Charles.'
+      value: '"Of course I can, because I am LOYAL unlike you, traitor."'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[7]'
-      value: Charles, I get it. You want to have a place in the world...
+      value: '"Charles, I get it. You want to have a place in the world..."'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[8]'
       value: '"Shut up! I am where I belong now, serving my king and obeying his
-        every wish, following every rule, EVERY TRADITION." - Charles.'
+        every wish, following every rule, EVERY TRADITION."'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[9]'
-      value: Well, you don't really have a choice, because you're currently serving
-        me as a healing shield.
+      value: '"Well, you don''t really have a choice, because you''re currently serving
+        me as a healing shield." I pointed out.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[10]'
-      value: So you are going to help us, regardless of what you say. Now let's get
-        going.
+      value: '"So you are going to help us, regardless of what you say. Now let''s
+        get going." I finished.'
       objectReference: {fileID: 0}
     - target: {fileID: 4788537577470390567, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: m_Name

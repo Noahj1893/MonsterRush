@@ -479,7 +479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[0]'
-      value: '"I see something up ahead!" - Brad.'
+      value: '"I see something up ahead!" Brad pointed out.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[1]'
@@ -489,7 +489,7 @@ PrefabInstance:
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[2]'
       value: '"Hey hey hey!! It''s another weapon! I think I recognize her! Please
-        please please, pick her up!" - Brad.'
+        please please, pick her up!" Brad begged.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[3]'
@@ -499,14 +499,13 @@ PrefabInstance:
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[4]'
       value: '"L-L-Look, Fern. She''s kinda my ex, but like, I am still madly in
-        love with her! So please, let me have another chance to make it up to her!"
-        - Brad.'
+        love with her! So please, let me have another chance to make it up to her!"'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[5]'
       value: '"She''s kinda <b><u>freezes people up</b></u> when <b><u>they first
         talk to her</b></u>, but they feel fine again after <b><u>two seconds</b></u>
-        or so!!" - Brad.'
+        or so!!"'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[6]'

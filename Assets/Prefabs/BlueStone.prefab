@@ -512,9 +512,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHP: 2
   currentHP: 2
-  enemyType: 0
+  enemyType: 2
   hpText: {fileID: 3100936196814072008}
   hpBar: {fileID: 4641586933775287069}
+  isBoss: 0
+  animator: {fileID: 0}
 --- !u!1 &8556556673220360442
 GameObject:
   m_ObjectHideFlags: 0

@@ -417,7 +417,7 @@ MonoBehaviour:
   scoreboardPanel: {fileID: 1431924145}
   audioSource: {fileID: 59037122}
   storyLines:
-  - My name is Fern.\n\n*Press Space or Left Mouse Click to continue*
+  - 'My name is Fern.\n\n[Press Space or Left Mouse Click to continue]'
   - I am a part of a cult...
   - Or at least, I used to be...
   - 'Until I got exiled. '

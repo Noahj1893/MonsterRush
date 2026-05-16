@@ -721,7 +721,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.002635, y: -0.5, z: -15}
+  m_LocalPosition: {x: -3, y: -0.5, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2045,35 +2045,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[0]'
-      value: '"So... Fern, is it? What made you decide to come back?" - Erica.'
+      value: '"So... Fern, is it? What made you decide to come back?" Erica asked.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[1]'
       value: '"Well, it was MY idea to come back! You know, because I want to see
-        you." - Brad.'
+        you." Brad jumped in.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[2]'
-      value: AHEM. To be honest, it made me sick seeing what the tradition is all
-        about.
+      value: '"AHEM. To be honest, it made me sick seeing what the tradition is all
+        about." I answered.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[3]'
       value: '"It makes ALL of us sick, Fern. But you are aware of the consequence
-        of disobeying, right?" - Erica.'
+        of disobeying, right?" Erica queried, concerned.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[4]'
-      value: I know. I assume that was why no one defied the practice for so long.
+      value: '"I know. I assume that was why no one defied the practice for so long."
+        I responded.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[5]'
       value: '"Dude, I am SCARED of what is going to happen if you lose to the king!"
-        - Brad.'
+        Brad exclaimed, terrified.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[6]'
-      value: Me too. That is why we cannot fail.
+      value: '"Me too. That is why we cannot fail." I replied.'
       objectReference: {fileID: 0}
     - target: {fileID: 4788537577470390567, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: m_Name

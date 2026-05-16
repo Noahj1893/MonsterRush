@@ -120,12 +120,12 @@ public class EnemyHealth : MonoBehaviour
         int dmg = 1; // 1 burn damage per second. 
 
         while (burningTimer < burnTime) // While enemy is still burning, 
-        {
-            TakeHit(dmg); // Damage the enemy. 
-            
+        {   
             yield return new WaitForSeconds(1f); // Pause at this line of code for 1 second before continuing (1 second before taking another HP away from enemy). 
 
             burningTimer += 1f; // Burn time increments (otherwise, enemy burns indefinitely). 
+
+            TakeHit(dmg); // Damage the enemy. 
         }
 
         isBurning = false; // Set enemy flag to unburn after burn time is up. 
@@ -151,6 +151,12 @@ public class EnemyHealth : MonoBehaviour
         if (ghostChaser != null)
         {
             ghostChaser.enabled = false; // Freeze enemy. 
+        }
+
+        var boss = GetComponent<Boss>(); // Get boss enemy if it exists.
+        if (boss != null)
+        {
+            boss.enabled = false; // Freeze enemy. 
         }
     }
 

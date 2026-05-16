@@ -645,7 +645,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.953961, y: -0.48233008, z: -15}
+  m_LocalPosition: {x: -2.95792, y: -0.4823401, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -911,19 +911,124 @@ PrefabInstance:
       objectReference: {fileID: 765216406}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: storyLines.Array.size
-      value: 2
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[0]'
-      value: It feels like it's getting warmer
+      value: It feels like it's getting warmer.
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[1]'
-      value: We're reaching the leaders nest
+      value: We're reaching the king's nest.
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[2]'
-      value: Uhhhh...
+      value: And... maybe it's also because of the Fire Wand I had just picked up.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[3]'
+      value: '"What lies ahead of you is a being so despicable that no underling
+        has ever dared to defy, young one." Wendy, the Fire Wand, advised.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[4]'
+      value: I am NOT an underling, though. I am no longer a part of this wretched
+        empire, and I will finish what I have started.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[5]'
+      value: We all finally entered the room to meet the king himself, and my goodness,
+        he looks more disgusting than I remember.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[6]'
+      value: '"Never thought to see your puny face again. A brave lad you are." King
+        ???? mocked.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[7]'
+      value: '"Did you come back to kiss my feet and beg for forgiveness? Or are
+        you here to meet the consequence of your defiance to our tradition?" King
+        ???? asked.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[8]'
+      value: '"King Flint. Like I would ever kiss up to you after what I''ve seen
+        you do to our kind." I answered bravely.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[9]'
+      value: '"War is all about sacrifice, Fern. The only way we survive is to make
+        use of our resources." King Flint stated.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[10]'
+      value: '"You should be grateful... ALL of you should be grateful that you retain
+        consciousness as a weapon." King Flint continued.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[11]'
+      value: '"But disabling control over their own bodies? The only thing they can
+        do is verbalize their thoughts. They have no true free will!" I replied.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[12]'
+      value: '"Being turned into a weapon gives them a better purpose than their
+        creature forms ever could. You have a spine for coming at me like this."
+        King Flint hissed.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[13]'
+      value: '"You are aware of the consequence of defying this practice when it
+        is your turn, yes?" King Flint questioned.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[14]'
+      value: '"I am. Shall the defier be killed by the king, they become a part of
+        the king''s body himself." I answered.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[15]'
+      value: '"And you will be driven mad from watching me turn more of our kind
+        into weapons." King Flint added.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[16]'
+      value: '"Knowing your weak little heart, you cannot bear the guilt you''ll
+        feel when you are forced to witness it in a body you cannot control." King
+        Flint pressed.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[17]'
+      value: '"I ask you once, precious soul: are you certain in your resolve to
+        take on the king himself?" Wendy cautioned.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[18]'
+      value: '"I am. I will not let this go on any further." I said determined.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[19]'
+      value: '"Then we''ve got your back, Fern!! To the end!! YEAH!" Brad excitedly
+        blurted.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[20]'
+      value: '"Don''t let this monster kill you, Fern. Don''t lose." Erica stated
+        calmly.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[21]'
+      value: '"I can''t believe I am forced to help a traitor! KING! I AM SO SORRY!"
+        Charles cried.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[22]'
+      value: '"Then let my fiery passion guide you to victory." Wendy said.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[23]'
+      value: '"So be it. Come at me!!" King Flint stated as he lunged at us.'
       objectReference: {fileID: 0}
     - target: {fileID: 4788537577470390567, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: m_Name
@@ -1561,6 +1666,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5179611386259965454, guid: 0c41e8b5c52768c438feb15de8a24d85, type: 3}
   m_PrefabInstance: {fileID: 1229328333}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1397775443
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5925284001079997631, guid: 02217ce1385231d4a8d9e065ecc7e213, type: 3}
+      propertyPath: m_Name
+      value: PickupFireWand
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841553311282204525, guid: 02217ce1385231d4a8d9e065ecc7e213, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.938962
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841553311282204525, guid: 02217ce1385231d4a8d9e065ecc7e213, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.399557
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841553311282204525, guid: 02217ce1385231d4a8d9e065ecc7e213, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841553311282204525, guid: 02217ce1385231d4a8d9e065ecc7e213, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841553311282204525, guid: 02217ce1385231d4a8d9e065ecc7e213, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841553311282204525, guid: 02217ce1385231d4a8d9e065ecc7e213, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841553311282204525, guid: 02217ce1385231d4a8d9e065ecc7e213, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841553311282204525, guid: 02217ce1385231d4a8d9e065ecc7e213, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841553311282204525, guid: 02217ce1385231d4a8d9e065ecc7e213, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841553311282204525, guid: 02217ce1385231d4a8d9e065ecc7e213, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 02217ce1385231d4a8d9e065ecc7e213, type: 3}
 --- !u!4 &1448283068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6732931677983970686, guid: 4718555f6ef68104cb46d55607ec4ff4, type: 3}
@@ -2195,3 +2357,4 @@ SceneRoots:
   - {fileID: 687848656}
   - {fileID: 2038228636}
   - {fileID: 1105165321}
+  - {fileID: 1397775443}

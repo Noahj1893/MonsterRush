@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: currentHP
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2411543641259106508, guid: 70a08b3cfc90fc845997ad92b385d7f5, type: 3}
+      propertyPath: enemyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2728651586824961102, guid: 70a08b3cfc90fc845997ad92b385d7f5, type: 3}
       propertyPath: m_Layer
       value: 7

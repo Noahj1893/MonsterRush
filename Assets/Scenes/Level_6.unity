@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHP: 25
   currentHP: 1
-  enemyType: 0
+  enemyType: 1
   hpText: {fileID: 196743138}
   hpBar: {fileID: 1054587472}
   isBoss: 1
@@ -870,7 +870,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.9605894, y: -0.48688006, z: -15}
+  m_LocalPosition: {x: -2.9579735, y: -0.48688006, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1262,23 +1262,113 @@ PrefabInstance:
       objectReference: {fileID: 765216406}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: storyLines.Array.size
-      value: 4
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[0]'
-      value: We ended it all
+      value: It is done.
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[1]'
-      value: The ritual that turned us to weapons
+      value: This awful tradition of stripping our free will. It is over.
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[2]'
-      value: I wonder why they did it?
+      value: All of the friends I gathered in my quest have transformed back into
+        their creature forms.
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[3]'
-      value: Maybe for the rush, the...
+      value: However, the weapon forms they previously were remained as inanimate
+        objects, free for me to use at any time.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[4]'
+      value: '"Great work, green guy. Looks like this is where we all part ways."
+        Erica stated.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[5]'
+      value: '"ALL of us? You don''t mean you and I are parting ways too, right?!"
+        Brad asked in panic.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[6]'
+      value: '"Of course I mean that too, you idiot. Listen. The next time you get
+        into a serious relationship, don''t go cheating on them." Erica answered.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[7]'
+      value: '"And don''t go making the excuse that your brain wasn''t in the right
+        place. It proves you are not ready for serious commitment." Erica pointed
+        out.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[8]'
+      value: With that, we watched Erica walk into the distance.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[9]'
+      value: '"I am free to go back to guiding the young ones to a better future.
+        Many blessings to you on your future endeavors, green one." Wendy said.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[10]'
+      value: Wendy too made her departure. I turned to Charles, who had been kneeling
+        on the ground in sorrow.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[11]'
+      value: '"... Charles? Are you okay?" I asked.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[12]'
+      value: '"You got rid of the one place where I belonged... how can I possibly
+        be okay?!?!" Charles exclaimed.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[13]'
+      value: '"Your sense of belonging is not tied to a specific place, Charles.
+        It is tied to the way you carry yourself." I said.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[14]'
+      value: '"I don''t know who I am, though!! I... I need to take some time to
+        discover myself..." Charles replied.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[15]'
+      value: '"However long it takes, old friend. Know that you''ll always have a
+        place by my side." I concluded.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[16]'
+      value: Charles walked off. The only weapon... I mean, person... left with me
+        is Brad.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[17]'
+      value: '"Erica is right, Brad. You''re not ready for serious commitment yet."
+        I told Brad.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[18]'
+      value: '"I know... I guess it''s time for me to learn." Brad stated sadly.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[19]'
+      value: '"Why don''t you tag along with me? Maybe you aren''t a committed boyfriend
+        today, but I can help you start by teaching you how to be a committed friend."
+        I offered.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[20]'
+      value: '"That would be swell, Fern!! What are we waiting for?!?!" Brad said
+        eagerly.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
+      propertyPath: 'storyLines.Array.data[21]'
+      value: And thus was the end of...
       objectReference: {fileID: 0}
     - target: {fileID: 4788537577470390567, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: m_Name
