@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public EnemyType enemyType; // Get the enemy type. 
     [SerializeField] TextMeshProUGUI hpText; // For Enemy HP text display.
     [SerializeField] Image hpBar; // For Enemy HP bar display. 
+    [SerializeField] TextMeshProUGUI statusEffectText; // For enemy's status effect ("frozen", "burning"). 
     [SerializeField] bool isBoss = false;
     [SerializeField] Animator animator;
 
@@ -39,6 +40,11 @@ public class EnemyHealth : MonoBehaviour
         if (hpBar == null)
         {
             Debug.Log("HP bar not retrieved!");
+        }
+
+        if (statusEffectText == null)
+        {
+            Debug.Log("Status Effect text not retrieved!"); 
         }
 
         currentHP = maxHP; // Enemy has full health. 
@@ -93,11 +99,13 @@ public class EnemyHealth : MonoBehaviour
     IEnumerator FreezeRoutine(float freezeDuration)
     {
         isFrozen = true; // Set enemy flag to frozen. 
+        statusEffectText.text = "Frozen!"; 
         DisableMovement(); // Pause the enemy in place. 
 
         yield return new WaitForSeconds(freezeDuration); // Pause at this line of code for specified duration before continuing. 
 
         EnableMovement(); // Allow enemy to move again. 
+        statusEffectText.text = ""; 
         isFrozen = false; // Set enemy flag to unfrozen. 
     }
 
@@ -115,6 +123,8 @@ public class EnemyHealth : MonoBehaviour
     {
         isBurning = true; // Set the enemy flag to burning. 
 
+        statusEffectText.text = "Burning!"; 
+
         float burningTimer = 0f; // Timer to track burning. 
 
         int dmg = 1; // 1 burn damage per second. 
@@ -127,6 +137,8 @@ public class EnemyHealth : MonoBehaviour
 
             TakeHit(dmg); // Damage the enemy. 
         }
+
+        statusEffectText.text = ""; 
 
         isBurning = false; // Set enemy flag to unburn after burn time is up. 
     }
