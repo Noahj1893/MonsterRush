@@ -1267,7 +1267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[0]'
-      value: It is done.
+      value: 'It is done.\n\n[Press X key to continue]'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[1]'
@@ -1324,13 +1324,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[12]'
-      value: '"You got rid of the one place where I belonged... how can I possibly
-        be okay?!?!" Charles exclaimed.'
+      value: '"You got rid of the one person who made me feel like I belonged...
+        how can I possibly be okay?!?!" Charles exclaimed.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[13]'
-      value: '"Your sense of belonging is not tied to a specific place, Charles.
-        It is tied to the way you carry yourself." I said.'
+      value: '"Your sense of belonging is not tied to a specific person, Charles.
+        It is tied to the way you carry yourself, to who you are." I said.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[14]'

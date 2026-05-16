@@ -9,6 +9,7 @@ public class MenuScript : MonoBehaviour
     [SerializeField] GameObject levelsPanel;
     [SerializeField] GameObject settingsPanel;
     [SerializeField] GameObject scoreboardPanel; 
+    [SerializeField] GameObject creditsPanel;
     [SerializeField] AudioSource audioSource;
     [SerializeField] private string[] storyLines; // For pre-level 1 narration. 
     [SerializeField] private StoryController storyController; // For pre-level 1 narration.
@@ -19,6 +20,7 @@ public class MenuScript : MonoBehaviour
         menuPanel.SetActive(true);
         levelsPanel.SetActive(false);
         scoreboardPanel.SetActive(false); 
+        creditsPanel.SetActive(false);
         settingsPanel.SetActive(false);
     }
     public void ShowLevels()
@@ -27,6 +29,7 @@ public class MenuScript : MonoBehaviour
         menuPanel.SetActive(false);
         levelsPanel.SetActive(true);
         scoreboardPanel.SetActive(false); 
+        creditsPanel.SetActive(false);
         settingsPanel.SetActive(false);
     }
     public void ShowSettings()
@@ -35,6 +38,7 @@ public class MenuScript : MonoBehaviour
         menuPanel.SetActive(false);
         levelsPanel.SetActive(false);
         scoreboardPanel.SetActive(false); 
+        creditsPanel.SetActive(false);
         settingsPanel.SetActive(true);
     }
     public void LoadScene(int level)
@@ -70,12 +74,19 @@ public class MenuScript : MonoBehaviour
     public void ShowScoreboard()
     {
         scoreboardPanel.SetActive(true); 
+        creditsPanel.SetActive(false);
         ScoreboardUI scoreboard = scoreboardPanel.GetComponentInChildren<ScoreboardUI>();
         scoreboard.displayHighScores(); 
+    }
+    public void ShowCredits()
+    {
+        scoreboardPanel.SetActive(false); 
+        creditsPanel.SetActive(true);
     }
     public void close()
     {
         scoreboardPanel.SetActive(false); 
+        creditsPanel.SetActive(false); 
     }
     
 }

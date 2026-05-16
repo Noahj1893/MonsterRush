@@ -65,9 +65,8 @@ public class StoryController : MonoBehaviour
             return; // If we are not at narration, do nothing. 
         }
 
-        // Detect ANY key or mouse click:
-        if (Keyboard.current.spaceKey.wasPressedThisFrame ||
-            Mouse.current.leftButton.wasPressedThisFrame)
+        // Detect X key:
+        if (Keyboard.current.xKey.wasPressedThisFrame)
         {
             NextLine(); // Move onto the next line of narration. 
         }
