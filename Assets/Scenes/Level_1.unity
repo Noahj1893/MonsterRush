@@ -488,8 +488,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[2]'
-      value: '"Hey hey hey!! It''s another weapon! I think I recognize her! Please
-        please please, pick her up!" Brad begged.'
+      value: '"Hey hey hey!! It''s another weapon! The <u>Ice Hammer</u>, I think
+        I recognize her! Please please please, pick her up!" Brad begged.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[3]'

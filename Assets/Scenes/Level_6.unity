@@ -1330,7 +1330,7 @@ PrefabInstance:
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[13]'
       value: '"Your sense of belonging is not tied to a specific person, Charles.
-        It is tied to the way you carry yourself, to who you are." I said.'
+        It is tied to the way you carry yourself, tied to who you are." I said.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[14]'

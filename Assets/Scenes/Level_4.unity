@@ -1259,7 +1259,7 @@ PrefabInstance:
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[9]'
       value: '"Well, you don''t really have a choice, because you''re currently serving
-        me as a healing shield." I pointed out.'
+        me as a <u>Healing Shield</u>." I pointed out.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[10]'
