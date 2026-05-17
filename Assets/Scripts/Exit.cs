@@ -8,7 +8,7 @@ using TMPro;
 
 public class Exit : MonoBehaviour
 {
-    bool hasExited = false; 
+    //bool hasExited = false; 
     bool canExit = false;
     SpriteRenderer sr;
     public Sprite openDoor;
@@ -39,11 +39,12 @@ public class Exit : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !hasExited) 
+        //if (collision.CompareTag("Player") && !hasExited) 
+        if (collision.CompareTag("Player")) 
         {
             if(canExit)
             {
-                hasExited = true; 
+                //hasExited = true; 
                 ExitLevel();
             }
             else
@@ -71,7 +72,7 @@ public class Exit : MonoBehaviour
         }
 
         // Use level number and set player's new score and death count for that level into the Sorted Dictionary player's data.
-        GameManager.Instance.playerData[levelNumber].Add(GameManager.Instance.score, GameManager.Instance.deathCount); 
+        GameManager.Instance.playerData[levelNumber][GameManager.Instance.score] = GameManager.Instance.deathCount; 
 
         // Exit the level
         Debug.Log(levelNumber);
