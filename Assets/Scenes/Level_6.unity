@@ -1339,8 +1339,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[15]'
-      value: '"However long it takes, old friend. Know that you''ll always have a
-        place by my side." I concluded.'
+      value: '"However long it takes, old friend. Know that you can come to me for
+        anything anytime." I concluded.'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[16]'
