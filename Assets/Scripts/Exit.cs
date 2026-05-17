@@ -86,15 +86,15 @@ public class Exit : MonoBehaviour
         }
 
         // Exit the level
-        Debug.Log(levelNumber);
-        Debug.Log(SceneManager.sceneCountInBuildSettings);
+        //Debug.Log(levelNumber);
+        //Debug.Log(SceneManager.sceneCountInBuildSettings);
         if(levelNumber + 1 >= SceneManager.sceneCountInBuildSettings) {
             storyController.BeginStory(
                 storyLines,
                 levelNumber + 1 >= SceneManager.sceneCountInBuildSettings,
                 1
             );
-            Debug.Log("Last Level Reached!"); 
+            //Debug.Log("Last Level Reached!"); 
         }
         else
         {

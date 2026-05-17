@@ -142,7 +142,7 @@ public class Boss : MonoBehaviour
 
     IEnumerator FireballAttack()
     {
-        Debug.Log("Boss used FIREBALL");
+        //Debug.Log("Boss used FIREBALL");
 
         animator.SetTrigger("ShootFireball");
 
@@ -162,7 +162,7 @@ public class Boss : MonoBehaviour
 
     IEnumerator ChargeAttack()
     {
-        Debug.Log("Boss used CHARGE");
+        //Debug.Log("Boss used CHARGE");
         animator.SetBool("Fly", true);
 
         Vector2 direction =
@@ -191,7 +191,7 @@ public class Boss : MonoBehaviour
 
     IEnumerator DropEnemyAttack()
     {
-        Debug.Log("Boss used DROP ENEMIES");
+        //Debug.Log("Boss used DROP ENEMIES");
         animator.SetBool("Fly", true);
 
         // Fly around map

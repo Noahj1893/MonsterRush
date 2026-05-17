@@ -342,7 +342,7 @@ public class NewPlayerController : MonoBehaviour
         
         gameManager.AlertWeaponChanged(); // Fire event to update Weapons Inventory UI. 
         
-        Debug.Log("Got new weapon!"); // Debug log. 
+        //Debug.Log("Got new weapon!"); // Debug log. 
     }
 
     // Function to play the correct animation depending on the weapon the player has currently equipped:

@@ -14,13 +14,13 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Cursor Entering " + name);
+        //Debug.Log("Cursor Entering " + name);
         image.sprite = buttonDown;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Cursor Exiting " + name);
+        //Debug.Log("Cursor Exiting " + name);
         image.sprite = buttonUp; 
     }
 }

@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             currWeapon = null; 
-            Debug.LogError("Inventory is EMPTY at Start()");
+            //Debug.LogError("Inventory is EMPTY at Start()");
         }
     }
 
@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             currWeapon = null; 
-            Debug.LogError("Inventory is EMPTY at Start()");
+            //Debug.LogError("Inventory is EMPTY at Start()");
         }
 
         float scrollInventory = Input.mouseScrollDelta.y; // Either less than or greater than 0 is returned. 
@@ -197,7 +197,10 @@ public class PlayerController : MonoBehaviour
         //otherwise, continue crouching if ceiling or stop
         else
         {
-            isCrouching = Physics2D.OverlapCircle(ceilingCheck.position, 0.2f, whatIsGround);
+            if (grounded) // Only crouch if player is NOT in the middle of a jump (otherwise, it causes game to think the player is crouching if player jumps into a ceiling). 
+            {
+                isCrouching = Physics2D.OverlapCircle(ceilingCheck.position, 0.2f, whatIsGround);
+            }
         }
 
         float currentSpeed = speed;
@@ -301,7 +304,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currWeapon == null)
         {
-            Debug.LogError("currWeapon is NULL — attack cannot happen");
+            //Debug.LogError("currWeapon is NULL — attack cannot happen");
             return;
         }
 
@@ -431,7 +434,7 @@ public class PlayerController : MonoBehaviour
         
         gameManager.AlertWeaponChanged(); // Fire event to update Weapons Inventory UI. 
         
-        Debug.Log("Got new weapon!"); // Debug log. 
+        //Debug.Log("Got new weapon!"); // Debug log. 
     }
 
     // Function to play the correct animation depending on the weapon the player has currently equipped:

@@ -35,7 +35,7 @@ public class StoryController : MonoBehaviour
     {
         if (lines == null || lines.Length == 0)
         {
-            Debug.Log("StoryController: No story lines given!");
+            //Debug.Log("StoryController: No story lines given!");
             return;
         }
 
