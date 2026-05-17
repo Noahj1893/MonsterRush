@@ -23,6 +23,9 @@ public class ScoreboardUI : MonoBehaviour
 
         StringBuilder newString = new StringBuilder(); // To append each level's of the top score into for display. 
 
+        int overallGameScore = 0; // Overall score from all levels.
+        int overallDeathCount = 0; // Overall death count from all levels. 
+
         // Loop through each Key-Value pair in the Sorted Dictionary starting with the last one (the highest): 
         foreach (var pair in playerData)
         {
@@ -37,8 +40,13 @@ public class ScoreboardUI : MonoBehaviour
             int topScore = levelRecords.Keys.Max(); // Grab the highest Score (Inner Key) of the level (Outer Key). 
             int totalDeaths = levelRecords[topScore]; // Value of the Inner Key.
 
+            overallGameScore += topScore; 
+            overallDeathCount += totalDeaths; 
+
             newString.AppendLine("Level: " + level + "    |    " + "Score: " + topScore + "    |    " + "Death Count: " + totalDeaths + "\n"); 
         }
+
+        newString.AppendLine("Total Score: " + overallGameScore + "    |    " + "Total Death Count: " + overallDeathCount); 
 
         if (scoreText != null) // Safety check to ensure we have the TMPro component for displaying the top scores and death counts.  
         {

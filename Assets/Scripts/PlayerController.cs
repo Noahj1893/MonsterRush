@@ -184,6 +184,11 @@ public class PlayerController : MonoBehaviour
 	}
     void HandleMovement()
     {
+        if (isDashing)
+        {
+            return; // Lets the player dash if not crouching. 
+        }
+
         //crouch if holding it
         if(crouchHeld)
         {
@@ -197,15 +202,26 @@ public class PlayerController : MonoBehaviour
 
         float currentSpeed = speed;
 
-        if (isCrouching)
+        if (isCrouching) // When player is crouching.
         {
-            currentSpeed *= crouchSpeed;
+            currentSpeed *= crouchSpeed; // Reduce player speed. 
 
-            crouchDisableCollider.enabled = false;
+            crouchDisableCollider.enabled = false; // Reduce player hitbox. 
+
+            if (animator != null)
+            {
+                animator.SetBool("crouching", true); // Set Animator flag of "crouching" to true.
+                animator.SetFloat("speed", 0); // Pretend the speed is 0 so that walk animation does not override crouch animation. 
+            }
         }
-        else
+        else // When player is no longer crouching. 
         {
-            crouchDisableCollider.enabled = true;
+            crouchDisableCollider.enabled = true; // Set player hitbox back to regular. 
+
+            if (animator != null)
+            {
+                animator.SetBool("crouching", false); // Set Animator flag of "crouching" to false.
+            }
         }
 
         rb.linearVelocity = new Vector2(moveInput * currentSpeed, rb.linearVelocity.y);

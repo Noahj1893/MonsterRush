@@ -820,8 +820,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00012207031, y: -0.10095024}
-  m_SizeDelta: {x: 891.8, y: 55}
+  m_AnchoredPosition: {x: 0, y: -0.10095024}
+  m_SizeDelta: {x: 900, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5434871849709735975
 CanvasRenderer:
@@ -851,10 +851,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WAD or arrow keys = move        Z or left mouse-click = attack
-
-    Mouse
-    scroll or keys 1, 2, 3, 4 = swap weapons'
+  m_text: "WASD or Arrow Keys, Space = move/crouch/jump        \nZ or Left Mouse-Click
+    = attack       Mouse Scroll or Keys 1, 2, 3, 4 = swap weapons"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -2067,7 +2065,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 445.9, y: 530}
-  m_SizeDelta: {x: 891.8, y: 54.7981}
+  m_SizeDelta: {x: 900, y: 54.7981}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &7246136864813083033
 GameObject:

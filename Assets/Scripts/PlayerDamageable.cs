@@ -1,7 +1,9 @@
 using System; 
 using System.Collections;
+using TMPro; 
 using UnityEngine;
 using UnityEngine.InputSystem;
+//using UnityEngine.UI; 
 
 public class PlayerDamageable : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class PlayerDamageable : MonoBehaviour
     [SerializeField] float hitInvincibilityDuration = 0.85f;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator animator;
+    [SerializeField] TextMeshProUGUI statusText; 
 
     int currentHealth;
     float invincibleUntil;
@@ -40,6 +43,13 @@ public class PlayerDamageable : MonoBehaviour
         
         // Retrieve Score UI component through tag:
         scoreUI = GameObject.FindGameObjectWithTag("Scoreboard").GetComponent<ScoreUI>(); 
+    }
+
+    void LateUpdate()
+    {
+        Vector3 scale = statusText.transform.localScale; // Get TextMeshProUGUI scalings (x, y, z). 
+        scale.x = Mathf.Sign(transform.localScale.x); // Match the player's direction. 
+        statusText.transform.localScale = new Vector3(scale.x, scale.y, scale.z); // Prevents Status Text from flipping regardless of player direction. 
     }
 
     public void TakeHit(Vector2 knockback, int damage)
@@ -158,6 +168,18 @@ public class PlayerDamageable : MonoBehaviour
         currentHealth = Mathf.Min(currentHealth + restoreHP, maxHealth); // Boost player's HP unless it is already at max. 
         
         OnHealthChanged?.Invoke(currentHealth, maxHealth); // Fire the event to update HP visuals. 
+
+        StartCoroutine(ShowStatus()); // Begin coroutine to display visual of Healing Shield effect. 
+    }
+
+    // IEnumerator for displaying "+1 HP" text onscreen:
+    IEnumerator ShowStatus()
+    {
+        statusText.text = "+1 HP"; 
+
+        yield return new WaitForSeconds(1f); 
+
+        statusText.text = ""; 
     }
 
     void OnCollisionEnter2D(Collision2D other)
