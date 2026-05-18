@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4737966537525712012}
   - component: {fileID: 5565753284112799902}
   - component: {fileID: 5412765019829596352}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,8 +39,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.35, y: 17.6}
-  m_SizeDelta: {x: 1200, y: 450}
+  m_AnchoredPosition: {x: -0.35, y: 17.636}
+  m_SizeDelta: {x: 1200, y: 226.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4737966537525712012
 Canvas:
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 8588337094827609413}
   - component: {fileID: 7826354278178599852}
   - component: {fileID: 3392148347092101606}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HPBar_Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,10 +137,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6202054950403102862}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1400, y: 300}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.00012207031, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7826354278178599852
 CanvasRenderer:
@@ -163,14 +163,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.038098097, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: cef557725ba70c54e9ea4a7f63d679e0, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 2255319215913593643}
   - component: {fileID: 6934930164218241120}
   - component: {fileID: 7617787867886771576}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HPBar_Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,10 +212,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6202054950403102862}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 300}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.00012207031, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6934930164218241120
 CanvasRenderer:
@@ -238,15 +238,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: cef557725ba70c54e9ea4a7f63d679e0, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 373763483119497460}
   - component: {fileID: 8386606111375676770}
   - component: {fileID: 428122680548228}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StatusText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 1840964616332264147}
   - component: {fileID: 2554760725449490117}
   - component: {fileID: 7828108751139461874}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hpText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +545,7 @@ GameObject:
   - component: {fileID: 2411543641259106508}
   - component: {fileID: 3162397229398048616}
   - component: {fileID: 1645042770291207900}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Alien
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class Boss : MonoBehaviour
 {
@@ -95,8 +96,8 @@ public class Boss : MonoBehaviour
 
         // Only spawn if fewer than 2 exist
         int rand;
-        if (numEnemies < 3) rand = Random.Range(0, 3);
-        else rand = Random.Range(0,2);
+        if (numEnemies < 3) rand = UnityEngine.Random.Range(0, 3);
+        else rand = UnityEngine.Random.Range(0,2);
 
         switch (rand)
         {
@@ -164,9 +165,14 @@ public class Boss : MonoBehaviour
     {
         //Debug.Log("Boss used CHARGE");
         animator.SetBool("Fly", true);
+        animator.SetTrigger("Charge");
 
+        yield return new WaitForSeconds(0.75f);
+
+        //prevent from going under stage
+        float playerX = Math.Max(player.position.x, -4f);
         Vector2 direction =
-            (new Vector2(player.position.x, player.position.y + 0.35f) - new Vector2(transform.position.x, transform.position.y)).normalized;
+            (new Vector2(playerX, player.position.y + 0.35f) - new Vector2(transform.position.x, transform.position.y)).normalized;
 
         float chargeTime = 1.5f;
         float timer = 0f;
@@ -199,7 +205,7 @@ public class Boss : MonoBehaviour
         {
             yield return StartCoroutine(MoveToPoint(flyPoints[i].position));
             
-            int rand = Random.Range(0, enemyPrefabs.Length);
+            int rand = UnityEngine.Random.Range(0, enemyPrefabs.Length);
 
             // Drop enemy
             GameObject minion = Instantiate(enemyPrefabs[rand], transform.position, Quaternion.identity);
