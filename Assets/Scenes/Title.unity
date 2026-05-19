@@ -2229,8 +2229,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000095367, y: -0.00000095367}
-  m_SizeDelta: {x: 600, y: 350}
+  m_AnchoredPosition: {x: -2.84e-13, y: -16}
+  m_SizeDelta: {x: 800, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1186486435
 MonoBehaviour:
@@ -2255,7 +2255,9 @@ MonoBehaviour:
   m_text: "<u>Designer:</u> Maria Pena\r\n\r\n<u>Producer:</u>  Andrea Arellano Garcia\r\n\r\n<u>Artists:</u>
     Maria Pena, Andrea Arellano Garcia\r\n\r\n<u>Programmers:</u> Noah Jones, Ethan
     Le \r\n\r\n<u>Story Concept By:</u> Ethan Le, Noah Jones, Andrea Arellano Garcia\r\n\r\n<u>Story
-    Writer:</u> Ethan Le"
+    Writer:</u> Ethan Le\n\n<u>Sound Effects:</u>\nKnife Slash by Sound Effects Library
+    | https://www.free-stock-music.com\nJump Sound Effect by Aryan Raikundalia from
+    Pixabay\nHover Sound Effect by Leohpaz | https://leohpaz.itch.io/rpg-essentials-sfx-free"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2282,8 +2284,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
-  m_fontSizeBase: 26
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
