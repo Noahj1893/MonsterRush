@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
    float verticalInput;
    bool grounded;
    float facingX;
+   PlayerInput playerInput; 
    
    /**
    BoxCollider2D playerBoxCol; 
@@ -62,6 +63,26 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         aud = GetComponent<AudioSource>();
+        playerInput = GetComponent<PlayerInput>(); 
+    }
+    void OnEnable()
+    {
+        // Ensure the player is still upon spawn/respawn: 
+        moveInput = 0f; 
+        verticalInput = 0f; 
+        isDashing = false;
+        canDash = true;
+        isCrouching = false;
+        crouchHeld = false; 
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero; 
+        }
+        if (playerInput != null) // Extra safe: reset key presses tracked in memory to ensure fresh controls upon spawn/respawn. 
+        {
+            playerInput.actions.Disable();
+            playerInput.actions.Enable(); 
+        }
     }
     void Start()
     {

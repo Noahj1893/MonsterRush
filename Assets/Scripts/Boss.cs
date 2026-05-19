@@ -94,9 +94,9 @@ public class Boss : MonoBehaviour
             }
         }
 
-        // Only spawn if fewer than 2 exist
+        // Only spawn if fewer than 3 exist
         int rand;
-        if (numEnemies < 3) rand = UnityEngine.Random.Range(0, 3);
+        if (numEnemies < 4) rand = UnityEngine.Random.Range(0, 3);
         else rand = UnityEngine.Random.Range(0,2);
 
         switch (rand)
