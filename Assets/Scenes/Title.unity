@@ -2252,12 +2252,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<u>Designer:</u> Maria Pena\r\n\r\n<u>Producer:</u>  Andrea Arellano Garcia\r\n\r\n<u>Artists:</u>
-    Maria Pena, Andrea Arellano Garcia\r\n\r\n<u>Programmers:</u> Noah Jones, Ethan
-    Le \r\n\r\n<u>Story Concept By:</u> Ethan Le, Noah Jones, Andrea Arellano Garcia\r\n\r\n<u>Story
+  m_text: "<u>Designer:</u> Maria Pena\r\n<u>Producer:</u>  Andrea Arellano Garcia\r\n<u>Artists:</u>
+    Maria Pena, Andrea Arellano Garcia\r\n<u>Programmers:</u> Noah Jones, Ethan Le
+    \r\n<u>Story Concept By:</u> Ethan Le, Noah Jones, Andrea Arellano Garcia\r\n<u>Story
     Writer:</u> Ethan Le\n\n<u>Sound Effects:</u>\nKnife Slash by Sound Effects Library
     | https://www.free-stock-music.com\nJump Sound Effect by Aryan Raikundalia from
-    Pixabay\nHover Sound Effect by Leohpaz | https://leohpaz.itch.io/rpg-essentials-sfx-free"
+    Pixabay\nHover Sound Effect by Leohpaz | https://leohpaz.itch.io/rpg-essentials-sfx-free\n\n<u>Soundtrack:</u>\nChase
+    by Alexander Nakarada (CreatorChords) | https://creatorchords.com\r\nRoyalty
+    Free Music by https://www.free-stock-music.com\r\nCreative Commons / Attribution
+    4.0 International (CC BY 4.0)\r\nhttps://creativecommons.org/licenses/by/4.0/"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2284,8 +2287,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 21.5
+  m_fontSizeBase: 21.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3973,6 +3976,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578feaf25f867d642b6518e445921b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryController
+--- !u!1001 &277183142603548756
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2341772745677764492, guid: fb2cd41512582c44886d3fe7e57fa963, type: 3}
+      propertyPath: m_Name
+      value: Soundtrack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055169824796749090, guid: fb2cd41512582c44886d3fe7e57fa963, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.03184
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055169824796749090, guid: fb2cd41512582c44886d3fe7e57fa963, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.04633
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055169824796749090, guid: fb2cd41512582c44886d3fe7e57fa963, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055169824796749090, guid: fb2cd41512582c44886d3fe7e57fa963, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055169824796749090, guid: fb2cd41512582c44886d3fe7e57fa963, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055169824796749090, guid: fb2cd41512582c44886d3fe7e57fa963, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055169824796749090, guid: fb2cd41512582c44886d3fe7e57fa963, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055169824796749090, guid: fb2cd41512582c44886d3fe7e57fa963, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055169824796749090, guid: fb2cd41512582c44886d3fe7e57fa963, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055169824796749090, guid: fb2cd41512582c44886d3fe7e57fa963, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fb2cd41512582c44886d3fe7e57fa963, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3982,3 +4042,4 @@ SceneRoots:
   - {fileID: 1016011704}
   - {fileID: 1602264981}
   - {fileID: 2050815089}
+  - {fileID: 277183142603548756}
