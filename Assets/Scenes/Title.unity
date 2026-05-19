@@ -558,7 +558,7 @@ MonoBehaviour:
   - I was... I do not even know how to say it... resilient? Ignorant? Irrational?
   - Defiant... ah, defiant! Yes, I was defiant to the cult.
   - I did not want to be a part of their horrific practice, so I escaped.
-  - I ran away... the only belonging I carried with me was a sword named Brad.
+  - I ran away... the only belonging I carried with me was a <u>Sword</u> named Brad.
   - I realized I did not want others to suffer because of the cult's practice.
   - With the help of Brad, I am determined to take down the Drintell Empire once
     and for all.
@@ -3273,8 +3273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20e4588cebc8144db4357839680df4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoverButton
-  buttonUp: {fileID: 2809301164080485293, guid: 0854adb2745262e46bec1fd71a4426f3, type: 3}
-  buttonDown: {fileID: -8900081933239576859, guid: 0854adb2745262e46bec1fd71a4426f3, type: 3}
+  buttonUp: {fileID: 3957214527905198018, guid: 5dee968c9a92ead4299d10bba910da22, type: 3}
+  buttonDown: {fileID: -8303677263126608723, guid: 5dee968c9a92ead4299d10bba910da22, type: 3}
 --- !u!114 &1765281362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3351,7 +3351,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2809301164080485293, guid: 0854adb2745262e46bec1fd71a4426f3, type: 3}
+  m_Sprite: {fileID: 3957214527905198018, guid: 5dee968c9a92ead4299d10bba910da22, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3511,8 +3511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20e4588cebc8144db4357839680df4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoverButton
-  buttonUp: {fileID: -1670444416324683652, guid: de210bb5e070eb34fb72690d41d8f216, type: 3}
-  buttonDown: {fileID: -4784750003676446602, guid: de210bb5e070eb34fb72690d41d8f216, type: 3}
+  buttonUp: {fileID: -161607545257957347, guid: d22ba23bb6854df46807e92bb4b1ade4, type: 3}
+  buttonDown: {fileID: 3968122187642640461, guid: d22ba23bb6854df46807e92bb4b1ade4, type: 3}
 --- !u!114 &1893099478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3589,7 +3589,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1670444416324683652, guid: de210bb5e070eb34fb72690d41d8f216, type: 3}
+  m_Sprite: {fileID: -161607545257957347, guid: d22ba23bb6854df46807e92bb4b1ade4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

@@ -851,8 +851,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "WASD or Arrow Keys, Space = move/crouch/jump        \nZ or Left Mouse-Click
-    = attack       Mouse Scroll or Keys 1, 2, 3, 4 = swap weapons"
+  m_text: 'WASD or Arrow Keys, Space = move/crouch/jump          C or Left Shift
+    = dash
+
+    Z or Left Mouse-Click = attack       Mouse Scroll or Keys 1, 2, 3,
+    4 = swap weapons'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}

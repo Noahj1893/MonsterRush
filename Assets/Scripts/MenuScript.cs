@@ -73,6 +73,7 @@ public class MenuScript : MonoBehaviour
     }
     public void ShowScoreboard()
     {
+        audioSource.Play();
         scoreboardPanel.SetActive(true); 
         creditsPanel.SetActive(false);
         ScoreboardUI scoreboard = scoreboardPanel.GetComponentInChildren<ScoreboardUI>();
@@ -80,11 +81,13 @@ public class MenuScript : MonoBehaviour
     }
     public void ShowCredits()
     {
+        audioSource.Play();
         scoreboardPanel.SetActive(false); 
         creditsPanel.SetActive(true);
     }
     public void close()
     {
+        audioSource.Play();
         scoreboardPanel.SetActive(false); 
         creditsPanel.SetActive(false); 
     }
