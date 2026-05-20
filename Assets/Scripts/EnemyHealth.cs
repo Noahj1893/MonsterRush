@@ -25,7 +25,11 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         // Retrieve Score UI component through tag:
-        scoreUI = GameObject.FindGameObjectWithTag("Scoreboard").GetComponent<ScoreUI>(); 
+        var obj = GameObject.FindGameObjectWithTag("Scoreboard"); 
+        if (obj != null)
+        {
+            scoreUI = obj.GetComponent<ScoreUI>();
+        }
         
         if (scoreUI == null)
         {
@@ -147,50 +151,75 @@ public class EnemyHealth : MonoBehaviour
     void DisableMovement()
     {
         GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+
+        Animator enemyAnimator = null; // Initialize variable to get enemy Animator component. 
+
         var fallingEnemy = GetComponent<FallingEnemy>(); // Get falling enemy if it exists. 
         if (fallingEnemy != null)
         {
+            enemyAnimator = fallingEnemy.GetComponent<Animator>(); 
+            enemyAnimator.speed = 0;
             fallingEnemy.enabled = false; // Freeze enemy. 
         }
 
         var patrolEnemy = GetComponent<PatrolEnemy>(); // Get patrol enemy if it exists. 
         if (patrolEnemy != null)
         {
+            enemyAnimator = patrolEnemy.GetComponent<Animator>(); 
+            enemyAnimator.speed = 0;
             patrolEnemy.enabled = false; // Freeze enemy. 
         }
 
         var ghostChaser = GetComponent<GhostChaser>(); // Get ghost chaser if it exists. 
         if (ghostChaser != null)
         {
+            enemyAnimator = ghostChaser.GetComponent<Animator>(); 
+            enemyAnimator.speed = 0;
             ghostChaser.enabled = false; // Freeze enemy. 
         }
 
         var boss = GetComponent<Boss>(); // Get boss enemy if it exists.
         if (boss != null)
         {
-            boss.enabled = false; // Freeze enemy. 
+            boss.isFrozen = true; // Boss's attacks are frozen too. 
+            boss.animator.speed = 0; 
         }
     }
 
     // For freeze status:
     void EnableMovement()
     {
+        Animator enemyAnimator = null; // Initialize variable to get enemy Animator component. 
+
         var fallingEnemy = GetComponent<FallingEnemy>(); // Get falling enemy if it exists. 
         if (fallingEnemy != null)
         {
+            enemyAnimator = fallingEnemy.GetComponent<Animator>(); 
+            enemyAnimator.speed = 1;
             fallingEnemy.enabled = true; // Unfreeze enemy. 
         }
 
         var patrolEnemy = GetComponent<PatrolEnemy>(); // Get patrol enemy if it exists. 
         if (patrolEnemy != null)
         {
+            enemyAnimator = patrolEnemy.GetComponent<Animator>(); 
+            enemyAnimator.speed = 1;
             patrolEnemy.enabled = true; // Unfreeze enemy. 
         }
 
         var ghostChaser = GetComponent<GhostChaser>(); // Get ghost chaser if it exists. 
         if (ghostChaser != null)
         {
+            enemyAnimator = ghostChaser.GetComponent<Animator>(); 
+            enemyAnimator.speed = 1;
             ghostChaser.enabled = true; // Unfreeze enemy. 
+        }
+
+        var boss = GetComponent<Boss>(); // Get boss enemy if it exists.
+        if (boss != null)
+        {
+            boss.isFrozen = false; // Boss's attacks are unfrozen too. 
+            boss.animator.speed = 1; 
         }
     }
 }

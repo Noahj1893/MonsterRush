@@ -8,7 +8,10 @@ public class BossTrigger : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            bossScript.enabled = true;
+            if (bossScript != null && bossScript.gameObject.activeInHierarchy)
+            {
+                bossScript.enabled = true;
+            }
         }
     }
 }

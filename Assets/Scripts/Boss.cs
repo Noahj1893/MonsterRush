@@ -9,7 +9,7 @@ public class Boss : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform imageTransform;
-    [SerializeField] Animator animator;
+    [SerializeField] public Animator animator;
     
 
     [Header("Projectile Attack")]
@@ -36,6 +36,7 @@ public class Boss : MonoBehaviour
 
     bool isAttacking;
     bool isPhaseTransitioning;
+    public bool isFrozen = false; 
 
     bool isDead = false;
     enum BossAttack
@@ -54,6 +55,11 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
+        if (isFrozen)
+        {
+            return; 
+        }
+
         FacePlayer();
     }
 
@@ -65,7 +71,7 @@ public class Boss : MonoBehaviour
     {
         while (!isDead)
         {
-            if (!isAttacking)
+            if (!isAttacking && !isFrozen) 
             {
                 ChooseAttack();
 
@@ -149,6 +155,18 @@ public class Boss : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
+        float timer = 0f; 
+        while (timer < 0.5f)
+        {
+            if (isFrozen)
+            {
+                rb.linearVelocity = Vector2.zero; 
+                yield break; 
+            }
+            timer += Time.deltaTime; 
+            yield return null; 
+        }
+
         // Spawn projectile
         GameObject fireball = Instantiate(fireballPrefab, firePoint.position, firePoint.rotation);
         EnemyFireball fb = fireball.GetComponent<EnemyFireball>();
@@ -179,6 +197,12 @@ public class Boss : MonoBehaviour
 
         while (timer < chargeTime)
         {
+            if (isFrozen)
+            {
+                rb.linearVelocity = Vector2.zero; 
+                yield break; 
+            }
+
             rb.linearVelocity = direction * 7f;
 
             timer += Time.deltaTime;
@@ -203,6 +227,12 @@ public class Boss : MonoBehaviour
         // Fly around map
         for (int i = 0; i < flyPoints.Length; i++)
         {
+            if (isFrozen)
+            {
+                rb.linearVelocity = Vector2.zero; 
+                yield break; 
+            }
+
             yield return StartCoroutine(MoveToPoint(flyPoints[i].position));
             
             int rand = UnityEngine.Random.Range(0, enemyPrefabs.Length);
@@ -228,6 +258,11 @@ public class Boss : MonoBehaviour
     {
         while (Vector2.Distance(transform.position, target) > 0.1f)
         {
+            if (isFrozen)
+            {
+                yield break; 
+            }
+
             transform.position = Vector2.MoveTowards(
                 transform.position,
                 target,
@@ -264,6 +299,8 @@ public class Boss : MonoBehaviour
     IEnumerator Death()
     {
         rb.linearVelocity = Vector2.zero;
+
+        animator.speed = 1; 
 
         animator.SetTrigger("Die");
 
