@@ -95,7 +95,14 @@ public class EnemyHealth : MonoBehaviour
     {
         if (!isFrozen) // If enemy is not yet frozen, freeze it.
         {
-            StartCoroutine(FreezeRoutine(freezeDuration));
+            if (isBoss)
+            {
+                StartCoroutine(FreezeRoutine(freezeDuration * 0.2f)); // Boss is not frozen for as long.
+            }
+            else
+            {
+                StartCoroutine(FreezeRoutine(freezeDuration));
+            }
         }
     }
 
