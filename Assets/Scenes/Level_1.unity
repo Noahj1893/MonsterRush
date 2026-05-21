@@ -504,7 +504,7 @@ PrefabInstance:
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}
       propertyPath: 'storyLines.Array.data[5]'
       value: '"She''s kinda <b><u>freezes people up</b></u> when <b><u>they first
-        talk to her</b></u>, but they feel fine again after <b><u>a second</b></u>
+        talk to her</b></u>, but they feel fine again after <b><u>two seconds</b></u>
         or so!!"'
       objectReference: {fileID: 0}
     - target: {fileID: 4496982304778883468, guid: 667b2064d90a8894b8cb1bc849e7e071, type: 3}

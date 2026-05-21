@@ -8,11 +8,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Weapons/Ice Hammer")]
 public class IceHammer : Weapon 
 {
-    [SerializeField] float freezeDuration = 1f;
+    [SerializeField] float freezeDuration = 2f;
 
     private void OnEnable()
     {
-        cooldownUse = 2f; // Cooldown for attack is 2 seconds. 
+        cooldownUse = 1.5f; // Cooldown for attack is 1.5 seconds. 
         animType = WeaponAnimType.IceHammer; // Animation type is IceHammer. 
     }
 
