@@ -94,15 +94,8 @@ public class EnemyHealth : MonoBehaviour
     public void ApplyFreeze(float freezeDuration)
     {
         if (!isFrozen) // If enemy is not yet frozen, freeze it.
-        {
-            if (isBoss)
-            {
-                StartCoroutine(FreezeRoutine(0.15f)); // Boss is not frozen for as long.
-            }
-            else
-            {
-                StartCoroutine(FreezeRoutine(freezeDuration));
-            }
+        { 
+            StartCoroutine(FreezeRoutine(freezeDuration));
         }
     }
 
