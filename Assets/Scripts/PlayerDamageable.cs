@@ -11,7 +11,7 @@ public class PlayerDamageable : MonoBehaviour
     [SerializeField] float hitInvincibilityDuration = 0.85f;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator animator;
-    [SerializeField] TextMeshProUGUI statusText; 
+    [SerializeField] public TextMeshProUGUI statusText; 
 
     int currentHealth;
     float invincibleUntil;
@@ -58,6 +58,8 @@ public class PlayerDamageable : MonoBehaviour
             return;
         if (Time.time < invincibleUntil)
             return;
+
+        StartCoroutine(ShowDamage()); // Begin coroutine to display visual of getting damaged. 
 
         invincibleUntil = Time.time + hitInvincibilityDuration;
         if (rb != null)
@@ -126,6 +128,9 @@ public class PlayerDamageable : MonoBehaviour
 
         currentHealth = maxHealth;
         invincibleUntil = Time.time + hitInvincibilityDuration;
+
+        statusText.text = ""; 
+
         fallRespawn.Respawn();
 
         if (animator != null)
@@ -178,6 +183,16 @@ public class PlayerDamageable : MonoBehaviour
         statusText.text = "+1 HP"; 
 
         yield return new WaitForSeconds(1f); 
+
+        statusText.text = ""; 
+    }
+
+    // IEnumerator for displaying "Ouch!" text onscreen:
+    IEnumerator ShowDamage()
+    {
+        statusText.text = "Ouch!"; 
+
+        yield return new WaitForSeconds(0.8f);
 
         statusText.text = ""; 
     }

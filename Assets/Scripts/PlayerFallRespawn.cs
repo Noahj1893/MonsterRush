@@ -44,6 +44,7 @@ public class PlayerFallRespawn : MonoBehaviour
     {
         if (damageable != null) // Reset UI to display full HP after dying. 
         {
+            damageable.statusText.text = ""; 
             damageable.ResetHealth(); 
         }
 
