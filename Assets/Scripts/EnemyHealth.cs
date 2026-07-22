@@ -93,7 +93,7 @@ public class EnemyHealth : MonoBehaviour
     // Function to freeze the enemy for a duration (if attacked by Ice Hammer). 
     public void ApplyFreeze(float freezeDuration)
     {
-        if (!isFrozen) // If enemy is not yet frozen, freeze it.
+        if (!isFrozen && this.gameObject.activeSelf) // If enemy is not yet frozen and is still alive, freeze it.
         { 
             StartCoroutine(FreezeRoutine(freezeDuration));
         }
@@ -116,7 +116,7 @@ public class EnemyHealth : MonoBehaviour
     // Function to burn enemy for a duration (if attacked by Fire Wand):
     public void ApplyBurn(float burnTime)
     {
-        if (!isBurning) // If enemy is not yet burning, burn it. 
+        if (!isBurning && this.gameObject.activeSelf) // If enemy is not yet burning and is still alive, burn it. 
         {
             StartCoroutine(BurnRoutine(burnTime)); 
         }
