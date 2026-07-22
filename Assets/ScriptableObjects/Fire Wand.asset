@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Fire Wand
   m_EditorClassIdentifier: Assembly-CSharp::FireWand
   cooldownUse: 3
-  icon: {fileID: 809206115674351465, guid: d8749a79b73adf24db4d9c27a68b0323, type: 3}
+  icon: {fileID: 21300000, guid: d8749a79b73adf24db4d9c27a68b0323, type: 3}
   animType: 1
   fireballPrefab: {fileID: 6305967419906591866, guid: 2ab020ba3389adb43a3e446831653c8b, type: 3}
-  firePos: {fileID: 0}

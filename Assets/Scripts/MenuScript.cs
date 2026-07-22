@@ -12,6 +12,7 @@ public class MenuScript : MonoBehaviour
     [SerializeField] GameObject creditsPanel;
     [SerializeField] AudioSource audioSource;
     [SerializeField] private string[] storyLines; // For pre-level 1 narration. 
+    [SerializeField] private Sprite[] storyArt; // For pre-level 1 narration. 
     [SerializeField] private StoryController storyController; // For pre-level 1 narration.
 
     public void ShowMenu()
@@ -60,6 +61,7 @@ public class MenuScript : MonoBehaviour
             {
                 storyController.BeginStory(
                     storyLines,
+                    storyArt, 
                     level >= SceneManager.sceneCountInBuildSettings,
                     level
                 );

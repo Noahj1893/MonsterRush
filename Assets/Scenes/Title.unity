@@ -562,6 +562,17 @@ MonoBehaviour:
   - I realized I did not want others to suffer because of the cult's practice.
   - With the help of Brad, I am determined to take down the Drintell Empire once
     and for all.
+  storyArt:
+  - {fileID: -8575487910126867567, guid: 1137a23b9808ddb42bd4b52c152f3f6c, type: 3}
+  - {fileID: -8575487910126867567, guid: 1137a23b9808ddb42bd4b52c152f3f6c, type: 3}
+  - {fileID: -8575487910126867567, guid: 1137a23b9808ddb42bd4b52c152f3f6c, type: 3}
+  - {fileID: -8575487910126867567, guid: 1137a23b9808ddb42bd4b52c152f3f6c, type: 3}
+  - {fileID: -8575487910126867567, guid: 1137a23b9808ddb42bd4b52c152f3f6c, type: 3}
+  - {fileID: -8575487910126867567, guid: 1137a23b9808ddb42bd4b52c152f3f6c, type: 3}
+  - {fileID: -8575487910126867567, guid: 1137a23b9808ddb42bd4b52c152f3f6c, type: 3}
+  - {fileID: -8575487910126867567, guid: 1137a23b9808ddb42bd4b52c152f3f6c, type: 3}
+  - {fileID: -8575487910126867567, guid: 1137a23b9808ddb42bd4b52c152f3f6c, type: 3}
+  - {fileID: -8575487910126867567, guid: 1137a23b9808ddb42bd4b52c152f3f6c, type: 3}
   storyController: {fileID: 2050815090}
 --- !u!82 &59037122
 AudioSource:

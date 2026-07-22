@@ -14,7 +14,8 @@ public class Exit : MonoBehaviour
     public Sprite openDoor;
     public GameObject enemiesHolder;
     public GameObject storyUI; // Assign GameObject for Story UI via Unity Inspector. 
-    [SerializeField] private string[] storyLines;
+    [SerializeField] private string[] storyLines; 
+    [SerializeField] private Sprite[] storyArt; 
     [SerializeField] private StoryController storyController;
     [SerializeField] private TextMeshProUGUI enemiesLeftText;  
 
@@ -91,6 +92,7 @@ public class Exit : MonoBehaviour
         if(levelNumber + 1 >= SceneManager.sceneCountInBuildSettings) {
             storyController.BeginStory(
                 storyLines,
+                storyArt,
                 levelNumber + 1 >= SceneManager.sceneCountInBuildSettings,
                 1
             );
@@ -100,10 +102,10 @@ public class Exit : MonoBehaviour
         {
             storyController.BeginStory(
                 storyLines,
+                storyArt,
                 levelNumber + 1 >= SceneManager.sceneCountInBuildSettings,
                 levelNumber + 1
             );
-        }
-        
+        }        
     }
 }
