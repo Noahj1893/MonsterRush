@@ -15,6 +15,7 @@ public class StoryController : MonoBehaviour
     public Image storyImage; // Displays the current character speaking. 
     public Button skipButton; // For skipping current story sequence if player does not want to read. 
     [SerializeField] private MonoBehaviour playerController; // Works with both PlayerController or NewPlayerController. 
+    [SerializeField] AudioSource hoverSound; // A little "ding" sound whenever dialogue continues (same sound as the menu scene).
 
     [TextArea(3, 5)]
     public string[] storyLines; // Array -- Fill in Unity Inspector with the narration.
@@ -95,6 +96,8 @@ public class StoryController : MonoBehaviour
     void NextLine()
     {
         currentIndex++; // Increment the index so we can move on to the next narration line in the sequence. 
+
+        hoverSound.Play(); // Play the "ding" sound whenever next line of dialogue appears. 
 
         if ((currentIndex < storyLines.Length) && (currentIndex < storyArt.Length)) // Show next line and art in narration if not at the end. 
         {
